@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class provisoServlet
  */
-@WebServlet("/provisoServlet")
+@WebServlet(name = "ProvisoServlet", urlPatterns = {"/proviso/*"})
 public class provisoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +27,7 @@ public class provisoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -35,7 +35,20 @@ public class provisoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String base = "/jsp/"; //Sets the base as the jsp folder.
+		String url = base + "index.jsp"; //The default url points to index.jsp in the jsp folder.
+		String action = request.getParameter("action"); //Get the action parameter when provided.
+		
+		if (action != null) {
+			switch(action) {
+			case "homepage":
+				url = base + "index.jsp";
+				break;
+			case "viewLogin":
+				url = base + "login.jsp";
+				break;
+			}
+		}
 	}
 
 }
