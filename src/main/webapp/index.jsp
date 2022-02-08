@@ -15,21 +15,20 @@
 <body>
 	<jsp:include page="Nav.jsp" flush="true" />
 	<main>
-		<section class="p-5 text-center text-light bg-dark" >
-			<div class="container">
-				<div class="d-sm-flex justify-content-center align-items-center ml-3">
+		<section class="pt-5 text-center text-light bg-light" >
+			<div class="container mx-0">
+				<div class="ps-5 d-sm-flex align-items-center">
 					<div>
-						<h1 class="fw-light">Proviso</span></h1>
+						<h1 class="fw-light text-primary">Proviso</h1>
 						<p class="text-muted">Travel Better</p>
 						
 						<a href="#" class="btn btn-primary my-2">Book A Trip</a>
 						
 					</div>
-					
-						
-					
-					
+					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ps-5 pt-5"/>
 				</div>
+				
+				
 			</div>
 		</section>
 	</main>
