@@ -17,7 +17,7 @@
 			<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
 				<!-- NAV LINKS IN UL -->
 				<ul class="navbar-nav px-5">
-					<li class="nav-item"><a class="nav-link active text-primary"
+					<li class="nav-item"><a class="nav-link active text-light"
 						aria-current="page" href="#">Login</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">About Us</a>
 					</li>
