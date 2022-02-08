@@ -1,4 +1,4 @@
-package controller;
+package proviso;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class provisoServlet
+ * Servlet implementation class ProvisoServlet
  */
-@WebServlet(name = "ProvisoServlet", urlPatterns = {"/proviso/*"})
-public class provisoServlet extends HttpServlet {
+@WebServlet("/ProvisoServlet")
+public class ProvisoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public provisoServlet() {
+    public ProvisoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class provisoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -35,20 +35,7 @@ public class provisoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String base = "/jsp/"; //Sets the base as the jsp folder.
-		String url = base + "index.jsp"; //The default url points to index.jsp in the jsp folder.
-		String action = request.getParameter("action"); //Get the action parameter when provided.
-		
-		if (action != null) {
-			switch(action) {
-			case "homepage":
-				url = base + "index.jsp";
-				break;
-			case "viewLogin":
-				url = base + "login.jsp";
-				break;
-			}
-		}
+		doGet(request, response);
 	}
 
 }
