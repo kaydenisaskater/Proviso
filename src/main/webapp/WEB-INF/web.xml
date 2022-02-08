@@ -3,7 +3,7 @@
   <display-name>Proviso</display-name>
   <servlet>
   	<servlet-name>ProvisoServlet</servlet-name>
-  	<servlet-class>proviso.ProvisoServlet</servlet-class>
+  	<servlet-class>controller.ProvisoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ProvisoServlet</servlet-name>
