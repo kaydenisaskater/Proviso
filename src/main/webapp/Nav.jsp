@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Nav</title>
 </head>
 <body>
-<h1>HELLO WORLD TEST</h1>
+<h1>NAVBAR</h1>
 </body>
 </html>
