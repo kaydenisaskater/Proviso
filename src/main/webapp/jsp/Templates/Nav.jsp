@@ -3,7 +3,7 @@
 
 <header>
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg bg-dark">
 		<div class="container-fluid">
 			
 			<a class="navbar-brand text-light px-5" href="#">Proviso</a> <!-- LOGO -->
@@ -19,7 +19,7 @@
 				<ul class="navbar-nav px-5">
 					<li class="nav-item"><a class="nav-link active text-light"
 						aria-current="page" href="pro?action=viewLogin">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">About Us</a>
+					<li class="nav-item"><a class="nav-link" href="pro?action=aboutUs">About Us</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
 				</ul>
