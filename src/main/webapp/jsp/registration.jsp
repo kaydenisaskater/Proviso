@@ -9,5 +9,20 @@
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
