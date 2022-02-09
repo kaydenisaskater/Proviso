@@ -15,7 +15,7 @@
 <body>
 
 <!-- INCLUDES NAVBAR WITH JSP -->
-<jsp:include page="Nav.jsp" flush="true" />
+<jsp:include page="Templates/Nav.jsp" flush="true" />
 
 		<section class="p-5 text-left text-primary bg-light" >
 			<div class="container">
