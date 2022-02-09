@@ -13,18 +13,5 @@
 
 
 
-
-
-
-
-
-<%
-out.print("Hello");
-%>
-
-
-
-
-
 </body>
 </html>
