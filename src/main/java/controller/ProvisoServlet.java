@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ProvisoServlet
  */
-@WebServlet(name = "ProvisoServlet", urlPatterns = "/proviso/*")
+@WebServlet({"/ProvisoServlet", ""})
 public class ProvisoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +45,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 		if (action != null) {
 			switch (action) {
-				case "homepage":
+				case "showWelcome":
 					url = base + "index.jsp";
 					break;
 				case "viewLogin":
