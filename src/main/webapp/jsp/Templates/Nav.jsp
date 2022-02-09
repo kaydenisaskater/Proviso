@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <header>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg bg-dark">
 		<div class="container-fluid">
 			
-			<a class="navbar-brand text-light px-5" href="#">Proviso</a> <!-- LOGO -->
+			<a class="navbar-brand text-light px-5" href="pro?action=showWelcome">Proviso</a> <!-- LOGO -->
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
