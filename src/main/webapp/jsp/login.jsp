@@ -10,14 +10,18 @@
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
 <div>
-    <section class="login-clean">
-        <form method="post">
+    <section class="login-clean d-flex align-items-center justify-content-center vh-100 ">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+    	<h1 class="text-dark text-center mb-5">Login</h1>
+    	<form method="post">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" /></div>
             <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" /></div>
             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
         </form>
+    </div>
+        
     </section>
     <jsp:include page="Templates/Footer.jsp" flush="true"/>
     <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
