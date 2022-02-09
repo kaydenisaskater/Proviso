@@ -3,7 +3,7 @@
 
 <header>
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg bg-dark">
 		<div class="container-fluid">
 			
 			<a class="navbar-brand text-light px-5" href="#">Proviso</a> <!-- LOGO -->
