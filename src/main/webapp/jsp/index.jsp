@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<jsp:include page="Nav.jsp" flush="true" />
+	<jsp:include page="Templates/Nav.jsp" flush="true" />
 	<main>
 		<section class="pt-5 text-center text-light bg-light" >
 			<div class="container mx-0">
