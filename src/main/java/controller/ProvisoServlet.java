@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Servlet implementation class ProvisoServlet
@@ -21,12 +22,12 @@ public class ProvisoServlet extends HttpServlet {
      */
     public ProvisoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
@@ -35,8 +36,8 @@ public class ProvisoServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String base = "/jsp/";
 		String url = base + "index.jsp";
 		String action = request.getParameter("action");
@@ -50,6 +51,9 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				case "viewLogin":
 					url = base + "login.jsp";
+					break;
+				case "aboutUs":
+					url = base + "About.jsp";
 					break;
 			}
 		}
