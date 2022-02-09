@@ -17,8 +17,8 @@
 				<!-- NAV LINKS IN UL -->
 				<ul class="navbar-nav px-5">
 					<li class="nav-item"><a class="nav-link active text-light"
-						aria-current="page" href="pro?action=viewLogin">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="pro?action=aboutUs">About Us</a>
+						aria-current="page" href="ProvisoServlet?action=viewLogin">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="ProvisoServlet?action=aboutUs">About Us</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
 				</ul>
