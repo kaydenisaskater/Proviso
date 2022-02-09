@@ -6,7 +6,7 @@
 	<nav class="navbar navbar-expand-lg bg-dark fixed-top">
 		<div class="container-fluid">
 			
-			<a class="navbar-brand text-light px-5" href="proviso?action=showWelcome">Proviso</a> <!-- LOGO -->
+			<a class="navbar-brand text-light px-5" href="#">Proviso</a> <!-- LOGO -->
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
@@ -18,7 +18,7 @@
 				<!-- NAV LINKS IN UL -->
 				<ul class="navbar-nav px-5">
 					<li class="nav-item"><a class="nav-link active text-light"
-						aria-current="page" href="/ProvisoServlet?action=viewLogin">Login</a></li>
+						aria-current="page" href="pro?action=viewLogin">Login</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">About Us</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
