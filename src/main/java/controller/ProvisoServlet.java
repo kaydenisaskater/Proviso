@@ -53,9 +53,10 @@ public class ProvisoServlet extends HttpServlet {
 		}
 		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
-
 		requestDispatcher.forward(request, response);
 	}
+	
+	//Creates a New User in the database
 	private void createUser(HttpServletRequest request, HttpServletResponse response, String url) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
@@ -96,6 +97,7 @@ public class ProvisoServlet extends HttpServlet {
 		requestDispatcher.forward(request, response);
 
 	}
+	//Validate Email
 	private boolean isValidEmail(String email) {
 		int index = email.indexOf('@');
 		if(index < 0 || email.indexOf('.', index) < 0 || email.indexOf(' ') >= 0) {
@@ -103,6 +105,7 @@ public class ProvisoServlet extends HttpServlet {
 		}
 		return false;
 	}
+	//Validate Password
 	private boolean isValidPassword(String password) {
 		int pwdSize = password.length();
 		if(pwdSize >= 8) {
