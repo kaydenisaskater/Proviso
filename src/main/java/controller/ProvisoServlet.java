@@ -60,9 +60,6 @@ public class ProvisoServlet extends HttpServlet {
 				case "aboutUs":
 					url = base + "About.jsp";
 					break;
-				case "viewLogin":
-					url = base + "login.jsp";
-					break;
 				case "contactUs":
 					url = base + "contact.jsp";
 					break;
@@ -101,7 +98,7 @@ public class ProvisoServlet extends HttpServlet {
 		if(isValidPassword(password)) {
 			newUser.setPassword(password);
 		}else {
-			session.setAttribute("errorMessagePassword", "Invalid Password: pasword must have 8 charactors and at least 1 uppercase");
+			session.setAttribute("errorMessagePassword", "Invalid Password: pasword must have 8 characters long and at least 1 uppercase and 1 lowercase character");
 		}
 		
 		if(isValidEmail(email) && isValidPassword(password)) {
@@ -130,10 +127,18 @@ public class ProvisoServlet extends HttpServlet {
 	//Validate Password
 	private boolean isValidPassword(String password) {
 		int pwdSize = password.length();
+		boolean isLowerCheck = false;
+		boolean isUpperCheck = false;
 		if(pwdSize >= 8) {
 			for(int i = 0; i<pwdSize;i++) {
 				char c = password.charAt(i);
 				if(Character.isUpperCase(c)) {
+					isUpperCheck = true;
+				}
+				if(Character.isLowerCase(c)) {
+					isLowerCheck = true;
+				}
+				if(isLowerCheck && isUpperCheck) {
 					return true;
 				}
 			}	
