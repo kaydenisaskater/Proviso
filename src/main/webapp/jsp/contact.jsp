@@ -61,7 +61,7 @@
 
 <!-- INCLUDES FOOTER WITH JSP -->
 
-<jsp:include page="Footer.jsp" flush="true" />
+<jsp:include page="/jsp/Templates/Footer.jsp" flush="true" />
 
 
 </body>
