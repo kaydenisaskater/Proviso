@@ -23,8 +23,8 @@
 	<div class="col-lg-4 mx-auto">
 		<div class="shadow-lg p-3 mb-5 bg-body rounded">
 		<h1 class="text-center text-dark mb-4">Register</h1>
-			<form action="/provis/ProvisoServlet" method="post">
-				<input type="hidden" name="action" value="newUser" />
+			<form action="/Proviso/ProvisoServlet" method="post">
+				<input type="hidden" name="action" value="createUser" />
 				
 				<%--First Name --%>
 				<div class="row flex-row mb-4 mx-3">
@@ -39,24 +39,31 @@
 				
 				<%--Last Name --%>
 				<div class="row flex-row mb-4 mx-3">
-				<div class="col-12 m-0 p-0">
+				<div class="col-12 p-0">
 				<label for="lastName" class="form-label fs-4">Last Name:</label>
 				</div>
 				
-				<div class="col-12 m-0 p-0">
-				<input type="text" class="form-control" id="lastName" name="LastName"/>
+				<div class="col-12 p-0">
+				<input type="text" class="form-control" id="lastName" name="lastName"/>
 				</div>
 				</div>
 				
 				<%--Email --%>
 				<div class="row flex-row mb-4 mx-3">
-				<div class="col-12 m-0 p-0">
+				<div class="col-12 p-0">
 				<label for="email" class="form-label fs-4">Email:</label>
 				</div>
 				
-				<div class="col-12 m-0 p-0">
+				<div class="col-12 p-0">
 				<input type="text" class="form-control" id="email" name="email"/>
 				</div>
+				
+				<!-- Checks if email is valid -->
+				<%String errorMessageEmail = (String) request.getSession().getAttribute("errorMessageEmail");
+				if(errorMessageEmail != null){%>
+
+				<div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessageEmail%></div>
+				<%} %>
 				</div>
 				
 				<%--Password --%>
@@ -65,9 +72,16 @@
 				<label for="password" class="form-label fs-4">Password:</label>
 				</div>
 				
-				<div class="col-12 m-0 p-0">
+				<div class="col-12 p-0">
 				<input type="password" class="form-control" id="password" name="password"/>
 				</div>
+				
+				<!-- Checks if password is valid -->
+				<%String errorMessagePassword = (String) request.getSession().getAttribute("errorMessagePassword");
+				if(errorMessagePassword != null){%>
+
+				<div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessagePassword%></div>
+				<%} %>
 				</div>
 				
 				<%--Submit --%>

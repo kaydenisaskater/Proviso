@@ -41,13 +41,21 @@ public class ProvisoServlet extends HttpServlet {
 		String base = "/jsp/"; // Set the base folder name to jsp.
 		String url = base + "index.jsp"; // set the default url to /jsp/index.jsp.
 		String action = request.getParameter("action"); // get the parameter action value.
+		HttpSession session = request.getSession();
 		
 		if (action != null) 
 		{
 			switch (action) 
 			{
 				case "createUser":
-					createUser(request,response,base+"registration.jsp");
+					if(createUser(request,response,session)) {
+						url = base + "login.jsp";
+					}else {
+						url = base + "registration.jsp";
+					}
+					break;
+				case "viewLogin":
+					url = base + "login.jsp";
 					break;
 				case "aboutUs":
 					url = base + "About.jsp";
@@ -65,10 +73,9 @@ public class ProvisoServlet extends HttpServlet {
 		requestDispatcher.forward(request, response);
 	}
 	
-	//Creates a New User in the database
-	private void createUser(HttpServletRequest request, HttpServletResponse response, String url) throws ServletException, IOException
+	//Creates a New User in the database will return true if successful and false if not
+	private boolean createUser(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException
 	{
-		HttpSession session = request.getSession();
 		session.setAttribute("errorMessageEmail", null);
 		session.setAttribute("errorMessagePassword", null);
 		
@@ -100,16 +107,22 @@ public class ProvisoServlet extends HttpServlet {
 		if(isValidEmail(email) && isValidPassword(password)) {
 			JdbcUserDao userDao= new JdbcUserDao();
 			userDao.add(newUser);
+			return true;
 		}
 		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
-		requestDispatcher.forward(request, response);
+		return false;
 
 	}
 	//Validate Email
 	private boolean isValidEmail(String email) {
+		if(!email.contains("@")) {
+			
+			return false;
+		}
+		
+		
 		int index = email.indexOf('@');
-		if(index < 0 || email.indexOf('.', index) < 0 || email.indexOf(' ') >= 0) {
+		if(index > 0 || email.indexOf('.', index) > 0 || email.indexOf(' ') <= 0) {
 			return true;
 		}
 		return false;

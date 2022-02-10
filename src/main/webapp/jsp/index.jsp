@@ -25,7 +25,7 @@
 						next stay anywhere.
 						</p>
 						<div class="text-center">
-							<a href="ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Book A Trip</a>
+							<a href="/ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Book A Trip</a>
 						</div>
 						
 						
