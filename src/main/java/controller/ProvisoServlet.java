@@ -49,6 +49,15 @@ public class ProvisoServlet extends HttpServlet {
 				case "createUser":
 					createUser(request,response,base+"registration.jsp");
 					break;
+				case "aboutUs":
+					url = base + "About.jsp";
+					break;
+				case "viewLogin":
+					url = base + "login.jsp";
+					break;
+				case "contactUs":
+					url = base + "contact.jsp";
+					break;
 			}
 		}
 		
