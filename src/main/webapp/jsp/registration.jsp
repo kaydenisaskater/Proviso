@@ -18,64 +18,69 @@
 
 
 
-<div class=" contatiner p-5">
+<div class=" contatiner p-5 ">
 
-<div class="col-lg-4 mx-auto">
-<form action="/provis/ProvisoServlet" method="post">
-<input type="hidden" name="action" value="newUser" />
-
-<%--First Name --%>
-<div class="row flex-row mb-4">
-<div class="col-12 m-0 p-0">
-<label for="firstName" class="form-label fs-4">First Name:</label>
-</div>
-
-<div class="col-12 m-0 p-0">
-<input type="text" class="form-control" id="firstName" name="firstName"/>
-</div>
-</div>
-
-<%--Last Name --%>
-<div class="row flex-row mb-4">
-<div class="col-12 m-0 p-0">
-<label for="lastName" class="form-label fs-4">Last Name:</label>
-</div>
-
-<div class="col-12 m-0 p-0">
-<input type="text" class="form-control" id="lastName" name="LastName"/>
-</div>
-</div>
-
-<%--Email --%>
-<div class="row flex-row mb-4">
-<div class="col-12 m-0 p-0">
-<label for="email" class="form-label fs-4">Email:</label>
-</div>
-
-<div class="col-12 m-0 p-0">
-<input type="text" class="form-control" id="email" name="email"/>
-</div>
-</div>
-
-<%--Password --%>
-<div class="row flex-row mb-5">
-<div class="col-12 m-0 p-0">
-<label for="password" class="form-label fs-4">Password:</label>
-</div>
-
-<div class="col-12 m-0 p-0">
-<input type="password" class="form-control" id="password" name="password"/>
-</div>
-</div>
-
-<%--Submit --%>
-<div class="row">
-<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
-</div>
-
-
-</form>
-</div>
+	<div class="col-lg-4 mx-auto">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded ">
+		<h1 class="text-center text-dark mb-4">Register</h1>
+			<form action="/provis/ProvisoServlet" method="post">
+				<input type="hidden" name="action" value="newUser" />
+				
+				<%--First Name --%>
+				<div class="row flex-row mb-4 mx-3">
+				<div class="col-12 m-0 p-0">
+				<label for="firstName" class="form-label fs-4">First Name:</label>
+				</div>
+				
+				<div class="col-12 m-0 p-0">
+				<input type="text" class="form-control" id="firstName" name="firstName"/>
+				</div>
+				</div>
+				
+				<%--Last Name --%>
+				<div class="row flex-row mb-4 mx-3">
+				<div class="col-12 m-0 p-0">
+				<label for="lastName" class="form-label fs-4">Last Name:</label>
+				</div>
+				
+				<div class="col-12 m-0 p-0">
+				<input type="text" class="form-control" id="lastName" name="LastName"/>
+				</div>
+				</div>
+				
+				<%--Email --%>
+				<div class="row flex-row mb-4 mx-3">
+				<div class="col-12 m-0 p-0">
+				<label for="email" class="form-label fs-4">Email:</label>
+				</div>
+				
+				<div class="col-12 m-0 p-0">
+				<input type="text" class="form-control" id="email" name="email"/>
+				</div>
+				</div>
+				
+				<%--Password --%>
+				<div class="row flex-row mb-5 mx-3">
+				<div class="col-12 m-0 p-0">
+				<label for="password" class="form-label fs-4">Password:</label>
+				</div>
+				
+				<div class="col-12 m-0 p-0">
+				<input type="password" class="form-control" id="password" name="password"/>
+				</div>
+				</div>
+				
+				<%--Submit --%>
+				<div class="row mx-3">
+				<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			
+			
+			</form>
+		
+		</div>
+		
+	</div>
 
 
 </div>
