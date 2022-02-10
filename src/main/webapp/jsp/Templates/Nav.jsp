@@ -20,7 +20,7 @@
 						aria-current="page" href="ProvisoServlet?action=viewLogin">Login</a></li>
 					<li class="nav-item"><a class="nav-link" href="ProvisoServlet?action=aboutUs">About Us</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+					<li class="nav-item"><a class="nav-link" href="ProvisoServlet?action=contactUs">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>
