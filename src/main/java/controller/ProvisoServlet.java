@@ -41,7 +41,12 @@ public class ProvisoServlet extends HttpServlet {
 		String base = "/jsp/"; // Set the base folder name to jsp.
 		String url = base + "index.jsp"; // set the default url to /jsp/index.jsp.
 		String action = request.getParameter("action"); // get the parameter action value.
+		
 		HttpSession session = request.getSession();
+		
+		//ERROR Messages for Registration
+		session.setAttribute("errorMessageEmail", null);
+		session.setAttribute("errorMessagePassword", null);
 		
 		if (action != null) 
 		{
@@ -73,9 +78,6 @@ public class ProvisoServlet extends HttpServlet {
 	//Creates a New User in the database will return true if successful and false if not
 	private boolean createUser(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException
 	{
-		session.setAttribute("errorMessageEmail", null);
-		session.setAttribute("errorMessagePassword", null);
-		
 		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
