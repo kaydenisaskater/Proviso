@@ -8,10 +8,7 @@
   	<servlet-name>ProvisoServlet</servlet-name>
   	<servlet-class>controller.ProvisoServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>ProvisoServlet</servlet-name>
-  	<url-pattern>/pro/*</url-pattern>
-  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>jsp/index.jsp</welcome-file>
   </welcome-file-list>

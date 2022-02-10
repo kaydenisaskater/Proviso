@@ -42,8 +42,6 @@ public class ProvisoServlet extends HttpServlet {
 		String url = base + "index.jsp";
 		String action = request.getParameter("action");
 		
-		System.out.println("Action: " + action + "/n URL: " + url);
-		
 		if (action != null) {
 			switch (action) {
 				case "showWelcome":
