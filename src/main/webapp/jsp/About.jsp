@@ -16,9 +16,9 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<section class="p-5 text-left text-primary bg-light" >
-			<div class="container">
-				<div class="d-sm-flex text-left align-items-center ml-3">
+		<section class="p-5 text-left text-primary bg-light vh-100" >
+			
+				<div class="d-sm-flex ms-5 text-left align-items-center ml-3">
 					<div class="text-left">
 						<h1 class="fw-light pt-5">Proviso</span></h1>
 						<p class="text-muted">Who We Are</p>
@@ -30,14 +30,14 @@
 			        		provides customers with an added incentive to travel more without breaking the bank. 
 			      		</p>
 						
-						<a href="#" class="btn btn-primary my-2">Book Now</a>
+						<a href="ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Book Now</a>
 						
 					</div>
 						<img alt="" src="/Proviso/images/proviso-about.svg" class="img-fluid w-50 ms-5"/>
 					
 					
 				</div>
-			</div>
+			
 		</section>
 
 

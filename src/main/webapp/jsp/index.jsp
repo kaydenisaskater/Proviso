@@ -14,17 +14,23 @@
 <body>
 	<jsp:include page="Templates/Nav.jsp" flush="true" />
 	<main>
-		<section class="pt-5 text-center text-light bg-light" >
-			<div class="container mx-0">
-				<div class="ps-5 d-sm-flex align-items-center">
-					<div>
-						<h1 class="fw-light text-primary">Proviso</h1>
+		<section class="pt-5 text-left align-items-center text-light bg-light" >
+			<div class="container mx-0 vh-100">
+				<div class="ms-5 ps-5 d-sm-flex align-items-center">
+					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-50">
+						<h1 class="fw-light text-primary">BOOK NOW</h1>
 						<p class="text-muted">Travel Better</p>
+						<p class="text-dark">Booking hotels should be rewarded no matter where you stay. With the most generous
+						loyalty programs on the planet, when your head hits the pillow at night, you earn points on your
+						next stay anywhere.
+						</p>
+						<div class="text-center">
+							<a href="ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Book A Trip</a>
+						</div>
 						
-						<a href="#" class="btn btn-primary my-2">Book A Trip</a>
 						
 					</div>
-					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ps-5 pt-5"/>
+					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ms-5 w-50 ps-5 pt-5"/>
 				</div>
 				
 				
