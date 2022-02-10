@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
 <div>
-    <section class="login-clean d-flex align-items-center justify-content-center vh-100 ">
+    <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient">
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
     	<h1 class="text-dark text-center mb-5">Login</h1>
     	<form method="post">
