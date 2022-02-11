@@ -27,9 +27,9 @@
 				<input type="hidden" name="action" value="createUser" />
 				
 				<%--First Name --%>
-				<div class="row flex-row mb-4 mx-3">
+				<div class="row flex-row mb-3 mx-3">
 				<div class="col-12 m-0 p-0">
-				<label for="firstName" class="form-label fs-4">First Name:</label>
+				<label for="firstName" class="form-label fs-5">First Name:</label>
 				</div>
 				
 				<div class="col-12 m-0 p-0">
@@ -38,9 +38,9 @@
 				</div>
 				
 				<%--Last Name --%>
-				<div class="row flex-row mb-4 mx-3">
+				<div class="row flex-row mb-3 mx-3">
 				<div class="col-12 p-0">
-				<label for="lastName" class="form-label fs-4">Last Name:</label>
+				<label for="lastName" class="form-label fs-5">Last Name:</label>
 				</div>
 				
 				<div class="col-12 p-0">
@@ -49,9 +49,9 @@
 				</div>
 				
 				<%--Email --%>
-				<div class="row flex-row mb-4 mx-3">
+				<div class="row flex-row mb-3 mx-3">
 				<div class="col-12 p-0">
-				<label for="email" class="form-label fs-4">Email:</label>
+				<label for="email" class="form-label fs-5">Email:</label>
 				</div>
 				
 				<div class="col-12 p-0">
@@ -69,7 +69,7 @@
 				<%--Password --%>
 				<div class="row flex-row mb-5 mx-3">
 				<div class="col-12 m-0 p-0">
-				<label for="password" class="form-label fs-4">Password:</label>
+				<label for="password" class="form-label fs-5">Password:</label>
 				</div>
 				
 				<div class="col-12 p-0">
@@ -85,9 +85,11 @@
 				</div>
 				
 				<%--Submit --%>
-				<div class="row mx-3">
+				<div class="row mx-3 mb-4">
 				<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
 				</div>
+				
+				<div><a href="/Proviso/jsp/login.jsp" class="link mt-3">Have An Account? Login Here</a></div>
 			
 			
 			</form>
