@@ -24,9 +24,9 @@
 	<main>
 	
 		<section class="pt-5 text-left align-items-center text-light bg-light" >
-			<div class="container mx-0 vh-95">
-				<div class="ms-5 ps-5 d-sm-flex align-items-center">
-					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-50">
+			<div class="container mx-0 vh-75">
+				<div class="ms-5 ps-5 d-flex align-items-center">
+					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-75">
 						<h1 class="fw-light text-primary">BOOK NOW</h1>
 						<p class="text-muted">Travel Better</p>
 						<p class="text-dark">Booking hotels should be rewarded no matter where you stay. With the most generous
@@ -52,7 +52,7 @@
 				<h1 class="mb-5">Popular Places To Stay</h1>
 				<div class="row">
 					<div class="col-4">
-						<div class="card h-100 bg-light shadow-lg rounded">
+						<div class="card h-100 bg-white shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-wynn.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Wynn: Las Vegas, US</h5>
@@ -65,14 +65,14 @@
 							    	<i class="bi bi-star-half"></i>
 							    </div>
 							    <div class="text-center mt-4 mb-3">
-							    	<a href="#" class="btn btn-primary">Book</a>
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
 							    </div>							    
 							  </div>
 						</div>
 					</div>	
 					
 					<div class="col-4">
-						<div class="card h-100 shadow-lg rounded">
+						<div class="card h-100 bg-white shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-dreams.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">Dreams: Cancun, Mexico</h5>
@@ -85,14 +85,14 @@
 							    	<i class="bi bi-star-fill"></i>
 							    </div>
 							    <div class="text-center mt-4 mb-3">
-							    	<a href="#" class="btn btn-primary">Book</a>
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
 							    </div>
 							  </div>
 						</div>
 					</div>
 					
 					<div class="col-4">	
-						<div class="card h-100 bg-light shadow-lg rounded">
+						<div class="card h-100 bg-white shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-bora.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Four Seasons: Bora Bora</h5>
@@ -105,11 +105,73 @@
 							    	<i class="bi bi-star-fill"></i>
 							    </div>
 							    <div class="text-center mt-4 mb-3">
-							    	<a href="#" class="btn btn-primary">Book</a>
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
 							    </div>
 							  </div>
 						</div>
 					</div>
+					
+					<div class="col-4 mt-5">	
+						<div class="card h-100 bg-white shadow-lg rounded">
+							  <img src="/Proviso/images/proviso-plaza-new-york.jpeg" class="card-img-top img-fluid" alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">The Plaza: New York, US</h5>
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-half"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
+							    </div>
+							  </div>
+						</div>
+					</div>
+					
+					<div class="col-4 mt-5">	
+						<div class="card h-100 bg-white shadow-lg rounded">
+							  <img src="/Proviso/images/proviso-big-sky.jpeg" class="card-img-top img-fluid" alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">Big Sky Resort: Big Sky, US</h5>
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-half"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
+							    </div>
+							  </div>
+						</div>
+					</div>
+					
+					<div class="col-4 mt-5">	
+						<div class="card h-100 bg-white shadow-lg rounded">
+							  <img src="/Proviso/images/proviso-bora.jpeg" class="card-img-top img-fluid" alt="...">
+							  <div class="card-body">
+							    <h5 class="card-title">The Four Seasons: Bora Bora</h5>
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-fill"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book</a>
+							    </div>
+							  </div>
+						</div>
+					</div>
+					
+						
 						
 				</div>
 			</div>
