@@ -52,34 +52,61 @@
 				<h1 class="mb-5">Popular Places To Stay</h1>
 				<div class="row">
 					<div class="col-4">
-						<div class="card h-100 bg-light">
+						<div class="card h-100 bg-light shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-wynn.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Wynn: Las Vegas, US</h5>
 							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							    <a href="#" class="btn btn-primary">Book</a>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-half"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="#" class="btn btn-primary">Book</a>
+							    </div>							    
 							  </div>
 						</div>
 					</div>	
 					
 					<div class="col-4">
-						<div class="card h-100">
+						<div class="card h-100 shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-dreams.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">Dreams: Cancun, Mexico</h5>
 							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							    <a href="#" class="btn btn-primary">Book</a>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-fill"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="#" class="btn btn-primary">Book</a>
+							    </div>
 							  </div>
 						</div>
 					</div>
 					
 					<div class="col-4">	
-						<div class="card h-100 bg-light">
+						<div class="card h-100 bg-light shadow-lg rounded">
 							  <img src="/Proviso/images/proviso-bora.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Four Seasons: Bora Bora</h5>
 							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							    <a href="#" class="btn btn-primary">Book</a>
+							    <div class="d-flex justify-content-end">
+							    	<i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+								    <i class="bi bi-star-fill"></i>
+							    	<i class="bi bi-star-fill"></i>
+							    </div>
+							    <div class="text-center mt-4 mb-3">
+							    	<a href="#" class="btn btn-primary">Book</a>
+							    </div>
 							  </div>
 						</div>
 					</div>
