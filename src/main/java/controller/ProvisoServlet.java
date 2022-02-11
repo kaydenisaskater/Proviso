@@ -41,7 +41,12 @@ public class ProvisoServlet extends HttpServlet {
 		String base = "/jsp/"; // Set the base folder name to jsp.
 		String url = base + "index.jsp"; // set the default url to /jsp/index.jsp.
 		String action = request.getParameter("action"); // get the parameter action value.
+		
 		HttpSession session = request.getSession();
+		
+		//ERROR Messages for Registration
+		session.setAttribute("errorMessageEmail", null);
+		session.setAttribute("errorMessagePassword", null);
 		
 		if (action != null) 
 		{
@@ -73,9 +78,6 @@ public class ProvisoServlet extends HttpServlet {
 	//Creates a New User in the database will return true if successful and false if not
 	private boolean createUser(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException
 	{
-		session.setAttribute("errorMessageEmail", null);
-		session.setAttribute("errorMessagePassword", null);
-		
 		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -98,7 +100,7 @@ public class ProvisoServlet extends HttpServlet {
 		if(isValidPassword(password)) {
 			newUser.setPassword(password);
 		}else {
-			session.setAttribute("errorMessagePassword", "Invalid Password: pasword must have 8 charactors and at least 1 uppercase");
+			session.setAttribute("errorMessagePassword", "Invalid Password: pasword must have 8 characters long and at least 1 uppercase and 1 lowercase character");
 		}
 		
 		if(isValidEmail(email) && isValidPassword(password)) {
@@ -127,10 +129,18 @@ public class ProvisoServlet extends HttpServlet {
 	//Validate Password
 	private boolean isValidPassword(String password) {
 		int pwdSize = password.length();
+		boolean isLowerCheck = false;
+		boolean isUpperCheck = false;
 		if(pwdSize >= 8) {
 			for(int i = 0; i<pwdSize;i++) {
 				char c = password.charAt(i);
 				if(Character.isUpperCase(c)) {
+					isUpperCheck = true;
+				}
+				if(Character.isLowerCase(c)) {
+					isLowerCheck = true;
+				}
+				if(isLowerCheck && isUpperCheck) {
 					return true;
 				}
 			}	

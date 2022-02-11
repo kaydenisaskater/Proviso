@@ -31,9 +31,8 @@ JdbcManager db = null;
 			try 
 			{
 				Statement stmt = conn.createStatement(); 
-				String sql = "INSERT INTO users(email, password, first_name, last_name) "
-						+ "VALUES('" + newUser.getEmail() + "', MD5('" + newUser.getPassword() 
-						+ ")', '" + newUser.getFirstName() + "', '" + newUser.getLastName() + "')";
+				String sql = String.format("INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`) values('%s', MD5('%s'), '%s', '%s');", 
+						newUser.getEmail(), newUser.getPassword(), newUser.getFirstName(), newUser.getLastName());
 				
 				try
 				{
