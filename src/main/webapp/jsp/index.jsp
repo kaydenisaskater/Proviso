@@ -29,10 +29,10 @@
 	
 	<main>
 	
-		<section class="text-left d-flex align-items-center text-light bg-light vh-100" >
-			<div class="container my-0 mx-0">
+		<section class="text-left d-flex align-items-start text-light bg-light vh-75" >
+			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
-					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-75">
+					<div class="shadow-lg p-3 mb-5 bg-body ms-5 mt-5 rounded vw-75">
 						<h1 class="fw-light text-primary">Book Now</h1>
 						<p class="text-muted">Travel Better</p>
 						<p class="text-dark">With 1000's of hotels to choose from around the world, Proviso 
@@ -46,13 +46,13 @@
 
 						</div>	
 					</div>
-					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ms-5 w-50 ps-5 pt-5"/>
+					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ms-3 w-50 ms-3 ps-5 pt-1"/>
 				</div>		
 			</div>
 		</section>
 		
-		<section class="text-left d-flex align-items-start text-light bg-light vh-75" >
-			<div class="container my-0 mx-0">
+		<section class="text-left d-flex align-items-center text-light bg-light vh-75" >
+			<div class="container mt-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-3 w-50 ps-1 pt-5"/>
 					<div class="shadow-lg bg-body p-3 mb-5 ms-5 mt-5 rounded vw-75">
@@ -215,9 +215,12 @@
 				<div class="d-md-flex justify-content-between align-items-center">
 					<h3 class="mb-3 mb-md-0">Sign Up To Earn More Points</h3>
 					<div class="input-group points-email">
+							
 						<input type="text" class="form-control" name="fname" placeholder="Enter Email">
 						
+						
 						<!-- Button trigger modal -->
+						
 						<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					    Submit
 						</button>
