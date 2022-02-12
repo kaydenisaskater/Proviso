@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.*" %>
+<%@ page import="beans.User" %>
+<%@ page import="model.JdbcUserDao" %>
+<%@ page import="controller.ProvisoServlet" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +33,7 @@
 			<div class="container my-0 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-75">
-						<h1 class="fw-light text-primary">BOOK NOW</h1>
+						<h1 class="fw-light text-primary">Book Now</h1>
 						<p class="text-muted">Travel Better</p>
 						<p class="text-dark">With 1000's of hotels to choose from around the world, Proviso 
 						gives users lots of options without the headache. We offer a 100% satisfactory guarantee
@@ -45,10 +51,10 @@
 			</div>
 		</section>
 		
-		<section class="text-left d-flex align-items-start text-light bg-light vh-100" >
+		<section class="text-left d-flex align-items-start text-light bg-light vh-75" >
 			<div class="container my-0 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
-				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-1 w-50 ps-1 pt-5"/>
+				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-3 w-50 ps-1 pt-5"/>
 					<div class="shadow-lg bg-body p-3 mb-5 ms-5 mt-5 rounded vw-75">
 						<h1 class="fw-light text-primary">Earn Points</h1>
 						<p class="text-muted">Get Rewarded</p>
@@ -66,6 +72,7 @@
 				</div>		
 			</div>
 		</section>
+		
 		
 		<section class="pt-5 text-left align-items-center bg-white">
 			<div class="container mt-5 mb-5">
@@ -199,14 +206,48 @@
 							  </div>
 						</div>
 					</div>
-					
-						
-						
 				</div>
 			</div>
 		</section>
+		
+		<section class="bg-primary text-light p-3">
+			<div class="container">
+				<div class="d-md-flex justify-content-between align-items-center">
+					<h3 class="mb-3 mb-md-0">Sign Up To Earn More Points</h3>
+					<div class="input-group points-email">
+						<input type="text" class="form-control" name="fname" placeholder="Enter Email">
+						
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					    Submit
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+					    <div class="modal-content">
+						      <div class="modal-header bg-primary">
+						        <h5 class="modal-title" id="exampleModalLabel">Great News!</h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body text-dark">
+						        You are now signed up to receive special offers and earn double points on your first stay.
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>				        
+						      </div>
+					    </div>
+				  </div>
+			</div>
+			
+		</section>
+		
 	</main>
 	
-	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

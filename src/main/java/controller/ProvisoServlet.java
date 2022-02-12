@@ -42,6 +42,7 @@ public class ProvisoServlet extends HttpServlet {
 		String url = base + "index.jsp"; // set the default url to /jsp/index.jsp.
 		String action = request.getParameter("action"); // get the parameter action value.
 		
+		
 		HttpSession session = request.getSession();
 		
 		//ERROR Messages for Registration
@@ -78,6 +79,8 @@ public class ProvisoServlet extends HttpServlet {
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
 	}
+	
+	
 	
 	//Creates a New User in the database will return true if successful and false if not
 	private boolean createUser(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException
