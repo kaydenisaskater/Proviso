@@ -31,6 +31,8 @@ public class ProvisoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		
 		doPost(request, response);
 	}
 
@@ -64,6 +66,13 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				case "loginUser":
 					loginUser(request, response, session);
+					url = base + "index.jsp";
+					break;
+				case "profile":
+					url = base + "profile.jsp";
+					break;
+				case "logout":
+					logoutUser(request, response, session);
 					url = base + "index.jsp";
 					break;
 				case "aboutUs":
@@ -153,23 +162,24 @@ public class ProvisoServlet extends HttpServlet {
 		
 	}
 	
-	private User loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	private void loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		Long userId = null;
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
 		User user = new User();
-		if (user != null) {
-			//session code
-		}
-		else {
-			//redirect to login page with error messages
-		}
 		
 		JdbcUserDao userDao = new JdbcUserDao();
-		user = userDao.loginValidate(email, password);
 		
-		return user;
-		
+		userId = userDao.loginValidate(email, password);
+		if (userId != null) {
+			user = userDao.find(userId);
+			session.setAttribute("user", user);
+		}
+	}
+	
+	private void logoutUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		session.removeAttribute("user");
 	}
 	
 }
