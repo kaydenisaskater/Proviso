@@ -33,7 +33,7 @@
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 					<div class="shadow-lg p-3 mb-5 bg-body ms-5 mt-5 rounded vw-75">
-						<h1 class="fw-light text-primary">Book Now Test</h1>
+						<h1 class="fw-light text-primary">Book Now</h1>
 						<p class="text-muted">Travel Better</p>
 						<p class="text-dark">With 1000's of hotels to choose from around the world, Proviso 
 						gives users lots of options without the headache. We offer a 100% satisfactory guarantee
