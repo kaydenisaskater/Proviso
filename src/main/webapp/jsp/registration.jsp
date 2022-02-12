@@ -89,7 +89,7 @@
 				<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
 				</div>
 				
-				<div><a href="/Proviso/jsp/login.jsp" class="link mt-3">Have An Account? Login Here</a></div>
+				<div><a href="/Proviso/ProvisoServlet?action=viewLogin" class="link mt-3">Have An Account? Login Here</a></div>
 			
 			
 			</form>
