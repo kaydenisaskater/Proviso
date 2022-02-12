@@ -103,5 +103,4 @@ public class User
 				userID, email, password, firstName, lastName, accruedLoyaltyPoints);
 	}
 	
-	
 }

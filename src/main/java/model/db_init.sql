@@ -18,13 +18,13 @@ CREATE TABLE `proviso`.`guest_options` (
   `guest_option_id` INT NOT NULL AUTO_INCREMENT,
   `guest_count` INT NOT NULL,
   `price` DOUBLE NOT NULL DEFAULT 0.00,
-  PRIMARY KEY (`guest_option_id`)
+  CONSTRAINT PK_guest_options PRIMARY KEY (`guest_option_id`)
 );
 
 CREATE TABLE `proviso`.`room_sizes` (
   `room_size_id` INT NOT NULL AUTO_INCREMENT,
   `room_size_description` VARCHAR(150) NOT NULL,
-  PRIMARY KEY (`room_size_id`)
+  CONSTRAINT PK_room_size PRIMARY KEY (`room_size_id`)
 );
 
 CREATE TABLE `proviso`.`users` (
@@ -34,7 +34,8 @@ CREATE TABLE `proviso`.`users` (
   `first_name` VARCHAR(50),
   `last_name` VARCHAR(50),
   `accrued_loyalty_points` INT NOT NULL DEFAULT 0,
-  PRIMARY KEY (`user_id`)
+  CONSTRAINT PK_user PRIMARY KEY (`user_id`),
+  CONSTRAINT UK_user_email UNIQUE (`email`)
 );
 
 CREATE TABLE `proviso`.`amenities` (
@@ -42,7 +43,7 @@ CREATE TABLE `proviso`.`amenities` (
   `amenity_description` VARCHAR(150),
   `price` DOUBLE NOT NULL DEFAULT 0.00,
   `pay_rate` VARCHAR(50),
-  PRIMARY KEY (`amenity_id`)
+  CONSTRAINT PK_amenity PRIMARY KEY (`amenity_id`)
 );
 
 CREATE TABLE `proviso`.`reservations` (
@@ -54,18 +55,18 @@ CREATE TABLE `proviso`.`reservations` (
   `room_size_id` INT NOT NULL,
   `guest_option_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  PRIMARY KEY (`reservation_id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`),
-  FOREIGN KEY (`guest_option_id`) REFERENCES `guest_options`(`guest_option_id`),
-  FOREIGN KEY (`room_size_id`) REFERENCES `room_sizes`(`room_size_id`)
+  CONSTRAINT PK_reservation PRIMARY KEY (`reservation_id`),
+  CONSTRAINT FK_reservations_users_user_id FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT FK_reservations_guest_options_guest_options_id FOREIGN KEY (`guest_option_id`) REFERENCES `guest_options`(`guest_option_id`) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT FK_reservations_room_sizes_room_size_id FOREIGN KEY (`room_size_id`) REFERENCES `room_sizes`(`room_size_id`) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE `proviso`.`include` (
   `reservation_id` INT NOT NULL,
   `amenity_id` INT NOT NULL,
-  PRIMARY KEY (`reservation_id`, `amenity_id`),
-  FOREIGN KEY (`reservation_id`) REFERENCES `reservations`(`reservation_id`),
-  FOREIGN KEY (`amenity_id`) REFERENCES `amenities`(`amenity_id`)
+  CONSTRAINT PK_include PRIMARY KEY (`reservation_id`, `amenity_id`),
+  CONSTRAINT FK_include_reservations_reservation_id FOREIGN KEY (`reservation_id`) REFERENCES `reservations`(`reservation_id`),
+  CONSTRAINT FK_include_amenities_amenity_id FOREIGN KEY (`amenity_id`) REFERENCES `amenities`(`amenity_id`)
 );
 
 INSERT INTO `proviso`.`guest_options` (`guest_count`, `price`) 
