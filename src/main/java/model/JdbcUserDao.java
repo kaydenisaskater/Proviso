@@ -230,4 +230,36 @@ JdbcManager db = null;
 			}
 		}
 	}
+	
+	public User loginValidate(String email, String password) {
+		Connection conn = db.getConn();
+		
+		User user = null;
+		
+		if (conn != null) {
+			try {
+				Statement stmt = conn.createStatement();
+				String sql = "SELECT user_id, email, password, first_name, last_name, accrued_loyalty_points WHERE email = " + email + " AND password = " + password;
+				
+				try {
+					ResultSet rs = stmt.executeQuery(sql);
+					
+					try {
+						if (rs.next()) {
+							user = new User(rs.getLong(1), rs.getString(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+						}
+						else {
+							System.out.println("Email or Password were incorrect.");
+						}
+					}
+					finally { rs.close(); }
+				}
+				finally { stmt.close(); }
+			}
+			catch (SQLException e) {
+				System.out.println(e);
+			}
+		}
+		return user;
+	}
 }
