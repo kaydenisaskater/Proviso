@@ -20,10 +20,10 @@
 						<a class="nav-link active text-light" aria-current="page" href="/Proviso/ProvisoServlet?action=aboutUs">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/Proviso/ProvisoServlet?action=contactUs">Contact Us</a>
+						<a class="nav-link text-light" href="/Proviso/ProvisoServlet?action=contactUs">Contact Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a>
+						<a class="nav-link text-warning" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a>
 					</li>
 					<!--
 					<li>

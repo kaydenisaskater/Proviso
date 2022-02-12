@@ -29,7 +29,7 @@
 					<div class="shadow-lg p-3 mb-5 bg-body mt-5 rounded vw-75">
 						<h1 class="fw-light text-primary">BOOK NOW</h1>
 						<p class="text-muted">Travel Better</p>
-						<p class="text-dark">With 1000's of hotels to choose form around the world, Proviso 
+						<p class="text-dark">With 1000's of hotels to choose from around the world, Proviso 
 						gives users lots of options without the headache. We offer a 100% satisfactory guarantee
 						that if you are unhappy with our service, we will issue a full refund and double your points 
 						on your next stay.

@@ -12,7 +12,7 @@
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
     <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient" style="padding-top: 6%;">
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
-    	<h1 class="text-dark text-center mb-5">Login</h1>
+    	<h1 class="text-dark text-center mb-2">Login</h1>
     	<form action="/Proviso/ProvisoServlet" method="post">
     		<input type="hidden" name="action" value="loginUser"/>
             <h2 class="visually-hidden">Login Form</h2>
