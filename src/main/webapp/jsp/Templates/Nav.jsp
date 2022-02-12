@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page import="beans.User" %>
 <header>
+<%
+User user = (User)session.getAttribute("user");
+%>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg bg-dark">
 		<div class="container-fluid">
@@ -22,14 +25,25 @@
 					<li class="nav-item">
 						<a class="nav-link text-light" href="/Proviso/ProvisoServlet?action=contactUs">Contact Us</a>
 					</li>
+					<%
+					if (user != null) {
+					%>
+					<li>
+						<a class="nav-link" href="/Proviso/ProvisoServlet?action=profile"><%= user.getFirstName()%> <%= user.getLastName() %></a>
+					</li>
+					<li>
+						<a class="nav-link" href="/Proviso/ProvisoServlet?action=logout">Logout</a>
+					</li>
+					<%
+					}
+					else {
+					%>
 					<li class="nav-item">
 						<a class="nav-link text-warning" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a>
 					</li>
-					<!--
-					<li>
-						<a class="nav-link" href="/Proviso/ProvisoServlet?action=showWelcome"><% String username = request.getParameter("email"); %><%=username %></a>
-					</li>
-					 -->
+					 <%
+					}
+					 %>
 				</ul>
 			</div>
 		</div>

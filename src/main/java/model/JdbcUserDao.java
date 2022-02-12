@@ -121,7 +121,7 @@ JdbcManager db = null;
 			try 
 			{
 				Statement stmt = conn.createStatement(); 
-				String sql = "SELECT user_id, email, password, first_name, last_name , accrued_loyalty_points "
+				String sql = "SELECT user_id, email, password, first_name, last_name , accrued_loyalty_points FROM users "
 						+ "WHERE user_id =" + key;
 				
 				try 
@@ -231,22 +231,25 @@ JdbcManager db = null;
 		}
 	}
 	
-	public User loginValidate(String email, String password) {
+	public Long loginValidate(String email, String password) {
 		Connection conn = db.getConn();
 		
 		User user = null;
+		Long userId = null;
 		
 		if (conn != null) {
 			try {
 				Statement stmt = conn.createStatement();
-				String sql = "SELECT user_id, email, password, first_name, last_name, accrued_loyalty_points FROM users WHERE email = '" + email + "' AND password = MD5('" + password + "')";
+				String sql = "SELECT user_id, email, password FROM users WHERE email = '" + email + "'";
 				
 				try {
 					ResultSet rs = stmt.executeQuery(sql);
 					
 					try {
 						if (rs.next()) {
-							user = new User(rs.getLong(1), rs.getString(1), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+							
+							user = new User(rs.getLong(1), rs.getString(2), rs.getString(3));
+							userId = rs.getLong(1);
 						}
 						else {
 							System.out.println("Email or Password were incorrect.");
@@ -260,6 +263,6 @@ JdbcManager db = null;
 				System.out.println(e);
 			}
 		}
-		return user;
+		return userId;
 	}
 }
