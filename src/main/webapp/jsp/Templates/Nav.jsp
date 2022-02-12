@@ -16,11 +16,20 @@
 			<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
 				<!-- NAV LINKS IN UL -->
 				<ul class="navbar-nav px-5">
-					<li class="nav-item"><a class="nav-link active text-light"
-						aria-current="page" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="/Proviso/ProvisoServlet?action=aboutUs">About Us</a>
+					<li class="nav-item">
+						<a class="nav-link active text-light" aria-current="page" href="/Proviso/ProvisoServlet?action=aboutUs">About Us</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="/Proviso/ProvisoServlet?action=contactUs">Contact Us</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="/Proviso/ProvisoServlet?action=contactUs">Contact Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a>
+					</li>
+					<!--
+					<li>
+						<a class="nav-link" href="/Proviso/ProvisoServlet?action=showWelcome"><% String username = request.getParameter("email"); %><%=username %></a>
+					</li>
+					 -->
 				</ul>
 			</div>
 		</div>
