@@ -16,7 +16,7 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<section class="p-5 text-left text-primary bg-light vh-100" >
+		<section class="p-5 text-left text-primary bg-white vh-100" >
 			
 				<div class="d-sm-flex ms-5 text-left align-items-center ml-3">
 					<div class="text-left">
