@@ -50,6 +50,7 @@ public class ProvisoServlet extends HttpServlet {
 		//ERROR Messages for Registration
 		session.setAttribute("errorMessageEmail", null);
 		session.setAttribute("errorMessagePassword", null);
+		session.setAttribute("errorMessageLogin", null);
 		
 		if (action != null) 
 		{
@@ -66,8 +67,12 @@ public class ProvisoServlet extends HttpServlet {
 					url = base + "login.jsp";
 					break;
 				case "loginUser":
-					loginUser(request, response, session);
-					url = base + "index.jsp";
+					if(loginUser(request, response, session)) {
+						url = base + "index.jsp";
+					}
+					else {
+						url = base + "login.jsp";
+					}
 					break;
 				case "profile":
 					url = base + "profile.jsp";
@@ -165,7 +170,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 	}
 	
-	private void loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	private boolean loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		Long userId = null;
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -178,7 +183,13 @@ public class ProvisoServlet extends HttpServlet {
 		if (userId != null) {
 			user = userDao.find(userId);
 			session.setAttribute("user", user);
+			return true;
 		}
+		else {
+			session.setAttribute("errorMessageLogin", "Email or Password are incorrect.");
+			return false;
+		}
+		
 	}
 	
 	private void logoutUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {

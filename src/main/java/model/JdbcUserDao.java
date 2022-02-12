@@ -240,7 +240,7 @@ JdbcManager db = null;
 		if (conn != null) {
 			try {
 				Statement stmt = conn.createStatement();
-				String sql = "SELECT user_id, email, password FROM users WHERE email = '" + email + "'";
+				String sql = "SELECT user_id, email, password FROM `proviso`.`users` WHERE email = '" + email + "' AND password = MD5('" + password + "')";
 				
 				try {
 					ResultSet rs = stmt.executeQuery(sql);
@@ -249,7 +249,7 @@ JdbcManager db = null;
 						if (rs.next()) {
 							
 							user = new User(rs.getLong(1), rs.getString(2), rs.getString(3));
-							userId = rs.getLong(1);
+							userId = user.getUserID();
 						}
 						else {
 							System.out.println("Email or Password were incorrect.");

@@ -93,3 +93,6 @@ INSERT INTO `proviso`.`amenities` (`amenity_description`, `price`, `pay_rate`)
 INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`) 
 	VALUES 
 	('user@email.com', MD5('password'), 'User', 'Name');
+	
+INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`)
+	VALUES('admin@proviso.com', MD5('Proviso'), 'Proviso', 'Admin');
