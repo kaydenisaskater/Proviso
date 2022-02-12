@@ -239,7 +239,7 @@ JdbcManager db = null;
 		if (conn != null) {
 			try {
 				Statement stmt = conn.createStatement();
-				String sql = "SELECT user_id, email, password, first_name, last_name, accrued_loyalty_points WHERE email = " + email + " AND password = " + password;
+				String sql = "SELECT user_id, email, password, first_name, last_name, accrued_loyalty_points FROM users WHERE email = '" + email + "' AND password = MD5('" + password + "')";
 				
 				try {
 					ResultSet rs = stmt.executeQuery(sql);

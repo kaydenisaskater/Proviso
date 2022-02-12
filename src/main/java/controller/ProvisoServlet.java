@@ -62,6 +62,10 @@ public class ProvisoServlet extends HttpServlet {
 				case "viewLogin":
 					url = base + "login.jsp";
 					break;
+				case "loginUser":
+					loginUser(request, response, session);
+					url = base + "index.jsp";
+					break;
 				case "aboutUs":
 					url = base + "About.jsp";
 					break;
@@ -146,6 +150,25 @@ public class ProvisoServlet extends HttpServlet {
 			}	
 		}
 		return false;
+		
+	}
+	
+	private User loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		User user = new User();
+		if (user != null) {
+			//session code
+		}
+		else {
+			//redirect to login page with error messages
+		}
+		
+		JdbcUserDao userDao = new JdbcUserDao();
+		user = userDao.loginValidate(email, password);
+		
+		return user;
 		
 	}
 	

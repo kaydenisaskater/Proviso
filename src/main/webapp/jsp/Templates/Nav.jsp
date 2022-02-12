@@ -25,9 +25,11 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/Proviso/ProvisoServlet?action=viewLogin">Login</a>
 					</li>
+					<!--
 					<li>
 						<a class="nav-link" href="/Proviso/ProvisoServlet?action=showWelcome"><% String username = request.getParameter("email"); %><%=username %></a>
 					</li>
+					 -->
 				</ul>
 			</div>
 		</div>
