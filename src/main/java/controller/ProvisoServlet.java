@@ -151,7 +151,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 		
 		int index = email.indexOf('@');
-		if(index > 0 || email.indexOf('.', index) > 0 || email.indexOf(' ') <= 0) {
+		if(index > 0 && email.indexOf('.', index) > 0 && email.indexOf(' ') <= 0) {
 			return true;
 		}
 		return false;
