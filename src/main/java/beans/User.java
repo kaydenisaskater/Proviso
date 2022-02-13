@@ -28,9 +28,9 @@ public class User
 		this.password = password;
 	}
 	
-	public User(String email, String password) {
+	public User(Long userID, String email) {
+		this.userID = userID;
 		this.email = email;
-		this.password = password;
 	}
 	
 	//Default constructor

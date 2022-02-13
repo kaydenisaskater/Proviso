@@ -266,21 +266,29 @@ JdbcManager db = null;
 		return userId;
 	}
 	
-	public boolean existingEmail(String email) {
+	public boolean existingEmail(Long userId, String email) {
 		Connection conn = db.getConn();
+		User user = null;
 		boolean result = false;
 		
 		if (conn != null) {
 			try {
 				Statement stmt = conn.createStatement();
-				String sql = "SELECT email FROM `proviso`.`users` WHERE email = '" + email + "'";
+				String sql = "SELECT user_id, email FROM `proviso`.`users` WHERE email = '" + email + "'";
 				
 				try {
 					ResultSet rs = stmt.executeQuery(sql);
 					
 					try {
 						if (rs.next()) {
-							result = true;
+							user = new User(rs.getLong(1), rs.getString(2));
+							
+							if (userId != user.getUserID() && email != user.getEmail()) {
+								result = true;
+							}
+							else {
+								result = false;
+							}
 						}
 						else {
 							result = false;

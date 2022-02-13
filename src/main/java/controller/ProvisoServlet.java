@@ -216,16 +216,18 @@ public class ProvisoServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		boolean result = false;
 		
-		System.out.println("First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email);
-		
+		//instantiate a user object
 		User user = new User();
 		
+		//set the user object to the sesssion's user attribute
 		user = (User)session.getAttribute("user");
 		
+		
+		//check if email is valid
 		if (isValidEmail(email)) {
 			JdbcUserDao userDao = new JdbcUserDao();
 			
-			if (userDao.existingEmail(email)) {
+			if (userDao.existingEmail(user.getUserID(), email)) {
 				session.setAttribute("errorUpdatingUser", "The email already exists.");
 			}
 			else {
