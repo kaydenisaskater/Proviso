@@ -31,9 +31,8 @@ JdbcManager db = null;
 			try 
 			{
 				Statement stmt = conn.createStatement(); 
-				String sql = "INSERT INTO users(email, password, first_name, last_name) "
-						+ "VALUES('" + newUser.getEmail() + "', MD5('" + newUser.getPassword() 
-						+ ")', '" + newUser.getFirstName() + "', '" + newUser.getLastName() + "')";
+				String sql = String.format("INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`) values('%s', MD5('%s'), '%s', '%s');", 
+						newUser.getEmail(), newUser.getPassword(), newUser.getFirstName(), newUser.getLastName());
 				
 				try
 				{
@@ -122,7 +121,7 @@ JdbcManager db = null;
 			try 
 			{
 				Statement stmt = conn.createStatement(); 
-				String sql = "SELECT user_id, email, password, first_name, last_name , accrued_loyalty_points "
+				String sql = "SELECT user_id, email, password, first_name, last_name , accrued_loyalty_points FROM users "
 						+ "WHERE user_id =" + key;
 				
 				try 
@@ -230,5 +229,79 @@ JdbcManager db = null;
 				db.closeConn(conn);
 			}
 		}
+	}
+	
+	public Long loginValidate(String email, String password) {
+		Connection conn = db.getConn();
+		
+		User user = null;
+		Long userId = null;
+		
+		if (conn != null) {
+			try {
+				Statement stmt = conn.createStatement();
+				String sql = "SELECT user_id, email, password FROM `proviso`.`users` WHERE email = '" + email + "' AND password = MD5('" + password + "')";
+				
+				try {
+					ResultSet rs = stmt.executeQuery(sql);
+					
+					try {
+						if (rs.next()) {
+							
+							user = new User(rs.getLong(1), rs.getString(2), rs.getString(3));
+							userId = user.getUserID();
+						}
+						else {
+							System.out.println("Email or Password were incorrect.");
+						}
+					}
+					finally { rs.close(); }
+				}
+				finally { stmt.close(); }
+			}
+			catch (SQLException e) {
+				System.out.println(e);
+			}
+		}
+		return userId;
+	}
+	
+	public boolean existingEmail(Long userId, String email) {
+		Connection conn = db.getConn();
+		User user = null;
+		boolean result = false;
+		
+		if (conn != null) {
+			try {
+				Statement stmt = conn.createStatement();
+				String sql = "SELECT user_id, email FROM `proviso`.`users` WHERE email = '" + email + "'";
+				
+				try {
+					ResultSet rs = stmt.executeQuery(sql);
+					
+					try {
+						if (rs.next()) {
+							user = new User(rs.getLong(1), rs.getString(2));
+							
+							if (userId != user.getUserID() && email != user.getEmail()) {
+								result = true;
+							}
+							else {
+								result = false;
+							}
+						}
+						else {
+							result = false;
+						}
+					}
+					finally { rs.close(); }
+				}
+				finally { stmt.close(); }
+			}
+			catch (SQLException e) {
+				System.out.println("SQL Exception: " + e);
+			}
+		}
+		return result;
 	}
 }

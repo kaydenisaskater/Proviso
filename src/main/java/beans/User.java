@@ -28,6 +28,11 @@ public class User
 		this.password = password;
 	}
 	
+	public User(Long userID, String email) {
+		this.userID = userID;
+		this.email = email;
+	}
+	
 	//Default constructor
 	public User() {}
 
@@ -97,6 +102,5 @@ public class User
 		return String.format("User{userID=%s, email=%s, password=%s, firstName=%s, lastName=%s, accruedLoyaltyPoints=%s}",
 				userID, email, password, firstName, lastName, accruedLoyaltyPoints);
 	}
-	
 	
 }
