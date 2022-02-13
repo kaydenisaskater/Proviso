@@ -38,7 +38,7 @@
 		</section>
 		
 		<section class="p-5 text-left text-primary bg-light vh-50" >
-			<h2 class="text-center text-dark py-3">Frequently Asked Questions</h2>
+			<h2 class="text-center fw-bold text-dark py-3">Frequently Asked Questions</h2>
 			<div class="accordion accordion-flush" id="accordionFlushExample">
 				  <div class="accordion-item">
 				    <h2 class="accordion-header" id="flush-headingOne">
@@ -71,6 +71,17 @@
 				    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
 				      <div class="accordion-body text-dark">Here at Proviso, we pride ourselves on only allowing the best hotels on our platform. This means all of our hotels have a rigorous requirement 
 				      for standards and approval on the Proviso platform.</div>
+				    </div>
+				  </div>
+				  <div class="accordion-item">
+				    <h2 class="accordion-header" id="flush-headingFour">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseOne">
+				        Do You Have Hotels Around The World?
+				      </button>
+				    </h2>
+				    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body text-dark">Yes we do! Proviso requires all hotels to pass rigorous standards so that all users have peace of mind. 
+				      Whether you want to travel abroad or stay close for a stay-cation, we have something to offer.</div>
 				    </div>
 				  </div>
 				</div>
