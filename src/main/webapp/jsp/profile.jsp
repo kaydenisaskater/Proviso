@@ -13,7 +13,37 @@
 User user = (User)session.getAttribute("user");
 %>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
-
+<div class="mx-auto" style="width: 80%;margin: 2%;">
+    <h2 class="text-center">Traveler Information</h2>
+    <form action="/Proviso/ProvisoServlet" method="post">
+    	<input type="hidden" name="action" value="updateUser"/> 
+    	<input type="hidden" name="userId" value="<%=user.getUserID() %>" />
+    	<%
+    	String errorMessage = (String)request.getSession().getAttribute("errorUpdatingUser");
+    	String successfulUpdate = (String)request.getSession().getAttribute("successfulUserUpdate");
+    	if (errorMessage != null){	
+    	%>
+    	<div class="col-12 alert-danger mt-3" role="alert"><%=errorMessage %></div>
+    	<%
+    	} else if(successfulUpdate != null){
+    	%>
+    	<div class="col-12 alert-success mt-3" role="alert"><%=successfulUpdate %></div>
+    	<%
+    	}
+    	%>
+    	<label for="firstName" class="form-label justify-content-md-start">First Name</label>
+    	<input id="firstName" name="firstName" class="form-control justify-content-md-start" type="text" value="<%=user.getFirstName() %>" />
+    	<label for="lastName" class="form-label justify-content-md-start">Last Name</label>
+    	<input id="lastName" name="lastName" class="form-control justify-content-md-start" type="text" value="<%=user.getLastName() %>" />
+    	<label for="email" class="form-label justify-content-md-start">Email</label>
+    	<input id="email" name="email" class="form-control justify-content-md-start" type="text" value="<%=user.getEmail() %>"/>
+    	<label class="form-label justify-content-md-start">Points: <%=user.getAccruedLoyaltyPoints() %></label>
+    	<a class="d-block" href="#">Change password</a>
+        <div class="text-center"><button id="btnSubmit" type="submit" class="btn btn-primary">Save</button></div>
+        
+        <!-- <a href="/Proviso/ProvisoServlet?action=updateUser" class="btn btn-primary">Save</a> -->
+    </form>
+</div>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
 <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>

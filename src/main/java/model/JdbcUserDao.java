@@ -265,4 +265,35 @@ JdbcManager db = null;
 		}
 		return userId;
 	}
+	
+	public boolean existingEmail(String email) {
+		Connection conn = db.getConn();
+		boolean result = false;
+		
+		if (conn != null) {
+			try {
+				Statement stmt = conn.createStatement();
+				String sql = "SELECT email FROM `proviso`.`users` WHERE email = '" + email + "'";
+				
+				try {
+					ResultSet rs = stmt.executeQuery(sql);
+					
+					try {
+						if (rs.next()) {
+							result = true;
+						}
+						else {
+							result = false;
+						}
+					}
+					finally { rs.close(); }
+				}
+				finally { stmt.close(); }
+			}
+			catch (SQLException e) {
+				System.out.println("SQL Exception: " + e);
+			}
+		}
+		return result;
+	}
 }

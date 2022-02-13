@@ -28,6 +28,19 @@
 	<jsp:include page="Templates/Nav.jsp" flush="true" />
 	
 	<main>
+	<%
+	String successfulLogin = (String)request.getSession().getAttribute("successfulLogin");
+	String successfulLogout = (String)request.getSession().getAttribute("successfulLogout");
+	if (successfulLogin != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogin %></div>
+	<%
+	}else if (successfulLogout != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogout %></div>
+	<%
+	} 
+	%>
 	
 		<section class="text-left d-flex align-items-start text-light bg-light vh-75" >
 			<div class="container my-5 mx-0">

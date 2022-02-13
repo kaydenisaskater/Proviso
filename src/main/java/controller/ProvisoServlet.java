@@ -51,6 +51,11 @@ public class ProvisoServlet extends HttpServlet {
 		session.setAttribute("errorMessageEmail", null);
 		session.setAttribute("errorMessagePassword", null);
 		session.setAttribute("errorMessageLogin", null);
+		session.setAttribute("successfulAccountCreation", null);
+		session.setAttribute("successfulLogin", null);
+		session.setAttribute("successfulLogout", null);
+		session.setAttribute("errorUpdatingUser", null);
+		session.setAttribute("successfulUserUpdate", null);
 		
 		if (action != null) 
 		{
@@ -86,6 +91,10 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				case "contactUs":
 					url = base + "contact.jsp";
+					break;
+				case "updateUser":
+					updateUser(request, response, session);
+					url = base + "profile.jsp";
 					break;
 			}
 		}
@@ -170,7 +179,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 	}
 	
-	private boolean loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	private boolean loginUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
 		Long userId = null;
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -183,6 +192,7 @@ public class ProvisoServlet extends HttpServlet {
 		if (userId != null) {
 			user = userDao.find(userId);
 			session.setAttribute("user", user);
+			session.setAttribute("successfulLogin", user.getFirstName() + " " + user.getLastName() + " logged in successfully!");
 			return true;
 		}
 		else {
@@ -192,8 +202,50 @@ public class ProvisoServlet extends HttpServlet {
 		
 	}
 	
-	private void logoutUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	private void logoutUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
+		User user = new User();
+		user = (User)session.getAttribute("user");
+		session.setAttribute("successfulLogout", user.getFirstName() + " " + user.getLastName() + " has been logged out.");
 		session.removeAttribute("user");
+	}
+	
+	private boolean updateUser (HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
+		String userId = request.getParameter("userId");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String email = request.getParameter("email");
+		boolean result = false;
+		
+		System.out.println("First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email);
+		
+		User user = new User();
+		
+		user = (User)session.getAttribute("user");
+		
+		if (isValidEmail(email)) {
+			JdbcUserDao userDao = new JdbcUserDao();
+			
+			if (userDao.existingEmail(email)) {
+				session.setAttribute("errorUpdatingUser", "The email already exists.");
+			}
+			else {
+				user.setUserID(Long.parseLong(userId));
+				user.setFirstName(firstName);
+				user.setLastName(lastName);
+				user.setEmail(email);
+				user.setPassword(user.getPassword());
+				user.setAccruedLoyaltyPoints(user.getAccruedLoyaltyPoints());
+				
+				userDao.update(user);
+				result = true;
+				session.setAttribute("successfulUserUpdate", "Traveler information updated successfully!");
+			}
+		}
+		else {
+			session.setAttribute("errorUpdatingUser", "The email isn't a valid email");
+			result = false;
+		}
+		return result;
 	}
 	
 }
