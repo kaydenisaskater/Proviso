@@ -21,7 +21,7 @@
 <div class=" contatiner p-5 ">
 
 	<div class="col-lg-4 mx-auto">
-		<div class="shadow-lg p-3 mb-5 bg-body rounded">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded w-50">
 		<h1 class="text-center text-dark mb-4">Register</h1>
 			<form action="/Proviso/ProvisoServlet" method="post">
 				<input type="hidden" name="action" value="createUser" />

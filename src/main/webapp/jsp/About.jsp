@@ -38,8 +38,8 @@
 		</section>
 		
 		<section class="p-5 text-left text-primary bg-light vh-50" >
-			<h2 class="text-center fw-bold text-dark py-3">Frequently Asked Questions</h2>
-			<div class="accordion accordion-flush" id="accordionFlushExample">
+			<h2 class="text-center fw-light text-dark py-3">Frequently Asked Questions</h2>
+			<div class="accordion accordion-flush shadow-lg rounded" id="accordionFlushExample">
 				  <div class="accordion-item">
 				    <h2 class="accordion-header" id="flush-headingOne">
 				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -75,7 +75,7 @@
 				  </div>
 				  <div class="accordion-item">
 				    <h2 class="accordion-header" id="flush-headingFour">
-				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseOne">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
 				        Do You Have Hotels Around The World?
 				      </button>
 				    </h2>

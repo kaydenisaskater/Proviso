@@ -13,7 +13,7 @@
 User user = (User)session.getAttribute("user");
 %>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
-<div class="mx-auto" style="width: 80%;margin: 2%;">
+<div class="mx-auto shadow-lg p-3 mb-5 bg-body rounded" style="width: 80%;margin: 2%;">
     <h2 class="text-center">Traveler Information</h2>
     <form action="/Proviso/ProvisoServlet" method="post">
     	<input type="hidden" name="action" value="updateUser"/> 
