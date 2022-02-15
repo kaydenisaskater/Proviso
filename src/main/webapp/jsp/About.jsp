@@ -9,6 +9,8 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 </head>
 <body>
@@ -20,7 +22,7 @@
 			
 				<div class="d-sm-flex ms-5 text-left align-items-center ml-3">
 					<div class="text-left">
-						<h1 class="fw-light pt-5">Proviso</span></h1>
+						<h1 class="fw-light pt-5">Proviso</h1>
 						<p class="text-muted">Who We Are</p>
 						<p class="text-dark">
 			        		Proviso is a modern one stop shop for booking travel all throughout the world. 
@@ -35,10 +37,87 @@
 					</div>
 						<img alt="" src="/Proviso/images/proviso-about.svg" class="img-fluid w-50 ms-5"/>					
 				</div>	
+		</section >
+			
+		<section class="p-4 bg-primary mb-4">
+			<div class="container">
+				<h2 class="text-center fw-light text-light my-4">Meet Our Team</h2>
+				<div class="row row-cols-5 g-2">
+					<div class="col">
+						<div class="card shadow-lg rounded bg-white">
+							<div class="card-body text-center">
+								<img alt="" src="/Proviso/images/travis.png" class="rounded-circle mb-3">
+								<h3 class="card-title mb-3">Travis</h3>
+								<h5 class="text-center text-muted">Developer</h5>
+								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<a href="#" class="bi bi-meta text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
+								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col">
+						<div class="card bg-white">
+							<div class="card-body shadow-lg rounded text-center">
+								<img alt="" src="/Proviso/images/kaymon.png" class="rounded-circle mb-3">
+								<h3 class="card-title mb-3">Kaymon</h3>
+								<h5 class="text-center text-muted">Developer</h5>
+								<p class="card-text"> This is just a bunch of nonsense and filler text now.</p>
+								<a href="#" class="bi bi-meta text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
+								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col">
+						<div class="card bg-white">
+							<div class="card-body shadow-lg rounded text-center">
+								<img alt="" src="/Proviso/images/james.png" class="rounded-circle mb-3">
+								<h3 class="card-title mb-3">James</h3>
+								<h5 class="text-center text-muted">Developer</h5>
+								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<a href="#" class="bi bi-meta text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
+								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col">
+						<div class="card bg-white">
+							<div class="card-body shadow-lg rounded text-center">
+								<img alt="" src="/Proviso/images/kayden.png" class="rounded-circle mb-3">
+								<h3 class="card-title mb-3">Kayden</h3>
+								<h5 class="text-center text-muted">Developer</h5>
+								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<a href="#" class="bi bi-meta text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
+								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col">
+						<div class="card bg-white">
+							<div class="card-body shadow-lg rounded text-center">
+								<img alt="" src="/Proviso/images/daniel.png" class="rounded-circle mb-3">
+								<h3 class="card-title mb-3">Daniel</h3>
+								<h5 class="text-center text-muted">Developer</h5>
+								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<a href="#" class="bi bi-meta text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
+								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 		
-		<section class="p-5 text-left text-primary bg-light vh-50" >
-			<h2 class="text-center fw-light text-dark py-3">Frequently Asked Questions</h2>
+		<section class="p-5 text-left text-primary bg-white vh-75" >
+			<h2 class="text-center fw-light text-dark mb-5">Frequently Asked Questions</h2>
 			<div class="accordion accordion-flush shadow-lg rounded" id="accordionFlushExample">
 				  <div class="accordion-item">
 				    <h2 class="accordion-header" id="flush-headingOne">
