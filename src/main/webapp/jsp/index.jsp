@@ -288,7 +288,7 @@
 					<h3 class="mb-3 mb-md-0">Sign Up To Earn More Points</h3>
 					<div class="input-group points-email">
 							
-						<input type="text" class="form-control" name="fname" placeholder="Enter Email">
+						<input type="email" class="form-control" name="fname" placeholder="Enter Email">
 						
 						
 						<!-- Button trigger modal -->
