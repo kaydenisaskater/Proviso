@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%@ page import="beans.User" %>
 <html>
 <head>
 <title>About Us</title>
@@ -14,6 +16,7 @@
 
 </head>
 <body>
+<% User user = (User)session.getAttribute("user"); %>
 
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
@@ -32,7 +35,7 @@
 			        		provides customers with an added incentive to travel more without breaking the bank. 
 			      		</p>
 						
-						<a href="ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Book Now</a>
+						<a href="<% if (user != null) { %>/Proviso/ProvisoServlet?action=reservation <% } else {%> /Proviso/ProvisoServlet?action=viewLogin <%} %>" class="btn btn-primary my-2">Book Now</a>
 						
 					</div>
 						<img alt="" src="/Proviso/images/proviso-about.svg" class="img-fluid w-50 ms-5"/>					
