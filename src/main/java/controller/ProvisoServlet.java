@@ -105,6 +105,12 @@ public class ProvisoServlet extends HttpServlet {
 				case "reservation":
 					url = base + "hotelReservation.jsp";
 					break;
+				case "confirmation":
+					url = base + "reservationConfirmation.jsp";
+					break;
+				case "reservationSummary":
+					url = base + "reservationSummary.jsp";
+					break;
 				
 			}
 		}
