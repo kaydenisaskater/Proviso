@@ -29,7 +29,7 @@
 		class="beans.HotelOptions" />
 
 	<div class="container p-5">
-		<div class="hotelReservation mx-auto col-lg-8 shadow-lg bg-body ">
+		<div class="hotelReservation mx-auto col-lg-6 shadow-lg bg-body ">
 			<h1 class="text-center text-dark p-3">Hotel Reservation</h1>
 
 			<form action="/Proviso/ProvisoServlet" method="post">
