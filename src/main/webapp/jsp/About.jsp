@@ -51,8 +51,8 @@
 								<h5 class="text-center text-muted">Developer</h5>
 								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
-								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
-								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
+								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
 							</div>
 						</div>
 					</div>
@@ -65,8 +65,8 @@
 								<h5 class="text-center text-muted">Developer</h5>
 								<p class="card-text"> This is just a bunch of nonsense and filler text now.</p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
-								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
-								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
+								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
 							</div>
 						</div>
 					</div>
@@ -79,8 +79,8 @@
 								<h5 class="text-center text-muted">Developer</h5>
 								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
-								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
-								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
+								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
 							</div>
 						</div>
 					</div>
@@ -93,8 +93,8 @@
 								<h5 class="text-center text-muted">Developer</h5>
 								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
-								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
-								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
+								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
 							</div>
 						</div>
 					</div>
@@ -107,8 +107,8 @@
 								<h5 class="text-center text-muted">Developer</h5>
 								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
-								<a href="#" class="bi bi-instagram text-dark mx-1"></a>
-								<a href="#" class="bi bi-twitter text-dark mx-1"></a>
+								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
+								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
 							</div>
 						</div>
 					</div>
