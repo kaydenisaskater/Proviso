@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -54,6 +55,48 @@ public class JdbcReservationDao implements ReservationDao
 				System.out.println("SQL Exception: " + ex.getMessage());
 			}
 		}
+	}
+	
+	//Method to add new reservation record to database and return generated key (auto increment)
+	public Long addRetrieveKey(Reservation entity) 
+	{
+		Connection conn = db.getConn(); 
+		Reservation newReservation = entity;
+		long generatedKey = 0;
+		
+		//Perform SQL INSERT INTO reservations Table and output success or fail
+		if(conn != null) 
+		{
+			try 
+			{
+				String sql = String.format("INSERT INTO reservations (check_in_date, check_out_date, "
+						+ "total_price, loyalty_points, room_size_id, guest_option_id, user_id) "
+						+ "VALUES('%s', '%s', %s, %s, %s, %s, %s);", 
+						newReservation.getCheckIn(), newReservation.getCheckOut(), newReservation.getTotalPrice(),
+						newReservation.getLoyaltyPoints(), newReservation.getRoomSizeID(), newReservation.getGuestOptionID(),
+						newReservation.getUserID());
+				
+				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);; 
+				
+				try
+				{
+					generatedKey = stmt.executeUpdate();
+					System.out.println("Inserted newReservation: " + newReservation.toString());
+					System.out.println("Auto-Generated Key: " + generatedKey);
+				}
+				finally 
+				{
+					stmt.close();				
+				}
+			}
+			catch(SQLException ex)
+			{
+				System.out.println("Unable to insert newReservation: " + newReservation.toString());
+				System.out.println("SQL Exception: " + ex.getMessage());
+			}
+		}
+		
+		return generatedKey;
 	}
 	
 	//Method to retrieve a list of all reservations
