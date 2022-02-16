@@ -16,8 +16,7 @@ public class JdbcAmenityDao implements AmenityDao
 	public JdbcAmenityDao() 
 	{
 		db = new JdbcManager();
-	}
-	
+	}	
 	//Method to add new amenity record to database
 	@Override
 	public void add(Amenity entity) 
@@ -106,8 +105,7 @@ public class JdbcAmenityDao implements AmenityDao
 		}
 		
 		return amenities;
-	}
-	
+	}	
 	//Method to retrieve an amenity with amenity_id
 	@Override
 	public Amenity find(Long key) 
@@ -126,8 +124,7 @@ public class JdbcAmenityDao implements AmenityDao
 				
 				try 
 				{
-					ResultSet rs = stmt.executeQuery(sql);
-					
+					ResultSet rs = stmt.executeQuery(sql);					
 					try 
 					{
 						if (rs.next()) 
@@ -191,8 +188,7 @@ public class JdbcAmenityDao implements AmenityDao
 				db.closeConn(conn);
 			}
 		}
-	}
-	
+	}	
 	//Method to delete amenity record with amenity_id
 	@Override
 	public void remove(Long key) 
