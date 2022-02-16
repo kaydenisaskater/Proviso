@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +23,10 @@
 
 	<%--Top Nav --%>
 	<jsp:include page="Templates/Nav.jsp" flush="true" />
+
+	<%--HotelOptions Bean --%>
+	<jsp:useBean id="hotelOptions" scope="application"
+		class="beans.HotelOptions" />
 
 	<div class="container p-5">
 		<div class="hotelReservation mx-auto col-lg-8 shadow-lg bg-body ">
@@ -38,35 +47,21 @@
 						</div>
 
 						<div class="d-flex">
-
+							<%
+							int countRoomSize = 0;
+							for (String roomSize : hotelOptions.getRoomSizes()) {
+								countRoomSize++;
+							%>
 							<%--Double Full --%>
 							<div class="radioButton form-check ms-3">
-								<input type="radio" class="form-check-input" id="roomSize1"
-									name="roomSize" value="Double Full" /> <label for="roomSize1"
-									class="form-check-label">Double Full</label>
+								<input type="radio" class="form-check-input"
+									id="roomSize<%=countRoomSize%>" name="roomSize"
+									value="<%=roomSize%>" /> <label
+									for="roomSize<%=countRoomSize%>" class="form-check-label"><%=roomSize%></label>
 							</div>
-
-							<%--Queen --%>
-							<div class="radioButton form-check ms-3">
-								<input type="radio" class="form-check-input" id="roomSize2"
-									name="roomSize" value="Queen" /> <label for="roomSize2"
-									class="form-check-label">Queen</label>
-							</div>
-
-							<%--Double Queen --%>
-							<div class="radioButton form-check ms-3">
-								<input type="radio" class="form-check-input" id="roomSize3"
-									name="roomSize" value="Queen Double" /> <label for="roomSize3"
-									class="form-check-label">Queen Double</label>
-							</div>
-
-							<%--King --%>
-							<div class="radioButton form-check ms-3">
-								<input type="radio" class="form-check-input" id="roomSize4"
-									name="roomSize" value="King" /> <label for="roomSize4"
-									class="form-check-label">King</label>
-							</div>
-
+							<%
+							} //closing room size loop
+							%>
 						</div>
 					</div>
 
@@ -79,30 +74,23 @@
 						</div>
 
 						<div class="d-flex">
-
+							<%
+							int countAmenitie = 0;
+							for (Map.Entry<String, Double> amenitie : hotelOptions.getAmenities().entrySet()) {
+								countAmenitie++;
+							%>
 							<%--Wi-Fi --%>
 							<div class="checkbox form-check ms-3">
-								<input type="checkbox" class="form-check-input" id="amenities1"
-									name="amenities[]" value="Wi-Fi" /> <label
-									class="form-check-label" for="amenities1">Wi-Fi
-									($12.00)</label>
+								<input type="checkbox" class="form-check-input"
+									id="amenities<%=countAmenitie%>" name="amenities[]"
+									value="Wi-Fi" /> <label class="form-check-label"
+									for="amenities<%=countAmenitie%>"><%=amenitie.getKey()%>
+									($<%=amenitie.getValue()%>)</label>
 							</div>
 
-							<%--Breakfast --%>
-							<div class="checkbox form-check ms-3">
-								<input type="checkbox" class="form-check-input" id="amenities2"
-									name="amenities[]" value="Breakfast" /> <label
-									class="form-check-label" for="amenities2">Breakfast
-									($8.99)</label>
-							</div>
-
-							<%--Parking --%>
-							<div class="checkbox form-check ms-3">
-								<input type="checkbox" class="form-check-input" id="amenities3"
-									name="amenities[]" value="Parking" /> <label
-									class="form-check-label" for="amenities3">Parking
-									($19.99)</label>
-							</div>
+							<%
+							} //close amenites for loop
+							%>
 
 						</div>
 					</div>
@@ -120,11 +108,15 @@
 							<div class="guestSelect ms-3">
 								<select class="form-select" id="guest" name="guest">
 									<option selected value="0">Select Number of Guest</option>
-									<option value="1">One ($115.00 per night)</option>
-									<option value="2">Two ($115.00 per night)</option>
-									<option value="3">Three ($150.00 per night)</option>
-									<option value="4">Four ($150.00 per night)</option>
-									<option value="5">Five ($150.00 per night)</option>
+									<%
+									for (Map.Entry<Integer, Double> guest : hotelOptions.getGuests().entrySet()) {
+									%>
+									<option value="<%=guest.getKey()%>"><%=guest.getKey()%>
+										Guest ($<%=guest.getValue()%> per night)
+									</option>
+									<%
+									} //close guest for loop
+									%>
 								</select>
 							</div>
 
@@ -134,6 +126,9 @@
 					<%--Check-in and Check-out date --------------------------------------------------------------------------------------------------------------------------------------------%>
 
 					<div class="Check-inCheck-out row m-3">
+						<div class="mb-3">
+							<h2 class="fs-5 text-success ">Earn <%=hotelOptions.getLoyaltyPoints() %> loyalty points per night</h2>
+						</div>
 
 						<%--Check-in Title --%>
 						<div class="d-flex">
