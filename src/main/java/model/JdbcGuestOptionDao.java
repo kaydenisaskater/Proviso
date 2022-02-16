@@ -16,8 +16,7 @@ public class JdbcGuestOptionDao implements GuestOptionDao
 	public JdbcGuestOptionDao() 
 	{
 		db = new JdbcManager();
-	}
-	
+	}	
 	//Method to add new guest_option record to database
 	@Override
 	public void add(GuestOption entity) 
@@ -33,7 +32,6 @@ public class JdbcGuestOptionDao implements GuestOptionDao
 				Statement stmt = conn.createStatement(); 
 				String sql = String.format("INSERT INTO guest_options (guest_count, price) VALUES(%s, %s);", 
 						newGuestOption.getGuestCount(), newGuestOption.getPrice());
-
 				
 				try
 				{
@@ -225,5 +223,4 @@ public class JdbcGuestOptionDao implements GuestOptionDao
 			}
 		}	
 	}
-
 }
