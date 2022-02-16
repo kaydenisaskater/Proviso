@@ -61,6 +61,7 @@ public class ProvisoServlet extends HttpServlet {
 		{
 			switch (action) 
 			{
+				//user creation request
 				case "createUser":
 					if(createUser(request,response,session)) {
 						url = base + "login.jsp";
@@ -68,9 +69,12 @@ public class ProvisoServlet extends HttpServlet {
 						url = base + "registration.jsp";
 					}
 					break;
-				case "viewLogin":
-					url = base + "login.jsp";
+				//update user request
+				case "updateUser":
+					updateUser(request, response, session);
+					url = base + "profile.jsp";
 					break;
+				//login/logout request
 				case "loginUser":
 					if(loginUser(request, response, session)) {
 						url = base + "index.jsp";
@@ -79,12 +83,16 @@ public class ProvisoServlet extends HttpServlet {
 						url = base + "login.jsp";
 					}
 					break;
-				case "profile":
-					url = base + "profile.jsp";
-					break;
 				case "logout":
 					logoutUser(request, response, session);
 					url = base + "index.jsp";
+					break;
+				//page requests
+				case "viewLogin":
+					url = base + "login.jsp";
+					break;
+				case "profile":
+					url = base + "profile.jsp";
 					break;
 				case "aboutUs":
 					url = base + "About.jsp";
@@ -92,10 +100,12 @@ public class ProvisoServlet extends HttpServlet {
 				case "contactUs":
 					url = base + "contact.jsp";
 					break;
-				case "updateUser":
-					updateUser(request, response, session);
-					url = base + "profile.jsp";
+					
+				//reservation requests
+				case "reservation":
+					url = base + "hotelReservation.jsp";
 					break;
+				
 			}
 		}
 		

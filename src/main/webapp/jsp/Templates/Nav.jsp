@@ -28,8 +28,11 @@ User user = (User)session.getAttribute("user");
 					<%
 					if (user != null) {
 					%>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="/Proviso/ProvisoServlet?action=reservation">Reservations</a>
+					</li>
 					<li>
-						<a class="nav-link" href="/Proviso/ProvisoServlet?action=profile"><%= user.getFirstName()%> <%= user.getLastName() %></a>
+						<a class="nav-link text-light" href="/Proviso/ProvisoServlet?action=profile"><%= user.getFirstName()%> <%= user.getLastName() %></a>
 					</li>
 					<li>
 						<a class="nav-link" href="/Proviso/ProvisoServlet?action=logout">Logout</a>
