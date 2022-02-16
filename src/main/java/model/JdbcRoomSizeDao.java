@@ -187,14 +187,12 @@ public class JdbcRoomSizeDao implements RoomSizeDao
 				db.closeConn(conn);
 			}
 		}
-	}
-	
+	}	
 	//Method to delete room_size record with room_size_id
 	@Override
 	public void remove(Long key) 
 	{
-		Connection conn = db.getConn(); 
-		
+		Connection conn = db.getConn(); 		
 		if (conn != null) 
 		{
 			try
