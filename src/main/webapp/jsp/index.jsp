@@ -29,6 +29,9 @@
 	
 	<main>
 	<%
+	User user = (User)session.getAttribute("user");
+	
+	
 	String successfulLogin = (String)request.getSession().getAttribute("successfulLogin");
 	String successfulLogout = (String)request.getSession().getAttribute("successfulLogout");
 	if (successfulLogin != null){
@@ -54,9 +57,7 @@
 						on your next stay.
 						</p>
 						<div class="text-center">
-
-							<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Let's Travel</a>
-
+							<a href="<% if (user != null) { %>/Proviso/ProvisoServlet?action=reservation <% } else {%> /Proviso/ProvisoServlet?action=viewLogin <%} %>" class="btn btn-primary my-2">Let's Travel</a>
 						</div>	
 					</div>
 					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ms-3 w-50 ms-3 ps-5 pt-1"/>
