@@ -83,7 +83,7 @@
 							<div class="checkbox form-check ms-3">
 								<input type="checkbox" class="form-check-input"
 									id="amenities<%=countAmenitie%>" name="amenities[]"
-									value="<%=countAmenitie %>" /> <label class="form-check-label"
+									value="<%=amenitie.getKey() %>" /> <label class="form-check-label"
 									for="amenities<%=countAmenitie%>"><%=amenitie.getKey()%>
 									($<%=amenitie.getValue()%>)</label>
 							</div>
