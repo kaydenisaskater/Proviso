@@ -63,7 +63,6 @@ public class JdbcReservationDao implements ReservationDao
 		Connection conn = db.getConn(); 
 		Reservation newReservation = entity;
 		long generatedKey = 0;
-		int oid;
 		
 		//Perform SQL INSERT INTO reservations Table and output success or fail
 		if(conn != null) 
