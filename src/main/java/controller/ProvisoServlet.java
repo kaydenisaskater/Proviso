@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 import beans.User;
 import model.JdbcUserDao;
@@ -106,6 +107,7 @@ public class ProvisoServlet extends HttpServlet {
 					url = base + "hotelReservation.jsp";
 					break;
 				case "confirmation":
+					confirmReservation(request, response);
 					url = base + "reservationConfirmation.jsp";
 					break;
 				case "reservationSummary":
@@ -266,4 +268,33 @@ public class ProvisoServlet extends HttpServlet {
 		return result;
 	}
 	
+	private void confirmReservation(HttpServletRequest request, HttpServletResponse response) {
+		String roomSize = request.getParameter("roomSize");
+		String[] amenities = request.getParameterValues("amenities[]");
+		String guestCount = request.getParameter("guest");
+		String checkIn = request.getParameter("check-in");
+		String checkOut = request.getParameter("check-out");
+		
+		System.out.println("Room Size: " + roomSize);
+		
+		for (int i = 0; i < amenities.length; i++) {
+			System.out.println("Amenities: " + amenities[i].toString());
+		}
+
+		System.out.println(
+				"Guest Count: " + guestCount +
+				"\nCheck In Date: " + checkIn + 
+				"\nCheck Out Date: " + checkOut);
+		
+		request.setAttribute("roomSize", roomSize);
+		request.setAttribute("amenities[]", amenities);
+		request.setAttribute("guestCount", guestCount);
+		request.setAttribute("checkIn", checkIn);
+		request.setAttribute("checkOut", checkOut);
+		
+	}
+	
+	private void placeReservation(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
 }

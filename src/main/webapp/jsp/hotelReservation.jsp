@@ -4,6 +4,16 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.List" %>
+<%@page import="java.util.Iterator" %>
+<%@page import="beans.Amenity" %>
+<%@page import="beans.RoomSize" %>
+<%@page import="beans.GuestOption" %>
+
+<jsp:useBean id="roomSizeDao" scope="application" class="model.JdbcRoomSizeDao"/>
+<jsp:useBean id="amenityDao" scope="application" class="model.JdbcAmenityDao"/>
+<jsp:useBean id="guestOptionDao" scope="application" class="model.JdbcGuestOptionDao" />
+
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +42,7 @@
 		<div class="hotelReservation mx-auto col-lg-6 shadow-lg bg-body ">
 			<h1 class="text-center text-dark p-3">Hotel Reservation</h1>
 
-			<form action="/Proviso/ProvisoServlet" method="post">
+			<form action="/Proviso/ProvisoServlet?action=confirmation" method="post">
 				<input type="hidden" name="action" value="createHotelReservation" />
 
 				<%--Main grid for the form --%>
@@ -58,10 +68,9 @@
 									id="roomSize<%=countRoomSize%>" name="roomSize"
 									value="<%=countRoomSize%>" /> <label
 									for="roomSize<%=countRoomSize%>" class="form-check-label"><%=roomSize%></label>
-							</div>
-							<%
-							} //closing room size loop
-							%>
+									id="roomSize<%=countRoomSize%>" name="roomSize"
+									value="<%=roomSize%>" /> <label
+									for="roomSize<%=countRoomSize%>" class="form-check-label"><%=roomSize %></label>
 						</div>
 					</div>
 
@@ -79,11 +88,12 @@
 							for (Map.Entry<String, Double> amenitie : hotelOptions.getAmenities().entrySet()) {
 								countAmenitie++;
 							%>
-							<%--Wi-Fi --%>
+							
 							<div class="checkbox form-check ms-3">
 								<input type="checkbox" class="form-check-input"
-									id="amenities<%=countAmenitie%>" name="amenities[]"
+									id="amenities<%=countAmenitie%>" name="amenities[]"/>
 									value="<%=countAmenitie %>" /> <label class="form-check-label"
+									value="<%=amenitie.getKey() %>" /> <label class="form-check-label"
 									for="amenities<%=countAmenitie%>"><%=amenitie.getKey()%>
 									($<%=amenitie.getValue()%>)</label>
 							</div>
