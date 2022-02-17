@@ -25,7 +25,7 @@
 
 <%
 try {
-	Reservation reservation = (Reservation)request.getAttribute("pendingReservation");
+	Reservation reservation = (Reservation)session.getAttribute("pendingReservation");
 %>
 
 <section>
@@ -56,7 +56,8 @@ try {
 		<h2 class="mb-5">Total Price: $<%=reservation.getTotalPrice() %></h2>
 		
 		<div class="row mx-3 my-5">
-				<button id="btnConfirm" type="submit" class="btn btn-primary">Confirm</button>
+			<a href="/Proviso/ProvisoServlet?action=placeReservation" class="btn btn-primary">Confirm</a>
+				
 		</div>
 		</div>
 		
@@ -72,6 +73,7 @@ try {
 catch (Exception e){
 	e.printStackTrace();
 }
+
 %>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>

@@ -43,7 +43,7 @@
 		<div class="hotelReservation mx-auto col-lg-6 shadow-lg bg-body ">
 			<h1 class="text-center text-dark p-3">Hotel Reservation</h1>
 
-			<form action="/Proviso/ProvisoServlet" method="post">
+			<form action="/Proviso/ProvisoServlet?action=confirmation" method="post">
 				<input type="hidden" name="action" value="confirmation" />
 
 				<%--Main grid for the form --%>
