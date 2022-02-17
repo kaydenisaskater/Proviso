@@ -63,6 +63,7 @@ public class JdbcReservationDao implements ReservationDao
 		Connection conn = db.getConn(); 
 		Reservation newReservation = entity;
 		long generatedKey = 0;
+		int oid;
 		
 		//Perform SQL INSERT INTO reservations Table and output success or fail
 		if(conn != null) 
@@ -81,6 +82,14 @@ public class JdbcReservationDao implements ReservationDao
 				try
 				{
 					generatedKey = stmt.executeUpdate();
+					
+					try(ResultSet rs = stmt.getGeneratedKeys()){
+						while (rs.next()) {
+							int newId = rs.getInt(1);
+							generatedKey = newId;
+					}
+					}
+					
 					System.out.println("Inserted newReservation: " + newReservation.toString());
 					System.out.println("Auto-Generated Key: " + generatedKey);
 				}
