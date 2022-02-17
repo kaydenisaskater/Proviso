@@ -294,9 +294,15 @@ public class ProvisoServlet extends HttpServlet {
 		System.out.println(
 				"Guest Count: " + guestCount +
 				"\nCheck In Date: " + checkIn + 
-				"\nCheck Out Date: " + checkOut +
-				"\nPer Pay Rates: " + perPayRates +
-				"\nFlat Pay Rates: " + flatPayRates);
+				"\nCheck Out Date: " + checkOut);
+		
+		for (int i = 0; i < perPayRates.length; i++) {
+			System.out.println("Per Pay Rates: " + perPayRates[i]);
+		}
+		
+		for (int i = 0; i < flatPayRates.length; i++) {
+			System.out.println("Flat Pay Rates: " + flatPayRates[i]);
+		}
 		
 		reservation.setRoomSizeID(Long.parseLong(roomSize));
 		reservation.setGuestOptionID(Long.parseLong(guestCount));
