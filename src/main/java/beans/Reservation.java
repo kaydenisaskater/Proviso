@@ -1,6 +1,11 @@
 package beans;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class Reservation 
 {
@@ -12,11 +17,13 @@ public class Reservation
 	private long roomSizeID;
 	private long guestOptionID;
 	private long userID;
+	private ArrayList<Amenity> amenities = new ArrayList<Amenity>();
+	private long noOfDaysBetween;
 	
 	public Reservation(long reservationID, String checkIn, String checkOut, double totalPrice, long loyaltyPoints,
 			long roomSizeID, long guestOptionID, long userID) {
 		this.reservationID = reservationID;
-		this.checkIn = Date.valueOf(checkOut);
+		this.checkIn = Date.valueOf(checkIn);
 		this.checkOut = Date.valueOf(checkOut);
 		this.totalPrice = totalPrice;
 		this.loyaltyPoints = loyaltyPoints;
@@ -105,6 +112,42 @@ public class Reservation
 	public void setUserID(long userID) 
 	{
 		this.userID = userID;
+	}
+
+	public ArrayList<Amenity> getAmenities() 
+	{
+		return amenities;
+	}
+
+	public void addAmenity(Amenity amenity) 
+	{
+		this.amenities.add(amenity);
+	}
+	
+	public long calculateLoyaltyPoints()
+	{
+		this.noOfDaysBetween = ChronoUnit.DAYS.between(LocalDate.parse(this.checkIn.toString()), LocalDate.parse(this.checkOut.toString())) - 1;
+		this.loyaltyPoints = 150 * this.noOfDaysBetween;
+		return this.loyaltyPoints;
+	}
+	
+	public double calculateTotalPrice(GuestOption guestOption)
+	{
+		Iterator<Amenity> iterator = amenities.iterator();
+		while(iterator.hasNext())
+		{
+			Amenity amenity = (Amenity)iterator.next();
+			if(amenity.getPayRate().equals("flat"))
+			{
+				this.totalPrice += amenity.getPrice();
+			}
+			else if(amenity.getPayRate().equals("per"))
+			{
+				this.totalPrice += this.noOfDaysBetween * amenity.getPrice();
+			}
+		}
+		this.totalPrice += this.noOfDaysBetween * (guestOption.getPrice());
+		return this.totalPrice;
 	}
 
 	@Override

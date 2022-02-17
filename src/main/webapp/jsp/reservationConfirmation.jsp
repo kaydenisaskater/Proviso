@@ -3,8 +3,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.Iterator" %>
 <%@page import="beans.Reservation" %>
-<%@page import="" %>
+<%@page import="beans.Amenity" %>
 
 <jsp:useBean id="hotelOptions" scope="application" class="beans.HotelOptions"/>
 
@@ -30,38 +31,26 @@ try {
 <div>
 	<h1>Confirm Reservation</h1>
 	<p>Room Size: <%=reservation.getRoomSizeID() %></p>
-	<%
-	String[] amenities = (String[])request.getAttribute("amenities[]");
 	
-	for (int i = 0; i < amenities.length; i++){
-		%>
-		<p>Amenity: <%=amenities[i].toString() %></p>
-		<%
-	}
-	%>
 	<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
 	<p>Check In: <%=reservation.getCheckIn() %></p>
 	<p>Check Out: <%=reservation.getCheckOut() %></p>
-	
+	<h2>Amenities:</h2>
 	<%
-	String[] perPayRate = (String[])request.getAttribute("perPayRate[]");
-	
-	for (int i = 0; i < perPayRate.length; i++){
+	ArrayList<Amenity> amenities = reservation.getAmenities();
+	Iterator<Amenity> amenityIterator = amenities.iterator();
+	while(amenityIterator.hasNext())
+	{
+		Amenity amenity = (Amenity)amenityIterator.next();
 		%>
-		<p>Amenity: <%=perPayRate[i].toString() %></p>
+		<p>ID: <%=amenity.getAmenityID() %>
+		<br>Description: <%=amenity.getAmenityDescription() %>
+		<br>Price: $<%=amenity.getPrice() %>
+		</p>
 		<%
 	}
 	%>
-	<%
-	String[] flatPayRate = (String[])request.getAttribute("flatPayRate[]");
-	
-	for (int i = 0; i < flatPayRate.length; i++){
-		%>
-		<p>Amenity: <%=flatPayRate[i].toString() %></p>
-		<%
-	}
-	%>
-	<p>Flat Pay Rate: <%=request.getAttribute("flatPayRate[]") %></p>
+	<h2>Total Price: $<%=reservation.getTotalPrice() %></h2>
 </div>
 <%
 }

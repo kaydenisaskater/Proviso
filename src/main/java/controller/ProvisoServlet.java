@@ -9,10 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 import beans.User;
+import beans.Amenity;
+import beans.GuestOption;
 import beans.Reservation;
+import model.JdbcAmenityDao;
+import model.JdbcGuestOptionDao;
 import model.JdbcUserDao;
 
 
@@ -106,7 +109,7 @@ public class ProvisoServlet extends HttpServlet {
 					
 				//reservation requests
 				case "reservation":
-					url = base + "hotelReservation.jsp";
+					url = base + "hotelReservationImproved.jsp";
 					break;
 				case "confirmation":
 					confirmReservation(request, response);
@@ -272,12 +275,14 @@ public class ProvisoServlet extends HttpServlet {
 	
 	private void confirmReservation(HttpServletRequest request, HttpServletResponse response) {
 		Reservation reservation = new Reservation();
+		JdbcAmenityDao amenityDao = new JdbcAmenityDao();
+		JdbcGuestOptionDao guestOptionDao = new JdbcGuestOptionDao();
 		
 		String[] perPayRates = request.getParameterValues("per[]");
 		String[] flatPayRates = request.getParameterValues("flat[]");
 		
 		String roomSize = request.getParameter("roomSize");
-		String[] amenities = request.getParameterValues("amenities[]");
+		//String[] amenities = request.getParameterValues("amenities[]");
 		String guestCount = request.getParameter("guest");
 		String checkIn = request.getParameter("check-in");
 		String checkOut = request.getParameter("check-out");
@@ -287,27 +292,47 @@ public class ProvisoServlet extends HttpServlet {
 		
 		System.out.println("Room Size: " + roomSize);
 		
+		/*
 		for (int i = 0; i < amenities.length; i++) {
 			System.out.println("Amenities: " + amenities[i].toString());
 		}
-
+		*/
 		System.out.println(
 				"Guest Count: " + guestCount +
 				"\nCheck In Date: " + checkIn + 
 				"\nCheck Out Date: " + checkOut);
-		
-		for (int i = 0; i < perPayRates.length; i++) {
-			System.out.println("Per Pay Rates: " + perPayRates[i].toString());
+		if(perPayRates != null)
+		{
+			for (int i = 0; i < perPayRates.length; i++) 
+			{
+				System.out.println("Per Pay Rates: " + Long.parseLong(perPayRates[i]));
+				Amenity amenity = amenityDao.find(Long.parseLong(perPayRates[i]));
+				reservation.addAmenity(amenity);
+			}
+		}
+		if(flatPayRates != null)
+		{
+			for (int i = 0; i < flatPayRates.length; i++) 
+			{
+				System.out.println("Flat Pay Rates: " + flatPayRates[i].toString());
+				Amenity amenity = amenityDao.find(Long.parseLong(flatPayRates[i]));
+				reservation.addAmenity(amenity);
+			}
 		}
 		
-		for (int i = 0; i < flatPayRates.length; i++) {
-			System.out.println("Flat Pay Rates: " + flatPayRates[i].toString());
-		}
+		
 		
 		reservation.setRoomSizeID(Long.parseLong(roomSize));
 		reservation.setGuestOptionID(Long.parseLong(guestCount));
 		reservation.setCheckIn(checkIn);
 		reservation.setCheckOut(checkOut);
+		
+		reservation.calculateLoyaltyPoints();
+		System.out.println("Loyalty Points: " + reservation.getLoyaltyPoints());
+		
+		GuestOption guestOption = guestOptionDao.find(Long.parseLong(guestCount));
+		reservation.calculateTotalPrice(guestOption);
+		System.out.println("Total Price: " + reservation.getTotalPrice());
 		
 		request.setAttribute("perPayRate[]", perPayRates);
 		request.setAttribute("flatPayRates[]", flatPayRates);
