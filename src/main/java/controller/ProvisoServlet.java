@@ -297,11 +297,11 @@ public class ProvisoServlet extends HttpServlet {
 				"\nCheck Out Date: " + checkOut);
 		
 		for (int i = 0; i < perPayRates.length; i++) {
-			System.out.println("Per Pay Rates: " + perPayRates[i]);
+			System.out.println("Per Pay Rates: " + perPayRates[i].toString());
 		}
 		
 		for (int i = 0; i < flatPayRates.length; i++) {
-			System.out.println("Flat Pay Rates: " + flatPayRates[i]);
+			System.out.println("Flat Pay Rates: " + flatPayRates[i].toString());
 		}
 		
 		reservation.setRoomSizeID(Long.parseLong(roomSize));
