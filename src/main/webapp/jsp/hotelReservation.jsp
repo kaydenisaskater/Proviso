@@ -56,7 +56,7 @@
 							<div class="radioButton form-check ms-3">
 								<input type="radio" class="form-check-input"
 									id="roomSize<%=countRoomSize%>" name="roomSize"
-									value="<%=roomSize%>" /> <label
+									value="<%=countRoomSize%>" /> <label
 									for="roomSize<%=countRoomSize%>" class="form-check-label"><%=roomSize%></label>
 							</div>
 							<%
@@ -83,7 +83,7 @@
 							<div class="checkbox form-check ms-3">
 								<input type="checkbox" class="form-check-input"
 									id="amenities<%=countAmenitie%>" name="amenities[]"
-									value="Wi-Fi" /> <label class="form-check-label"
+									value="<%=countAmenitie %>" /> <label class="form-check-label"
 									for="amenities<%=countAmenitie%>"><%=amenitie.getKey()%>
 									($<%=amenitie.getValue()%>)</label>
 							</div>
@@ -109,9 +109,11 @@
 								<select class="form-select" id="guest" name="guest">
 									<option selected value="0">Select Number of Guest</option>
 									<%
+									int countGuest = 0;
 									for (Map.Entry<Integer, Double> guest : hotelOptions.getGuests().entrySet()) {
+										countGuest++;
 									%>
-									<option value="<%=guest.getKey()%>"><%=guest.getKey()%>
+									<option value="<%=countGuest%>"><%=guest.getKey()%>
 										Guest ($<%=guest.getValue()%> per night)
 									</option>
 									<%
