@@ -3,6 +3,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="beans.Reservation" %>
+<%@page import="" %>
 
 <jsp:useBean id="hotelOptions" scope="application" class="beans.HotelOptions"/>
 
@@ -20,9 +22,14 @@
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
 
+<%
+try {
+	Reservation reservation = (Reservation)request.getAttribute("pendingReservation");
+%>
+
 <div>
 	<h1>Confirm Reservation</h1>
-	<p>Room Size: <%=request.getAttribute("roomSize") %></p>
+	<p>Room Size: <%=reservation.getRoomSizeID() %></p>
 	<%
 	String[] amenities = (String[])request.getAttribute("amenities[]");
 	
@@ -32,10 +39,18 @@
 		<%
 	}
 	%>
-	<p>Guest Count: <%=request.getAttribute("guestCount") %></p>
-	<p>Check In: <%=request.getAttribute("checkIn") %></p>
-	<p>Check Out: <%=request.getAttribute("checkOut") %></p>
+	<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
+	<p>Check In: <%=reservation.getCheckIn() %></p>
+	<p>Check Out: <%=reservation.getCheckOut() %></p>
+	<p>Per Pay Rate: <%=request.getAttribute("perPayRate[]") %></p>
+	<p>Flat Pay Rate: <%=request.getAttribute("flatPayRate[]") %>
 </div>
+<%
+}
+catch (Exception e){
+	e.printStackTrace();
+}
+%>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
 <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>

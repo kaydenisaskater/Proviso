@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 import beans.User;
+import beans.Reservation;
 import model.JdbcUserDao;
+
 
 /**
  * Servlet implementation class ProvisoServlet
@@ -269,11 +271,19 @@ public class ProvisoServlet extends HttpServlet {
 	}
 	
 	private void confirmReservation(HttpServletRequest request, HttpServletResponse response) {
+		Reservation reservation = new Reservation();
+		
+		String[] perPayRates = request.getParameterValues("per[]");
+		String[] flatPayRates = request.getParameterValues("flat[]");
+		
 		String roomSize = request.getParameter("roomSize");
 		String[] amenities = request.getParameterValues("amenities[]");
 		String guestCount = request.getParameter("guest");
 		String checkIn = request.getParameter("check-in");
 		String checkOut = request.getParameter("check-out");
+		Double total = null;
+		
+		
 		
 		System.out.println("Room Size: " + roomSize);
 		
@@ -284,13 +294,20 @@ public class ProvisoServlet extends HttpServlet {
 		System.out.println(
 				"Guest Count: " + guestCount +
 				"\nCheck In Date: " + checkIn + 
-				"\nCheck Out Date: " + checkOut);
+				"\nCheck Out Date: " + checkOut +
+				"\nPer Pay Rates: " + perPayRates +
+				"\nFlat Pay Rates: " + flatPayRates);
 		
-		request.setAttribute("roomSize", roomSize);
-		request.setAttribute("amenities[]", amenities);
-		request.setAttribute("guestCount", guestCount);
-		request.setAttribute("checkIn", checkIn);
-		request.setAttribute("checkOut", checkOut);
+		reservation.setRoomSizeID(Long.parseLong(roomSize));
+		reservation.setGuestOptionID(Long.parseLong(guestCount));
+		reservation.setCheckIn(checkIn);
+		reservation.setCheckOut(checkOut);
+		
+		request.setAttribute("perPayRate[]", perPayRates);
+		request.setAttribute("flatPayRates[]", flatPayRates);
+		
+		request.setAttribute("pendingReservation", reservation);
+
 		
 	}
 	
