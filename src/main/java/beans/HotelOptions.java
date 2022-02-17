@@ -1,15 +1,14 @@
 package beans;
 
 import java.util.ArrayList;
-
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class HotelOptions {
 	
 	private ArrayList<String> roomSizes = new ArrayList<String>();
-	private Map<String, Double> amenities = new HashMap<String, Double>();
-	private Map<Integer, Double> guests = new HashMap<Integer, Double>();
+	private Map<String, Double> amenities = new LinkedHashMap<String, Double>();
+	private Map<Integer, Double> guests = new LinkedHashMap<Integer, Double>();
 	private int loyaltyPoints;
 	
 	
