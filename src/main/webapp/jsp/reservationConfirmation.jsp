@@ -42,8 +42,26 @@ try {
 	<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
 	<p>Check In: <%=reservation.getCheckIn() %></p>
 	<p>Check Out: <%=reservation.getCheckOut() %></p>
-	<p>Per Pay Rate: <%=request.getAttribute("perPayRate[]") %></p>
-	<p>Flat Pay Rate: <%=request.getAttribute("flatPayRate[]") %>
+	
+	<%
+	String[] perPayRate = (String[])request.getAttribute("perPayRate[]");
+	
+	for (int i = 0; i < perPayRate.length; i++){
+		%>
+		<p>Amenity: <%=perPayRate[i].toString() %></p>
+		<%
+	}
+	%>
+	<%
+	String[] flatPayRate = (String[])request.getAttribute("flatPayRate[]");
+	
+	for (int i = 0; i < flatPayRate.length; i++){
+		%>
+		<p>Amenity: <%=flatPayRate[i].toString() %></p>
+		<%
+	}
+	%>
+	<p>Flat Pay Rate: <%=request.getAttribute("flatPayRate[]") %></p>
 </div>
 <%
 }
