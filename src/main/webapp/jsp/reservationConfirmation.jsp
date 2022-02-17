@@ -6,8 +6,12 @@
 <%@page import="java.util.Iterator" %>
 <%@page import="beans.Reservation" %>
 <%@page import="beans.Amenity" %>
+<%@page import="beans.RoomSize" %>
+<%@page import="beans.GuestOption" %>
 
 <jsp:useBean id="hotelOptions" scope="application" class="beans.HotelOptions"/>
+<jsp:useBean id="roomSizeDao" scope="application" class="model.JdbcRoomSizeDao"/>
+<jsp:useBean id="guestOptionDao" scope="application" class="model.JdbcGuestOptionDao"/>
 
 <!DOCTYPE html>
 <html>
@@ -26,6 +30,12 @@
 <%
 try {
 	Reservation reservation = (Reservation)session.getAttribute("pendingReservation");
+	
+	RoomSize roomSize = roomSizeDao.find(reservation.getRoomSizeID());
+	String room = roomSize.getRoomSizeDescription();
+	
+	GuestOption guestOption = guestOptionDao.find(reservation.getGuestOptionID());
+	int guests = guestOption.getGuestCount();
 %>
 
 <section>
@@ -33,9 +43,9 @@ try {
 	<div class="container d-flex justify-content-center text-center vh-75 py-5">
 		<div class="shadow-lg rounded">
 		<h1 class="p-3">Confirm Reservation</h1>
-		<p>Room Size: <%=reservation.getRoomSizeID() %></p>
+		<p>Room Size: <%= room %></p>
 		
-		<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
+		<p>Guest Count: <%= guests %></p>
 		<p>Check In: <%=reservation.getCheckIn() %></p>
 		<p>Check Out: <%=reservation.getCheckOut() %></p>
 		<h2>Amenities:</h2>
