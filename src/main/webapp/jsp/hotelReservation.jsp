@@ -56,7 +56,7 @@
 							<div class="radioButton form-check ms-3">
 								<input type="radio" class="form-check-input"
 									id="roomSize<%=countRoomSize%>" name="roomSize"
-									value="<%=countRoomSize%>" /> <label
+									value="<%=roomSize%>" /> <label
 									for="roomSize<%=countRoomSize%>" class="form-check-label"><%=roomSize%></label>
 							</div>
 							<%
@@ -83,7 +83,7 @@
 							<div class="checkbox form-check ms-3">
 								<input type="checkbox" class="form-check-input"
 									id="amenities<%=countAmenitie%>" name="amenities[]"
-									value="<%=amenitie.getKey() %>" /> <label class="form-check-label"
+									value="Wi-Fi" /> <label class="form-check-label"
 									for="amenities<%=countAmenitie%>"><%=amenitie.getKey()%>
 									($<%=amenitie.getValue()%>)</label>
 							</div>
@@ -109,11 +109,9 @@
 								<select class="form-select" id="guest" name="guest">
 									<option selected value="0">Select Number of Guest</option>
 									<%
-									int countGuest = 0;
 									for (Map.Entry<Integer, Double> guest : hotelOptions.getGuests().entrySet()) {
-										countGuest++;
 									%>
-									<option value="<%=countGuest%>"><%=guest.getKey()%>
+									<option value="<%=guest.getKey()%>"><%=guest.getKey()%>
 										Guest ($<%=guest.getValue()%> per night)
 									</option>
 									<%
@@ -158,6 +156,7 @@
 						</div>
 
 					</div>
+				
 
 					<%--Submit --%>
 					<div class="row m-3 p-3">
@@ -174,6 +173,7 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
+	
 </body>
 
 </body>

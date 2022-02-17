@@ -126,7 +126,7 @@ public class Reservation
 	
 	public long calculateLoyaltyPoints()
 	{
-		this.noOfDaysBetween = ChronoUnit.DAYS.between(LocalDate.parse(this.checkIn.toString()), LocalDate.parse(this.checkOut.toString())) - 1;
+		this.noOfDaysBetween = ChronoUnit.DAYS.between(LocalDate.parse(this.checkIn.toString()), LocalDate.parse(this.checkOut.toString()));
 		this.loyaltyPoints = 150 * this.noOfDaysBetween;
 		return this.loyaltyPoints;
 	}
