@@ -28,30 +28,45 @@ try {
 	Reservation reservation = (Reservation)request.getAttribute("pendingReservation");
 %>
 
-<div>
-	<h1>Confirm Reservation</h1>
-	<p>Room Size: <%=reservation.getRoomSizeID() %></p>
+<section>
 	
-	<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
-	<p>Check In: <%=reservation.getCheckIn() %></p>
-	<p>Check Out: <%=reservation.getCheckOut() %></p>
-	<h2>Amenities:</h2>
-	<%
-	ArrayList<Amenity> amenities = reservation.getAmenities();
-	Iterator<Amenity> amenityIterator = amenities.iterator();
-	while(amenityIterator.hasNext())
-	{
-		Amenity amenity = (Amenity)amenityIterator.next();
-		%>
-		<p>ID: <%=amenity.getAmenityID() %>
-		<br>Description: <%=amenity.getAmenityDescription() %>
-		<br>Price: $<%=amenity.getPrice() %>
-		</p>
+	<div class="container d-flex justify-content-center text-center vh-75 py-5">
+		<div class="shadow-lg rounded">
+		<h1 class="p-3">Confirm Reservation</h1>
+		<p>Room Size: <%=reservation.getRoomSizeID() %></p>
+		
+		<p>Guest Count: <%=reservation.getGuestOptionID() %></p>
+		<p>Check In: <%=reservation.getCheckIn() %></p>
+		<p>Check Out: <%=reservation.getCheckOut() %></p>
+		<h2>Amenities:</h2>
 		<%
-	}
-	%>
-	<h2>Total Price: $<%=reservation.getTotalPrice() %></h2>
-</div>
+		ArrayList<Amenity> amenities = reservation.getAmenities();
+		Iterator<Amenity> amenityIterator = amenities.iterator();
+		while(amenityIterator.hasNext())
+		{
+			Amenity amenity = (Amenity)amenityIterator.next();
+			%>
+			<p>ID: <%=amenity.getAmenityID() %>
+			<br>Description: <%=amenity.getAmenityDescription() %>
+			<br>Price: $<%=amenity.getPrice() %>
+			</p>
+			<%
+		}
+		%>
+		<h2 class="mb-5">Total Price: $<%=reservation.getTotalPrice() %></h2>
+		
+		<div class="row mx-3 my-5">
+				<button id="btnConfirm" type="submit" class="btn btn-primary">Confirm</button>
+		</div>
+		</div>
+		
+		
+
+	</div>
+
+</section>
+
+
 <%
 }
 catch (Exception e){
