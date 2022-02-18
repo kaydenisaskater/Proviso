@@ -22,7 +22,7 @@
 		</p>
 		
 			<!-- SOCIAL ICONS -->
-			<p class="px-5 d-inline ms-5 ">
+			<p class="px-5 d-inline ">
 				<i class="bi bi-facebook me-3" style="font-size: 1.5rem"></i>
 				<i class="bi bi-instagram me-3" style="font-size: 1.5rem"></i>
 				<i class="bi bi-linkedin me-3" style="font-size: 1.5rem"></i>
