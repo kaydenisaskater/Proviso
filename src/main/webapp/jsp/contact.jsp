@@ -18,6 +18,8 @@
     integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" 
     crossorigin="anonymous">
     
+<link rel="stylesheet" type="text/css" href="style.css">
+    
     
 </head>
     
@@ -27,11 +29,11 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<section class="p-5 text-left text-dark bg-white" >
+		<!-- <section class="p-5 text-left text-dark bg-white" >
 			<div class="container">
 				<div class="d-sm-flex align-items-bottom ">
 					
-					<!-- CONTACT CARD -->
+					CONTACT CARD
 					<div class="shadow-lg mt-5 mb-5 bg-white rounded w-75">
 						<h1 class="ms-3 mb-5 fw-light pt-4 text-lg">Contact <span class="text-primary">Us</span></h1>
 						<i class="ms-3 bi bi-telephone-forward-fill text-lg text-primary pt-5"> Phone</i>
@@ -50,13 +52,45 @@
 						
 						
 					</div>
-						<!-- SVG IMG -->
+						SVG IMG
 						<img alt="" src="/Proviso/images/proviso-contact.svg" class="img-fluid w-50 ms-5 pt-5"/>
 					
 					
 				</div>
 			</div>
+		</section> -->
+		
+		<section class="contact-form-bg">
+			<div class="container py-5 d-flex justify-content-center">
+				<div class="form-box w-50 p-5 bg-white shadow-lg rounded">
+					  <h1 class="text-center">Reach Out To Us</h1>
+					  <p class="text-muted text-center">We would lover to hear from you</p>
+						  <form action="https://formbucket.com/f/buk_tw2ELQd1Ws7Uw9kw2aHHdnc9" method="post">
+							    <div class="form-group py-2">
+							      <label for="name">Name</label>
+							      <input class="form-control" id="name" type="text" name="Name">
+							    </div>
+							    
+							    <div class="form-group py-2">
+							      <label for="email">Email</label>
+							      <input class="form-control" id="email" type="email" name="Email">
+							    </div>
+							    
+							    <div class="form-group py-2">
+							      <label for="message">Message</label>
+							      <textarea class="form-control" id="message" name="Message"></textarea>
+							    </div>
+							    
+							    <div class="text-center py-4">
+							    	<input class="btn btn-primary" type="submit" value="Submit" />
+							    </div>
+							    
+							    </div>
+						  </form>
+				</div>
+			</div>
 		</section>
+		
 
 
 <!-- INCLUDES FOOTER WITH JSP -->
