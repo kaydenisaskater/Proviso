@@ -64,7 +64,7 @@
 			<div class="container py-5 d-flex justify-content-center">
 				<div class="form-box w-50 p-5 bg-white shadow-lg rounded">
 					  <h1 class="text-center">Reach Out To Us</h1>
-					  <p class="text-muted text-center">We would lover to hear from you</p>
+					  <p class="text-muted text-center">We would love to hear from you</p>
 						  <form action="https://formbucket.com/f/buk_tw2ELQd1Ws7Uw9kw2aHHdnc9" method="post">
 							    <div class="form-group py-2">
 							      <label for="name">Name</label>
