@@ -4,6 +4,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
@@ -155,8 +157,9 @@
 							</div>
 
 							<div class="date ms-3">
+								<% LocalDate date = LocalDate.now();%>
 								<input type="date" class="form-control" id="chek-in"
-									name="check-in" />
+									name="check-in" min=<%=date %> onchange="dateChange();"/>
 							</div>
 						</div>
 
@@ -166,10 +169,11 @@
 							<div class="label">
 								<label for="check-out" class="form-label fs-5">Check-out:</label>
 							</div>
-
+							
+							
 							<div class="date ms-3">
 								<input type="date" class="form-control" id="chek-out"
-									name="check-out" />
+									name="check-out"/>
 							</div>
 						</div>
 
@@ -185,6 +189,15 @@
 		</div>
 	</div>
 
+<%--Check-in and Check-out validation --%>
+<script type="text/javascript">
+function dateChange() {
+var dateSelected = document.getElementById("chek-in");
+var minCheckout = document.getElementById("chek-out");
+minCheckout.min = dateSelected.value;
+}
+							
+</script>
 	<%--bootstrap JavaScript --%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
