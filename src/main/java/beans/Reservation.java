@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
-import java.time.Month;
 
 public class Reservation 
 {
@@ -18,6 +17,8 @@ public class Reservation
 	private long guestOptionID;
 	private long userID;
 	private ArrayList<Amenity> amenities = new ArrayList<Amenity>();
+	private GuestOption guestOption;
+	private RoomSize roomSize;
 	private long noOfDaysBetween;
 	
 	public Reservation(long reservationID, String checkIn, String checkOut, double totalPrice, long loyaltyPoints,
@@ -30,6 +31,17 @@ public class Reservation
 		this.roomSizeID = roomSizeID;
 		this.guestOptionID = guestOptionID;
 		this.userID = userID;
+		this.setDaysBetween();
+	}
+	
+	public Reservation(long reservationID, String checkIn, String checkOut, double totalPrice, long loyaltyPoints, long userID) {
+		this.reservationID = reservationID;
+		this.checkIn = Date.valueOf(checkIn);
+		this.checkOut = Date.valueOf(checkOut);
+		this.totalPrice = totalPrice;
+		this.loyaltyPoints = loyaltyPoints;
+		this.userID = userID;
+		this.setDaysBetween();
 	}
 	
 	public Reservation() {}
@@ -124,15 +136,48 @@ public class Reservation
 		this.amenities.add(amenity);
 	}
 	
-	public long calculateLoyaltyPoints()
+	public GuestOption getGuestOption()
+	{
+		return guestOption;
+	}
+	
+	public void setGuestOption(GuestOption guestOption)
+	{
+		this.guestOption = guestOption;
+		this.guestOptionID = this.guestOption.getGuestOptionID();
+	}
+	
+	public RoomSize getRoomSize()
+	{
+		return roomSize;
+	}
+	
+	public void setRoomSize(RoomSize roomSize)
+	{
+		this.roomSize = roomSize;
+		this.roomSizeID = this.roomSize.getRoomSizeID();
+	}
+	
+	public long getDaysBetween()
+	{
+		return this.noOfDaysBetween;	
+	}
+	
+	public void setDaysBetween()
 	{
 		this.noOfDaysBetween = ChronoUnit.DAYS.between(LocalDate.parse(this.checkIn.toString()), LocalDate.parse(this.checkOut.toString()));
+	}
+	
+	public long calculateLoyaltyPoints()
+	{
+		this.setDaysBetween();
 		this.loyaltyPoints = 150 * this.noOfDaysBetween;
 		return this.loyaltyPoints;
 	}
 	
-	public double calculateTotalPrice(GuestOption guestOption)
+	public double calculateTotalPrice()
 	{
+		this.setDaysBetween();
 		Iterator<Amenity> iterator = amenities.iterator();
 		while(iterator.hasNext())
 		{
@@ -146,7 +191,7 @@ public class Reservation
 				this.totalPrice += this.noOfDaysBetween * amenity.getPrice();
 			}
 		}
-		this.totalPrice += this.noOfDaysBetween * (guestOption.getPrice());
+		this.totalPrice += this.noOfDaysBetween * (this.guestOption.getPrice());
 		return this.totalPrice;
 	}
 

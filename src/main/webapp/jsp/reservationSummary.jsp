@@ -3,9 +3,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Iterator" %>
-<%@page import="beans.Reservation"%>    
+<%@page import="java.util.List" %>
+<%@page import="java.util.Iterator" %>
+<%@page import="beans.User"%>
+<%@page import="beans.Reservation"%>
+<%@page import="beans.Amenity"%>
+
+<jsp:useBean id="reservationDao" scope="application" class="model.JdbcReservationDao" />
+
         
 <!DOCTYPE html>
 <html>
@@ -21,19 +26,32 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
-<% User user = (User)session.getAttribute("user"); %>
+<% //User user = (User)session.getAttribute("user"); %>
   
-  <jsp:useBean id=“reservationDao” scope=“application” class=“model.JdbcReservationDao”/>;
+  
  
 
-<%
-	    long userId = user.getUserID();
+		<%
+	    long userId = 1;
         
-        List<Reservation> reservations = reservationDao.list(userId);
-        Iterator<Reservation> i = reservations.iterator();
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>(reservationDao.listAggregatedReservation(userId));
         
-        while (i.hasNext()){
-        Reservation reservation = i.next();
+        Iterator<Reservation> reservationIterator = reservations.iterator();
+        
+        while (reservationIterator.hasNext())
+        {
+        	Reservation reservation = (Reservation)reservationIterator.next();
+        	reservation.toString();
+        	reservation.getGuestOption().toString();
+        	reservation.getRoomSize().toString();
+        	List<Amenity> amenities = reservation.getAmenities();
+        	Iterator<Amenity> amenityIterator = amenities.iterator();
+        	while (amenityIterator.hasNext())
+        	{
+        		Amenity amenity = (Amenity)amenityIterator.next();
+        		amenity.toString();
+        	}
+        }
         %>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>

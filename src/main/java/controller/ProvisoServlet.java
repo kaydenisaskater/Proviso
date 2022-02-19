@@ -16,7 +16,9 @@ import beans.Amenity;
 import beans.GuestOption;
 import beans.Inclusion;
 import beans.Reservation;
+import beans.RoomSize;
 import model.JdbcReservationDao;
+import model.JdbcRoomSizeDao;
 import model.JdbcAmenityDao;
 import model.JdbcGuestOptionDao;
 import model.JdbcInclusionDao;
@@ -285,11 +287,12 @@ public class ProvisoServlet extends HttpServlet {
 		Reservation reservation = new Reservation();
 		JdbcAmenityDao amenityDao = new JdbcAmenityDao();
 		JdbcGuestOptionDao guestOptionDao = new JdbcGuestOptionDao();
+		JdbcRoomSizeDao roomSizeDao = new JdbcRoomSizeDao();
 		
 		String[] perPayRates = request.getParameterValues("per[]");
 		String[] flatPayRates = request.getParameterValues("flat[]");
 		
-		String roomSize = request.getParameter("roomSize");
+		String roomID = request.getParameter("roomSize");
 		//String[] amenities = request.getParameterValues("amenities[]");
 		String guestCount = request.getParameter("guest");
 		String checkIn = request.getParameter("check-in");
@@ -298,7 +301,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 		
 		
-		System.out.println("Room Size: " + roomSize);
+		System.out.println("Room Size: " + roomID);
 		System.out.println(
 				"Guest Count: " + guestCount +
 				"\nCheck In Date: " + checkIn + 
@@ -324,7 +327,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 		
 		
-		reservation.setRoomSizeID(Long.parseLong(roomSize));
+		reservation.setRoomSizeID(Long.parseLong(roomID));
 		reservation.setGuestOptionID(Long.parseLong(guestCount));
 		reservation.setCheckIn(checkIn);
 		reservation.setCheckOut(checkOut);
@@ -332,12 +335,13 @@ public class ProvisoServlet extends HttpServlet {
 		reservation.calculateLoyaltyPoints();
 		System.out.println("Loyalty Points: " + reservation.getLoyaltyPoints());
 		
-		GuestOption guestOption = guestOptionDao.find(Long.parseLong(guestCount));
-		reservation.calculateTotalPrice(guestOption);
-		System.out.println("Total Price: " + reservation.getTotalPrice());
+		RoomSize roomSize = roomSizeDao.find(Long.parseLong(roomID));
+		reservation.setRoomSize(roomSize);
 		
-		request.setAttribute("perPayRate[]", perPayRates);
-		request.setAttribute("flatPayRates[]", flatPayRates);
+		GuestOption guestOption = guestOptionDao.find(Long.parseLong(guestCount));
+		reservation.setGuestOption(guestOption);
+		reservation.calculateTotalPrice();
+		System.out.println("Total Price: " + reservation.getTotalPrice());
 		
 		session.setAttribute("pendingReservation", reservation);
 		
