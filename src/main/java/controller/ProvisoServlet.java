@@ -66,6 +66,7 @@ public class ProvisoServlet extends HttpServlet {
 		session.setAttribute("successfulLogout", null);
 		session.setAttribute("errorUpdatingUser", null);
 		session.setAttribute("successfulUserUpdate", null);
+		session.setAttribute("successfulReservation", null);
 		
 		if (action != null) 
 		{
@@ -121,7 +122,7 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				case "placeReservation":
 					placeReservation(request, response, session);
-					url = base + "reservationSummary.jsp";
+					url = base + "index.jsp";
 					break;
 				case "editReservation":
 					url = base + "hotelReservationImproved.jsp";
@@ -383,6 +384,7 @@ public class ProvisoServlet extends HttpServlet {
 		}
 		
 		session.removeAttribute("pendingReservation");
+		session.setAttribute("successfulReservation", "Reservation has successfully been placed.");
 		
 	}
 }

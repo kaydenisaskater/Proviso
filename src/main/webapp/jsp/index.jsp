@@ -34,6 +34,7 @@
 	
 	String successfulLogin = (String)request.getSession().getAttribute("successfulLogin");
 	String successfulLogout = (String)request.getSession().getAttribute("successfulLogout");
+	String successfulReservation = (String)request.getSession().getAttribute("successfulReservation");
 	if (successfulLogin != null){
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogin %></div>
@@ -42,7 +43,11 @@
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogout %></div>
 	<%
-	} 
+	} else if(successfulReservation != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulReservation %></div>
+	<%
+	}
 	%>
 	
 		<section class="text-left d-flex align-items-start text-light bg-white vh-75" >
