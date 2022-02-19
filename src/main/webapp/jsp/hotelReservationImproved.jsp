@@ -5,7 +5,6 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.time.LocalDate"%>
-<%@page import="java.time.format.DateTimeFormatter"%>
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
@@ -23,6 +22,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Hotel Reservation</title>
+
+<style type="text/css">
+
+.alertMessage{
+display:none;
+}
+
+</style>
 
 <%--Bootstrap CSS --%>
 <link
@@ -45,7 +52,7 @@
 		<div class="hotelReservation mx-auto col-lg-6 shadow-lg bg-body ">
 			<h1 class="text-center text-dark p-3">Hotel Reservation</h1>
 
-			<form action="/Proviso/ProvisoServlet?action=confirmation" method="post">
+			<form action="/Proviso/ProvisoServlet?action=confirmation" method="post" id="reservationForm">
 				<input type="hidden" name="action" value="confirmation" />
 
 				<%--Main grid for the form --%>
@@ -69,7 +76,7 @@
 							%>
 							<%--Double Full --%>
 							<div class="radioButton form-check ms-3">
-								<input type="radio" class="form-check-input"
+								<input type="radio" class="form-check-input roomSize"
 									id="roomSize<%=roomSize.getRoomSizeID()%>" name="roomSize"
 									value="<%=roomSize.getRoomSizeID()%>" /> <label
 									for="roomSize<%=roomSize.getRoomSizeID()%>" class="form-check-label"><%=roomSize.getRoomSizeDescription()%></label>
@@ -78,6 +85,7 @@
 							} //closing room size loop
 							%>
 						</div>
+							<div class="alert alert-danger mt-5 alertMessage" id="errorRoomSizeMessage" role="alert"></div>
 					</div>
 
 					<%--Amenities --------------------------------------------------------------------------------------------------------------------------------------------%>
@@ -139,8 +147,8 @@
 									<% } %>
 								</select>
 							</div>
-
 						</div>
+							<div class="alert alert-danger mt-5 alertMessage" id="errorGuestMessage" role="alert"></div>
 					</div>
 
 					<%--Check-in and Check-out date --------------------------------------------------------------------------------------------------------------------------------------------%>
@@ -176,6 +184,8 @@
 									name="check-out"/>
 							</div>
 						</div>
+						<div class="alert alert-danger mt-5 alertMessage" id="errorCheckinMessage" role="alert"></div>
+						<div class="alert alert-danger mt-5 alertMessage" id="errorCheckoutMessage" role="alert"></div>
 
 					</div>
 
@@ -189,12 +199,80 @@
 		</div>
 	</div>
 
-<%--Check-in and Check-out validation --%>
+<%--validation --%>
 <script type="text/javascript">
+
+//check-in and check-out
+var checkin = document.getElementById("chek-in");
+var checkout = document.getElementById("chek-out");
+
 function dateChange() {
-var dateSelected = document.getElementById("chek-in");
-var minCheckout = document.getElementById("chek-out");
-minCheckout.min = dateSelected.value;
+	checkout.min = checkin.value;
+}
+
+//Validation for empty inputs
+var reservationForm = document.getElementById("reservationForm");
+reservationForm.onsubmit = function() {
+	var roomSize = document.getElementsByName("roomSize");
+	var guest = document.getElementById("guest");
+	
+	var guestErrorMessage = document.getElementById("errorGuestMessage"); 
+	var roomsizeErrorMessage = document.getElementById("errorRoomSizeMessage");
+	var checkinErrorMessage = document.getElementById("errorCheckinMessage"); 
+	var checkoutErrorMessage = document.getElementById("errorCheckoutMessage");
+	
+	var roomSizeCheck = false;
+	var roomSizeLength = roomSize.length;
+	for(var i =0; i < roomSizeLength; i++){
+		if(roomSize[i].checked){
+			roomSizeCheck = true;
+		}
+	}
+	
+	hideAlertBox(guestErrorMessage, '');
+	hideAlertBox(roomsizeErrorMessage, '');
+	hideAlertBox(checkinErrorMessage, '');
+	hideAlertBox(checkoutErrorMessage, '');
+
+	//guest
+	if (guest.value === '0') {	
+		showAlertBox(guestErrorMessage, 'Invalid guest selected');
+		return false;
+	
+	//Room Size
+	}else if(!roomSizeCheck){
+		showAlertBox(roomsizeErrorMessage, 'Invalid Room Size selected');
+		return false;
+	
+	//Check in	
+	}else if(checkin.value===''){
+		showAlertBox(checkinErrorMessage, 'Invalid Check-in');
+		return false;
+	
+	//Check out	
+	}else if(checkout.value===''){
+		
+		showAlertBox(checkoutErrorMessage, 'Invalid Check-out');
+		return false;
+	
+	//submit
+	}else {
+		reservationForm.submit(); 
+	}
+	
+	
+	
+	
+	
+	function hideAlertBox(div, msg) {
+		div.style.display = 'none';
+		div.innerHTML = msg;
+	}
+	
+	function showAlertBox(div, msg) {
+		div.style.display = 'block';
+		div.innerHTML = msg;
+	}
 }
 							
 </script>
