@@ -91,7 +91,7 @@
 		<section class="pt-1 text-left align-items-center bg-white">
 			<div class="container mt-2 mb-5">
 				<i class="texr-center bi bi-arrow-bar-down" style="font-size: 5rem; color: cornflowerblue;"></i>
-				<h1 class="mb-5">Popular Places To Stay</h1>
+				<h1 class="mb-5 text-left">Popular Places To Stay</h1>
 				<h3 class="text-muted mb-3">The US</h3>
 				<div class="row">
 					<div class="col-4">
