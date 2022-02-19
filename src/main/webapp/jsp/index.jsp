@@ -87,45 +87,6 @@
 			</div>
 		</section>
 		
-		<section class="bg-primary text-light p-3">
-			<div class="container">
-				<div class="d-md-flex justify-content-between align-items-center">
-					<h3 class="mb-3 mb-md-0">Sign Up To Earn More Points</h3>
-					<div class="input-group points-email">
-							
-						<input type="email" class="form-control" name="fname" placeholder="Enter Email">
-						
-						
-						<!-- Button trigger modal -->
-						
-						<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					    Submit
-						</button>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-					    <div class="modal-content">
-						      <div class="modal-header bg-primary">
-						        <h5 class="modal-title" id="exampleModalLabel">Great News!</h5>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						      <div class="modal-body text-dark">
-						        You are now signed up to receive special offers and earn double points on your first stay.
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>				        
-						      </div>
-					    </div>
-				  </div>
-			</div>
-			
-		</section>
-		
 		
 		<section class="pt-1 text-left align-items-center bg-white">
 			<div class="container mt-2 mb-5">
