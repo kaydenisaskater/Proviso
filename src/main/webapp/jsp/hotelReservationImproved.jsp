@@ -206,8 +206,12 @@ display:none;
 var checkin = document.getElementById("chek-in");
 var checkout = document.getElementById("chek-out");
 
+//Method takes in the current date and adds the minimum date to the checkout by one extra day
 function dateChange() {
-	checkout.min = checkin.value;
+	var date = new Date(checkin.value);
+	date.setDate(date.getDate()+1);
+	var d = date.toISOString().substring(0,10);
+	checkout.min = d;
 }
 
 //Validation for empty inputs
