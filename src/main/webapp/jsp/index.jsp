@@ -34,6 +34,7 @@
 	
 	String successfulLogin = (String)request.getSession().getAttribute("successfulLogin");
 	String successfulLogout = (String)request.getSession().getAttribute("successfulLogout");
+	String successfulReservation = (String)request.getSession().getAttribute("successfulReservation");
 	if (successfulLogin != null){
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogin %></div>
@@ -42,7 +43,11 @@
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogout %></div>
 	<%
-	} 
+	} else if(successfulReservation != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulReservation %></div>
+	<%
+	}
 	%>
 	
 		<section class="text-left d-flex align-items-start text-light bg-white vh-75" >
@@ -91,7 +96,7 @@
 		<section class="pt-1 text-left align-items-center bg-white">
 			<div class="container mt-2 mb-5">
 				<i class="texr-center bi bi-arrow-bar-down" style="font-size: 5rem; color: cornflowerblue;"></i>
-				<h1 class="mb-5">Popular Places To Stay</h1>
+				<h1 class="mb-5 text-left">Popular Places To Stay</h1>
 				<h3 class="text-muted mb-3">The US</h3>
 				<div class="row">
 					<div class="col-4">
