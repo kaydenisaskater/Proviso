@@ -11,7 +11,7 @@ import beans.User;
 
 public class JdbcUserDao implements UserDao
 {
-JdbcManager db = null;  
+	JdbcManager db = null;  
 	
 	public JdbcUserDao() 
 	{

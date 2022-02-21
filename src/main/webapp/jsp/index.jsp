@@ -29,8 +29,12 @@
 	
 	<main>
 	<%
+	User user = (User)session.getAttribute("user");
+	
+	
 	String successfulLogin = (String)request.getSession().getAttribute("successfulLogin");
 	String successfulLogout = (String)request.getSession().getAttribute("successfulLogout");
+	String successfulReservation = (String)request.getSession().getAttribute("successfulReservation");
 	if (successfulLogin != null){
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogin %></div>
@@ -39,10 +43,14 @@
 	%>
 	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulLogout %></div>
 	<%
-	} 
+	} else if(successfulReservation != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulReservation %></div>
+	<%
+	}
 	%>
 	
-		<section class="text-left d-flex align-items-start text-light bg-light vh-75" >
+		<section class="text-left d-flex align-items-start text-light bg-white vh-75" >
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 					<div class="shadow-lg p-3 mb-5 bg-body ms-5 mt-5 rounded vw-75">
@@ -54,9 +62,7 @@
 						on your next stay.
 						</p>
 						<div class="text-center">
-
-							<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary my-2">Let's Travel</a>
-
+							<a href="<% if (user != null) { %>/Proviso/ProvisoServlet?action=reservation <% } else {%> /Proviso/ProvisoServlet?action=viewLogin <%} %>" class="btn btn-primary my-2">Let's Travel</a>
 						</div>	
 					</div>
 					<img alt="" src="/Proviso/images/proviso-home.svg" class="img-fluid ms-3 w-50 ms-3 ps-5 pt-1"/>
@@ -65,7 +71,7 @@
 		</section>
 		
 		<section class="text-left d-flex align-items-center text-light bg-light vh-75" >
-			<div class="container mt-5 mx-0">
+			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-3 w-50 ps-1 pt-5"/>
 					<div class="shadow-lg bg-body p-3 mb-5 ms-5 mt-5 rounded vw-75">
@@ -87,10 +93,10 @@
 		</section>
 		
 		
-		<section class="pt-5 text-left align-items-center bg-white">
-			<div class="container mt-5 mb-5">
+		<section class="pt-1 text-left align-items-center bg-white">
+			<div class="container mt-2 mb-5">
 				<i class="texr-center bi bi-arrow-bar-down" style="font-size: 5rem; color: cornflowerblue;"></i>
-				<h1 class="mb-5">Popular Places To Stay</h1>
+				<h1 class="mb-5 text-left">Popular Places To Stay</h1>
 				<h3 class="text-muted mb-3">The US</h3>
 				<div class="row">
 					<div class="col-4">
@@ -223,44 +229,64 @@
 			</div>
 		</section>
 		
-		<section class="bg-primary text-light p-3">
-			<div class="container">
-				<div class="d-md-flex justify-content-between align-items-center">
-					<h3 class="mb-3 mb-md-0">Sign Up To Earn More Points</h3>
-					<div class="input-group points-email">
-							
-						<input type="text" class="form-control" name="fname" placeholder="Enter Email">
-						
-						
-						<!-- Button trigger modal -->
-						
-						<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					    Submit
-						</button>
-					</div>
-				</div>
-			</div>
+		
+		
+		<section class="text-dark bg-light">
 			
+			<div class="container bg-light d-flex justify-content-center align-items-center">
 			
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-					    <div class="modal-content">
-						      <div class="modal-header bg-primary">
-						        <h5 class="modal-title" id="exampleModalLabel">Great News!</h5>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						      <div class="modal-body text-dark">
-						        You are now signed up to receive special offers and earn double points on your first stay.
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>				        
-						      </div>
+				<div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded vh-50 w-50 my-5" data-bs-ride="carousel">
+			  <div class="carousel-indicators">
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			  </div>
+				  <div class="carousel-inner">
+					    <div class="carousel-item active">
+					      	<img src="/Proviso/images/proviso-coffee-shop.jpeg" class="d-block w-100 vh-50" alt="...">
+					      	
+					      	<div class="carousel-caption d-none d-md-block">
+						        <h5>Coffee Shops</h5>
+						        <p>Check out local coffee shops.</p>
+						     </div>
+					      	
 					    </div>
-				  </div>
+					    <div class="carousel-item">
+					     	 <img src="/Proviso/images/proviso-cherry-blossoms.jpeg" class="d-block w-100 vh-50" alt="...">
+					     	 
+					     	 <div class="carousel-caption d-none d-md-block">
+						        <h5>Landmarks</h5>
+						        <p>See some of the worlds most famous landmarks.</p>
+						     </div>
+					     	 
+					    </div>
+					    <div class="carousel-item">
+					      	<img src="/Proviso/images/proviso-theme-park.jpeg" class="d-block w-100 vh-50" alt="...">
+					      	
+					      	<div class="carousel-caption d-none d-md-block">
+						        <h5>Theme Parks</h5>
+						        <p>Add a little extra adventure to your trip.</p>
+						     </div>
+					      	
+					   </div>
+				 </div>
+					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Previous</span>
+					  </button>
+					  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="visually-hidden">Next</span>
+					  </button>
 			</div>
 			
+			</div>
 		</section>
+		
+		
+		
+		
+		
 		
 	</main>
 	<jsp:include page="Templates/Footer.jsp" flush="true"/>

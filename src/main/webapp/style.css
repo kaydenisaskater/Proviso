@@ -22,3 +22,23 @@
 	transition-delay: .25s;
 }
 
+.contact-form-bg {
+	background-image: url("/Proviso/images/contact-form.png");
+	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+
+
+.form-box {
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+  background: #ffffff;
+  border: 10px solid #f2f2f2;
+}
+
+
+input, textarea {
+  width: 100%;
+}

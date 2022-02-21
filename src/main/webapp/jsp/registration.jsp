@@ -18,7 +18,7 @@
 
 
 
-<div class=" contatiner p-5 ">
+<div class=" container p-5 ">
 
 	<div class="col-lg-4 mx-auto">
 		<div class="shadow-lg p-3 mb-5 bg-body rounded">
@@ -89,7 +89,7 @@
 				<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
 				</div>
 				
-				<div><a href="/Proviso/ProvisoServlet?action=viewLogin" class="link mt-3">Have An Account? Login Here</a></div>
+				<div><a href="/Proviso/ProvisoServlet?action=viewLogin" class="link mt-3 mx-3">Have An Account? Login Here</a></div>
 			
 			
 			</form>

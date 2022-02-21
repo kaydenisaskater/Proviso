@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.User;
+import beans.Amenity;
+import beans.GuestOption;
+import beans.Inclusion;
+import beans.Reservation;
+import beans.RoomSize;
+import model.JdbcReservationDao;
+import model.JdbcRoomSizeDao;
+import model.JdbcAmenityDao;
+import model.JdbcGuestOptionDao;
+import model.JdbcInclusionDao;
 import model.JdbcUserDao;
+
 
 /**
  * Servlet implementation class ProvisoServlet
@@ -56,11 +68,13 @@ public class ProvisoServlet extends HttpServlet {
 		session.setAttribute("successfulLogout", null);
 		session.setAttribute("errorUpdatingUser", null);
 		session.setAttribute("successfulUserUpdate", null);
+		session.setAttribute("successfulReservation", null);
 		
 		if (action != null) 
 		{
 			switch (action) 
 			{
+				//user creation request
 				case "createUser":
 					if(createUser(request,response,session)) {
 						url = base + "login.jsp";
@@ -68,9 +82,12 @@ public class ProvisoServlet extends HttpServlet {
 						url = base + "registration.jsp";
 					}
 					break;
-				case "viewLogin":
-					url = base + "login.jsp";
+				//update user request
+				case "updateUser":
+					updateUser(request, response, session);
+					url = base + "profile.jsp";
 					break;
+				//login/logout request
 				case "loginUser":
 					if(loginUser(request, response, session)) {
 						url = base + "index.jsp";
@@ -79,12 +96,16 @@ public class ProvisoServlet extends HttpServlet {
 						url = base + "login.jsp";
 					}
 					break;
-				case "profile":
-					url = base + "profile.jsp";
-					break;
 				case "logout":
 					logoutUser(request, response, session);
 					url = base + "index.jsp";
+					break;
+				//page requests
+				case "viewLogin":
+					url = base + "login.jsp";
+					break;
+				case "profile":
+					url = base + "profile.jsp";
 					break;
 				case "aboutUs":
 					url = base + "About.jsp";
@@ -92,10 +113,26 @@ public class ProvisoServlet extends HttpServlet {
 				case "contactUs":
 					url = base + "contact.jsp";
 					break;
-				case "updateUser":
-					updateUser(request, response, session);
-					url = base + "profile.jsp";
+					
+				//reservation requests
+				case "reservation":
+					url = base + "hotelReservationImproved.jsp";
 					break;
+				case "confirmation":
+					confirmReservation(request, response, session);
+					url = base + "reservationConfirmation.jsp";
+					break;
+				case "placeReservation":
+					placeReservation(request, response, session);
+					url = base + "index.jsp";
+					break;
+				case "editReservation":
+					url = base + "hotelReservationImproved.jsp";
+					break;
+				case "reservationSummary":
+					url = base + "reservationSummary.jsp";
+					break;
+				
 			}
 		}
 		
@@ -250,4 +287,108 @@ public class ProvisoServlet extends HttpServlet {
 		return result;
 	}
 	
+	private void confirmReservation(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		Reservation reservation = new Reservation();
+		JdbcAmenityDao amenityDao = new JdbcAmenityDao();
+		JdbcGuestOptionDao guestOptionDao = new JdbcGuestOptionDao();
+		JdbcRoomSizeDao roomSizeDao = new JdbcRoomSizeDao();
+		
+		String[] perPayRates = request.getParameterValues("per[]");
+		String[] flatPayRates = request.getParameterValues("flat[]");
+		
+		String roomID = request.getParameter("roomSize");
+		//String[] amenities = request.getParameterValues("amenities[]");
+		String guestCount = request.getParameter("guest");
+		String checkIn = request.getParameter("check-in");
+		String checkOut = request.getParameter("check-out");
+		Double total = null;
+		
+		
+		
+		System.out.println("Room Size: " + roomID);
+		System.out.println(
+				"Guest Count: " + guestCount +
+				"\nCheck In Date: " + checkIn + 
+				"\nCheck Out Date: " + checkOut);
+		if(perPayRates != null)
+		{
+			for (int i = 0; i < perPayRates.length; i++) 
+			{
+				System.out.println("Per Pay Rates: " + Long.parseLong(perPayRates[i]));
+				Amenity amenity = amenityDao.find(Long.parseLong(perPayRates[i]));
+				reservation.addAmenity(amenity);
+			}
+		}
+		if(flatPayRates != null)
+		{
+			for (int i = 0; i < flatPayRates.length; i++) 
+			{
+				System.out.println("Flat Pay Rates: " + flatPayRates[i].toString());
+				Amenity amenity = amenityDao.find(Long.parseLong(flatPayRates[i]));
+				reservation.addAmenity(amenity);
+			}
+		}
+		
+		
+		
+		reservation.setRoomSizeID(Long.parseLong(roomID));
+		reservation.setGuestOptionID(Long.parseLong(guestCount));
+		reservation.setCheckIn(checkIn);
+		reservation.setCheckOut(checkOut);
+		
+		reservation.calculateLoyaltyPoints();
+		System.out.println("Loyalty Points: " + reservation.getLoyaltyPoints());
+		
+		RoomSize roomSize = roomSizeDao.find(Long.parseLong(roomID));
+		reservation.setRoomSize(roomSize);
+		
+		GuestOption guestOption = guestOptionDao.find(Long.parseLong(guestCount));
+		reservation.setGuestOption(guestOption);
+		reservation.calculateTotalPrice();
+		System.out.println("Total Price: " + reservation.getTotalPrice());
+		
+		session.setAttribute("pendingReservation", reservation);
+		
+		System.out.println("Check In: " + reservation.getCheckIn());
+
+		
+	}
+	
+	private void placeReservation(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		Reservation pendingReservation = (Reservation)session.getAttribute("pendingReservation");
+		User user = (User)session.getAttribute("user");
+		Reservation reservation = new Reservation();
+		Inclusion inclusion = new Inclusion();
+	
+		reservation.setCheckIn(pendingReservation.getCheckIn());
+		reservation.setCheckOut(pendingReservation.getCheckOut());
+		reservation.setTotalPrice(pendingReservation.getTotalPrice());
+		reservation.setLoyaltyPoints(pendingReservation.getLoyaltyPoints());
+		reservation.setRoomSizeID(pendingReservation.getRoomSizeID());
+		reservation.setGuestOptionID(pendingReservation.getGuestOptionID());
+		reservation.setUserID(user.getUserID());
+		ArrayList<Amenity> amenities = pendingReservation.getAmenities();
+		
+		for (int i = 0; i < amenities.size(); i++) {
+			Amenity amenity = amenities.get(i);
+			amenity.getAmenityID();
+		}
+
+		JdbcReservationDao reservationDao = new JdbcReservationDao();
+		JdbcInclusionDao inclusionDao = new JdbcInclusionDao();
+		
+		Long reservationID = reservationDao.addRetrieveKey(reservation);
+		
+		for (int i = 0; i < amenities.size(); i++) {
+			Amenity amenity = amenities.get(i);
+			
+			inclusion.setReservationID(reservationID);
+			inclusion.setAmenityID(amenity.getAmenityID());
+			inclusionDao.add(inclusion);
+		}
+		
+		session.removeAttribute("pendingReservation");
+		session.setAttribute("successfulReservation", "Reservation has successfully been placed.");
+		
+	}
 }
