@@ -10,7 +10,6 @@
 <%@page import="beans.Amenity"%>
 
 <jsp:useBean id="reservationDao" scope="application" class="model.JdbcReservationDao" />
-
         
 <!DOCTYPE html>
 <html>
@@ -41,16 +40,26 @@
         while (reservationIterator.hasNext())
         {
         	Reservation reservation = (Reservation)reservationIterator.next();
-        	reservation.toString();
-        	reservation.getGuestOption().toString();
-        	reservation.getRoomSize().toString();
+        	%>
+        	<p><%=reservation.toString() + "<br>" + reservation.getRoomSize().toString() + "<br>" + reservation.getGuestOption().toString() + "<br>"%>
+        	<%
         	List<Amenity> amenities = reservation.getAmenities();
         	Iterator<Amenity> amenityIterator = amenities.iterator();
         	while (amenityIterator.hasNext())
-        	{
+        	{	
         		Amenity amenity = (Amenity)amenityIterator.next();
-        		amenity.toString();
+        		{
+        			if(amenity.getAmenityID() != 0)
+        			{
+        			%>
+        			<%=amenity.toString()%><br>
+        			<%
+        			}
+        		}
         	}
+        	%>
+        	</p>
+        	<%
         }
         %>
 

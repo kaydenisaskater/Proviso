@@ -3,6 +3,7 @@ James Smith, Travis Nickerson, Kayden Linner, Daniel Woldegiorgis, Kaymon McCain
 2/8/2022
 CSD460
 Module 9 Assignment
+Last Update: 2/21/2022
 */
 
 DROP DATABASE IF EXISTS proviso;
@@ -96,3 +97,18 @@ INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`)
 	
 INSERT INTO `proviso`.`users` (`email`, `password`, `first_name`, `last_name`)
 	VALUES('admin@proviso.com', MD5('Proviso'), 'Proviso', 'Admin');
+
+/* Code Segment to be used if database is already initialized */
+DELIMITER //
+CREATE PROCEDURE `proviso`.`get_all_reservation_info` (IN userID INT)
+BEGIN
+	SELECT r.reservation_id, r.check_in_date, r.check_out_date, r.total_price, r.loyalty_points, i.amenity_id, a.amenity_description, a.price, a.pay_rate, r.room_size_id, s.room_size_description, r.guest_option_id, g.guest_count, g.price 
+	FROM users AS u LEFT JOIN reservations AS r ON u.user_id = r.user_id
+	LEFT JOIN room_sizes AS s ON s.room_size_id = r.room_size_id
+	LEFT JOIN guest_options AS g ON g.guest_option_id = r.guest_option_id
+	LEFT JOIN include AS i ON i.reservation_id = r.reservation_id
+	LEFT JOIN amenities AS a ON a.amenity_id = i.amenity_id
+	WHERE r.user_id = userID
+    ORDER BY r.reservation_id, i.amenity_id;
+END//
+DELIMITER ;
