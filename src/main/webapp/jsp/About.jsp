@@ -28,7 +28,7 @@
 						<h1 class="fw-light pt-5">Proviso</h1>
 						<p class="text-muted">Who We Are</p>
 						<p class="text-dark">
-			        		Proviso is a modern one stop shop for booking travel all throughout the world. 
+			        		Proviso is a modern one stop shop for booking hotels all throughout the world. 
 			        		Utilized by many, Proviso was founded on the idea that travel should be rewarding. 
 			        		Not just personally, but with great incentives to come back and use the platform 
 			        		again. With one of the best member loyalty points programs in the world, Proviso 
