@@ -319,49 +319,79 @@ public class JdbcReservationDao implements ReservationDao
 	@Override
 	public Reservation find(Long reservationID) 
 	{
-		Connection conn = db.getConn(); 
-		
+		Connection conn = db.getConn();
+		HashMap<Long, Reservation> hmReservations = new HashMap<Long, Reservation>();		
 		Reservation reservation = null;
 		
-		if (conn != null) 
+		if(conn != null) 
 		{
 			try 
-			{
-				Statement stmt = conn.createStatement();
-				String sql = "SELECT reservation_id, check_in_date, check_out_date, total_price, loyalty_points, "
-						+ " room_size_id, guest_option_id, user_id "
-						+ "FROM reservations "
-						+ "WHERE reservation_id = " + reservationID;
+			{					
+				CallableStatement stmt = conn.prepareCall("{call proviso.get_all_reservation_info_by_reservation_id(?)}");
+				
+				//Set reservationID parameter for procedure call
+				stmt.setLong(1, reservationID);
+				
+				//Flag to check if call statement produced results
+				boolean hasResults = stmt.execute();
 				
 				try 
 				{
-					ResultSet rs = stmt.executeQuery(sql);
-					
-					try 
+					while(hasResults)
 					{
-						if (rs.next()) 
+						ResultSet rs = stmt.getResultSet();
+						try 
 						{
-							reservation = new Reservation(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getDouble(4), 
-									rs.getLong(5), rs.getLong(6), rs.getLong(7), rs.getLong(8));
+							while(rs.next()) 
+							{
+								
+								if(hmReservations.containsKey(reservationID)) //Reservation is already mapped retrieve declared reservation
+								{
+									reservation = hmReservations.get(reservationID);
+								}
+								else //Reservation is not already mapped instantiate reservation object
+								{
+									RoomSize roomSize = new RoomSize(rs.getLong("r.room_size_id"), rs.getString("s.room_size_description"));
+									GuestOption guestOption = new GuestOption(rs.getLong("r.guest_option_id"), rs.getInt("g.guest_count"), rs.getDouble("g.price"));
+									reservation = new Reservation(reservationID, rs.getString("r.check_in_date"), rs.getString("r.check_out_date"),
+											rs.getDouble("r.total_price"), rs.getLong("r.loyalty_points"), rs.getLong("r.user_id"));
+									reservation.setGuestOption(guestOption);
+									reservation.setRoomSize(roomSize);
+									hmReservations.put(reservationID, reservation);
+								}
+								
+								//Check to see if amenity id field is not null and if so create and add amenity to reservation
+								if((Long)rs.getLong("i.amenity_id") != null)
+								{
+									Amenity amenity = new Amenity(rs.getLong("i.amenity_id"), rs.getString("a.amenity_description"), rs.getDouble("a.price"), rs.getString("a.pay_rate"));
+									reservation.addAmenity(amenity);								
+								}
+								reservation.toString();
+							}	
 						}
-					}
-					finally
-					{
-						rs.close();
+						finally 
+						{
+							rs.close();
+						}
+						hasResults = stmt.getMoreResults();
 					}
 				}
 				finally 
 				{
 					stmt.close();
-				}				
+				}
 			}
 			catch (SQLException ex)
 			{
-				System.out.println("Could not retrieve reservation.");
+				System.out.println("Could not retrieve user's reservations.");
 				System.out.println("SQL Exception: " + ex.getMessage());
 			}
+			finally 
+			{
+				db.closeConn(conn);
+			}
 		}
-		
+		reservation = hmReservations.get(reservationID);
 		return reservation;
 	}
 	
