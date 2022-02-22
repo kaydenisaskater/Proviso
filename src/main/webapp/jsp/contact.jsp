@@ -36,16 +36,16 @@
 					
 					<div class="shadow-lg mt-5 mb-5 bg-white rounded w-50">
 						<h1 class="ms-4 mb-3 fw-light pt-4 text-lg">Contact <span class="text-primary">Us</span></h1>
-						<i class="ms-4 bi bi-telephone-forward-fill text-lg text-primary pt-5"> Phone</i>
-						<p class="ms-4 pt-3">
+						<i class="ms-4 bi bi-telephone-forward-fill text-lg text-primary pt-5"></i>
+						<p class="ms-4 pt-2">
 			        		555-555-5555
 			      		</p>
-			      		<i class="ms-4 bi bi-envelope-check-fill text-lg pt-5 text-primary"> E-mail</i>
-						<p class="ms-4 pt-3">
+			      		<i class="ms-4 bi bi-envelope-check-fill text-lg pt-5 text-primary"></i>
+						<p class="ms-4 pt-2">
 			        		support@proviso.com
 			      		</p>
-						<i class="ms-4 bi bi-house-fill text-lg pt-5 text-primary"> Address</i>
-						<p class="ms-4 pt-3">
+						<i class="ms-4 bi bi-house-fill text-lg pt-5 text-primary"></i>
+						<p class="ms-4 pt-2">
 			        		1234 Comfort Dr. Somewhere, Someplace 90210
 			      		</p>
 			      			
