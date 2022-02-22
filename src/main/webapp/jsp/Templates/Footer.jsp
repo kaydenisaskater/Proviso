@@ -23,10 +23,10 @@
 		
 			<!-- SOCIAL ICONS -->
 			<p class="px-5 d-inline ">
-				<i class="bi bi-facebook me-3" style="font-size: 1.5rem"></i>
-				<i class="bi bi-instagram me-3" style="font-size: 1.5rem"></i>
-				<i class="bi bi-linkedin me-3" style="font-size: 1.5rem"></i>
-				<i class="bi bi-spotify me-3" style="font-size: 1.5rem"></i>
+				<a href="#" ><i class="bi bi-facebook me-3 text-white" style="font-size: 1.5rem"></i></a>
+				<a href="#" ><i class="bi bi-instagram me-3 text-warning" style="font-size: 1.5rem"></i></a>
+				<a href="#" ><i class="bi bi-twitter me-3 text-primary" style="font-size: 1.5rem"></i></a>
+				
 			</p>
 			<p class="px-3 d-inline">&copy; <%=year%> - Proviso </p>
 		
