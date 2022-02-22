@@ -116,7 +116,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE `proviso`.`get_all_reservation_info_by_reservation_id` (IN reservationID INT)
 BEGIN
-	SELECT r.reservation_id, r.check_in_date, r.check_out_date, r.total_price, r.loyalty_points, i.amenity_id, a.amenity_description, a.price, a.pay_rate, r.room_size_id, s.room_size_description, r.guest_option_id, g.guest_count, g.price 
+	SELECT r.reservation_id, r.check_in_date, r.check_out_date, r.total_price, r.loyalty_points, i.amenity_id, a.amenity_description, a.price, a.pay_rate, r.room_size_id, s.room_size_description, r.guest_option_id, g.guest_count, g.price, r.user_id
 	FROM users AS u LEFT JOIN reservations AS r ON u.user_id = r.user_id
 	LEFT JOIN room_sizes AS s ON s.room_size_id = r.room_size_id
 	LEFT JOIN guest_options AS g ON g.guest_option_id = r.guest_option_id
