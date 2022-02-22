@@ -21,7 +21,7 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<section class="p-5 text-left text-primary bg-white vh-75" >
+		<section class="p-5 text-left text-primary bg-white shadow-lg vh-75" >
 			
 				<div class="d-sm-flex ms-5 text-left align-items-center ml-3">
 					<div class="text-left">
@@ -42,7 +42,7 @@
 				</div>	
 		</section >
 			
-		<section class="p-4 bg-primary mb-4">
+		<section class="p-4 bg-primary mb-4 shadow-lg">
 			<div class="container">
 				<h2 class="text-center fw-light text-light my-4">Meet Our Team</h2>
 				<div class="row row-cols-5 g-2">
@@ -119,7 +119,7 @@
 			</div>
 		</section>
 		
-		<section class="p-5 text-left text-primary bg-white vh-75" >
+		<section class="p-5 text-left text-primary bg-white shadow-lg vh-75" >
 			<h2 class="text-center fw-light text-dark mb-5">Frequently Asked Questions</h2>
 			<div class="accordion accordion-flush shadow-lg rounded" id="accordionFlushExample">
 				  <div class="accordion-item">
