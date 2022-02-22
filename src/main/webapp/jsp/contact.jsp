@@ -29,7 +29,8 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		 <section class="p-5 text-left text-dark bg-white" >
+		 <section class="p-5 text-left text-dark bg-primary bg-gradient" >
+		 	
 			<div class="container">
 				<div class="d-sm-flex align-items-bottom ">
 					
@@ -47,12 +48,11 @@
 						<p class="ms-4 pt-3">
 			        		1234 Comfort Dr. Somewhere, Someplace 90210
 			      		</p>
-			      		
-						
-						
+			      			
 					</div>
-						<div class="d-flex align-items-center">
-							<iframe class="mt-2 ms-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.2648424146137!2d-95.92035204916499!3d41.1505719791849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793886a86ca807f%3A0x838e857240d175eb!2sBellevue%20University!5e0!3m2!1sen!2sus!4v1645541788144!5m2!1sen!2sus" 
+					
+						<div class="d-flex align-items-center ms-5">
+							<iframe class="shadow-lg rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.2648424146137!2d-95.92035204916499!3d41.1505719791849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793886a86ca807f%3A0x838e857240d175eb!2sBellevue%20University!5e0!3m2!1sen!2sus!4v1645541788144!5m2!1sen!2sus" 
 						width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 						</div>
 						
@@ -61,6 +61,7 @@
 					
 				</div>
 			</div>
+			
 		</section> 
 		
 		<section class="contact-form-bg">
