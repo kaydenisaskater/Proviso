@@ -8,7 +8,9 @@ User user = (User)session.getAttribute("user");
 	<nav class="navbar navbar-expand-lg bg-dark shadow-lg">
 		<div class="container-fluid">
 			
-			<a class="navbar-brand text-light px-5" href="/Proviso/ProvisoServlet?action=showWelcome">Proviso</a> <!-- LOGO -->
+			<a class="navbar-brand text-light px-5" href="/Proviso/ProvisoServlet?action=showWelcome">
+				<img src="/Proviso/images/proviso-logo.png" alt="" width="50" height="50"> <!-- LOGO -->
+			</a> 
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNav"
 				aria-controls="navbarNav" aria-expanded="false"
