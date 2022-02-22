@@ -29,7 +29,7 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		 <section class="p-5 text-left text-dark bg-primary bg-gradient" >
+		 <section class="p-5 text-left text-dark bg-light bg-gradient" >
 		 	
 			<div class="container">
 				<div class="d-sm-flex align-items-bottom ">
