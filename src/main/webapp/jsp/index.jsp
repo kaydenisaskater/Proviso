@@ -50,7 +50,7 @@
 	}
 	%>
 	
-		<section class="text-left d-flex align-items-start text-light bg-white vh-75" >
+		<section class="text-left d-flex align-items-start text-light bg-white  shadow-lg vh-75" >
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 					<div class="shadow-lg p-3 mb-5 bg-body ms-5 mt-5 rounded vw-75">
@@ -70,7 +70,7 @@
 			</div>
 		</section>
 		
-		<section class="text-left d-flex align-items-center text-light bg-light vh-75" >
+		<section class="text-left d-flex align-items-center text-light bg-light shadow-lg vh-75" >
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-3 w-50 ps-1 pt-5"/>
@@ -93,7 +93,7 @@
 		</section>
 		
 		
-		<section class="pt-1 text-left align-items-center bg-white">
+		<section class="pt-1 text-left align-items-center bg-white mb-4">
 			<div class="container mt-2 mb-5">
 				<i class="texr-center bi bi-arrow-bar-down" style="font-size: 5rem; color: cornflowerblue;"></i>
 				<h1 class="mb-5 text-left">Popular Places To Stay</h1>
@@ -231,7 +231,7 @@
 		
 		
 		
-		<section class="text-dark bg-light">
+		<section class="text-dark bg-light shadow-lg">
 			
 			<div class="container bg-light d-flex justify-content-center align-items-center">
 			

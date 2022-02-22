@@ -5,7 +5,7 @@
 User user = (User)session.getAttribute("user");
 %>
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg bg-dark">
+	<nav class="navbar navbar-expand-lg bg-dark shadow-lg">
 		<div class="container-fluid">
 			
 			<a class="navbar-brand text-light px-5" href="/Proviso/ProvisoServlet?action=showWelcome">Proviso</a> <!-- LOGO -->
