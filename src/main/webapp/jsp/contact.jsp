@@ -29,36 +29,39 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<!-- <section class="p-5 text-left text-dark bg-white" >
+		 <section class="p-5 text-left text-dark bg-white" >
 			<div class="container">
 				<div class="d-sm-flex align-items-bottom ">
 					
-					CONTACT CARD
-					<div class="shadow-lg mt-5 mb-5 bg-white rounded w-75">
-						<h1 class="ms-3 mb-5 fw-light pt-4 text-lg">Contact <span class="text-primary">Us</span></h1>
-						<i class="ms-3 bi bi-telephone-forward-fill text-lg text-primary pt-5"> Phone</i>
-						<p class="ms-3 pt-3">
+					<div class="shadow-lg mt-5 mb-5 bg-white rounded w-50">
+						<h1 class="ms-4 mb-3 fw-light pt-4 text-lg">Contact <span class="text-primary">Us</span></h1>
+						<i class="ms-4 bi bi-telephone-forward-fill text-lg text-primary pt-5"> Phone</i>
+						<p class="ms-4 pt-3">
 			        		555-555-5555
 			      		</p>
-			      		<i class="ms-3 bi bi-envelope-check-fill text-lg pt-5 text-primary"> E-mail</i>
-						<p class="ms-3 pt-3">
+			      		<i class="ms-4 bi bi-envelope-check-fill text-lg pt-5 text-primary"> E-mail</i>
+						<p class="ms-4 pt-3">
 			        		support@proviso.com
 			      		</p>
-						<i class="ms-3 bi bi-house-fill text-lg pt-5 text-primary"> Address</i>
-						<p class="ms-3 pt-3">
+						<i class="ms-4 bi bi-house-fill text-lg pt-5 text-primary"> Address</i>
+						<p class="ms-4 pt-3">
 			        		1234 Comfort Dr. Somewhere, Someplace 90210
 			      		</p>
 			      		
 						
 						
 					</div>
-						SVG IMG
-						<img alt="" src="/Proviso/images/proviso-contact.svg" class="img-fluid w-50 ms-5 pt-5"/>
+						<div class="d-flex align-items-center">
+							<iframe class="mt-2 ms-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.2648424146137!2d-95.92035204916499!3d41.1505719791849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793886a86ca807f%3A0x838e857240d175eb!2sBellevue%20University!5e0!3m2!1sen!2sus!4v1645541788144!5m2!1sen!2sus" 
+						width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+						</div>
+						
+						
 					
 					
 				</div>
 			</div>
-		</section> -->
+		</section> 
 		
 		<section class="contact-form-bg">
 			<div class="container py-5 d-flex justify-content-center">
