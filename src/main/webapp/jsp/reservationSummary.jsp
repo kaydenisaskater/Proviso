@@ -24,16 +24,13 @@
     
 </head>
 <body>
-<jsp:include page="Templates/Nav.jsp" flush="true"/>
-<% //User user = (User)session.getAttribute("user"); %>
+<% User user = (User)session.getAttribute("user"); %>
   
   
  
 
-		<%
-	    long userId = 1;
-        
-        ArrayList<Reservation> reservations = new ArrayList<Reservation>(reservationDao.listAggregatedReservation(userId));
+		<%        
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>(reservationDao.listAggregatedReservation(user.getUserID()));
         
         Iterator<Reservation> reservationIterator = reservations.iterator();
         
@@ -62,8 +59,5 @@
         	<%
         }
         %>
-
-<jsp:include page="Templates/Footer.jsp" flush="true"/>
-<jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
 </body>
 </html>
