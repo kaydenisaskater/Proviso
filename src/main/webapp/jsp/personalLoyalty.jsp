@@ -2,8 +2,12 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import="beans.Reservation" %>
+<%@ page import="beans.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
 
 <jsp:useBean id="reservationDao" scope="application" class="model.JdbcReservationDao" />
+<jsp:useBean id="userDao" scope="application" class="model.JdbcUserDao" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,15 +35,33 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%
+               	User user = (User)session.getAttribute("user");
+                List<Reservation> reservations = reservationDao.list(user.getUserID());
+                Iterator<Reservation> r = reservations.iterator();
+                
+                int totalLoyalty = 0;
+                
+                while (r.hasNext()){
+                	Reservation reservation = r.next();
+                	
+                	totalLoyalty += reservation.getLoyaltyPoints();
+                %>
                     <tr>
-                        <td>order_id</td>
-                        <td>check_in_date</td>
-                        <td>check_out_date</td>
-                        <td>loyalty_points_earned</td>
+                        <td><%=reservation.getReservationID() %></td>
+                        <td><%=reservation.getCheckIn() %></td>
+                        <td><%=reservation.getCheckOut() %></td>
+                        <td><%=reservation.getLoyaltyPoints() %></td>
                     </tr>
+                <%
+                }
+                %>
                 </tbody>
             </table>
         </div>
+        <div class="mx-auto">
+    		<p class="text-center">Total Loyalty Points: <%=totalLoyalty %></p>
+    	</div>
     </div>
 </div>
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
