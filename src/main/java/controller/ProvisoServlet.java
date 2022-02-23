@@ -113,6 +113,7 @@ public class ProvisoServlet extends HttpServlet {
 				case "contactUs":
 					url = base + "contact.jsp";
 					break;
+				
 					
 				//reservation requests
 				case "reservation":

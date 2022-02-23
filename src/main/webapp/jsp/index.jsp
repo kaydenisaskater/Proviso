@@ -232,7 +232,7 @@
 		
 		
 		<section class="text-dark bg-light shadow-lg">
-			<h1 class="mt-5 pt-4 text-center">Things To Do</h1>
+			
 			<div class="container bg-light d-flex justify-content-center align-items-center">
 				
 				<div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded vh-50 w-50 my-5" data-bs-ride="carousel">
@@ -287,15 +287,12 @@
 				</div>
 			
 			</div>
-		</section>
-		
-		
-		
-		
-		
+		</section>	
 		
 	</main>
 	<jsp:include page="Templates/Footer.jsp" flush="true"/>
 	<jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
