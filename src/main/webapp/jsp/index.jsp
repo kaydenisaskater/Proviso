@@ -133,33 +133,33 @@
 												<div class="col">
 													<div class="card shadow-lg rounded bg-white">
 															<div class="card-body text-center">
-																<i class="bi bi-alarm text-primary"> Late Check-Out</i>
+																<i class="bi bi-alarm"> Late Check-Out</i>
 															</div>
-														</div>
+													</div>
 												</div>
 												
 												<div class="col">
 													<div class="card shadow-lg rounded bg-white">
 															<div class="card-body text-center">
-																<i class="bi bi-wifi text-primary"> Free Wi-Fi</i>
+																<i class="bi bi-wifi"> Free Wi-Fi</i>
 															</div>
-														</div>
+													</div>
 												</div>
 												
 												<div class="col">
 													<div class="card shadow-lg rounded bg-white">
 															<div class="card-body text-center">
-																<i class="bi bi-credit-card text-primary"> Secure Payments</i>
+																<i class="bi bi-credit-card"> Secure Payments</i>
 															</div>
-														</div>
+													</div>
 												</div>
 												
 												<div class="col">
 													<div class="card shadow-lg rounded bg-white">
 															<div class="card-body text-center">
-																<i class="bi bi-life-preserver text-primary"> Pool</i>
+																<i class="bi bi-life-preserver"> Pool</i>
 															</div>
-														</div>
+													</div>
 												</div>
 											</div>
 											
