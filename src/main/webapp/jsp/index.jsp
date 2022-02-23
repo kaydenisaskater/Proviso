@@ -107,12 +107,76 @@
 							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							    <h5 class="text-dark d-flex justify-content-start">From $99/Night</h5>
 							    <div class="d-flex justify-content-end">
+							    	
 							    	<i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header bg-primary">
+								        <h5 class="modal-title text-white" id="exampleModalLabel">What does this hotel offer?</h5>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								      <div class="d-flex justitify-content-center align-items-center">
+										<div class="container">
+											<div class="row row-cols-2 g-3">
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-alarm text-primary"> Late Check-Out</i>
+															</div>
+														</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-wifi text-primary"> Free Wi-Fi</i>
+															</div>
+														</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-credit-card text-primary"> Secure Payments</i>
+															</div>
+														</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-life-preserver text-primary"> Pool</i>
+															</div>
+														</div>
+												</div>
+											</div>
+											
+										</div>
+								      	
+								      </div>
+								        
+								        
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>							    
@@ -134,6 +198,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -155,6 +224,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -177,6 +251,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -198,6 +277,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -219,6 +303,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
