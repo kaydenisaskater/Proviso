@@ -55,10 +55,7 @@
 							<iframe class="shadow-lg rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.2648424146137!2d-95.92035204916499!3d41.1505719791849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8793886a86ca807f%3A0x838e857240d175eb!2sBellevue%20University!5e0!3m2!1sen!2sus!4v1645541788144!5m2!1sen!2sus" 
 						width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 						</div>
-						
-						
-					
-					
+							
 				</div>
 			</div>
 			

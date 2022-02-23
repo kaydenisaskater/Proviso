@@ -115,12 +115,12 @@
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 								<!-- Modal -->
 								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								  <div class="modal-dialog">
+								  <div class="modal-dialog modal-dialog-centered">
 								    <div class="modal-content">
 								      <div class="modal-header bg-primary">
 								        <h5 class="modal-title text-white" id="exampleModalLabel">What does this hotel offer?</h5>
@@ -200,7 +200,7 @@
 							    </div>
 							    
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 							    <div class="text-center mt-4 mb-3">
@@ -226,7 +226,7 @@
 							    </div>
 							    
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 							    <div class="text-center mt-4 mb-3">
@@ -253,7 +253,7 @@
 							    </div>
 							    
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 							    <div class="text-center mt-4 mb-3">
@@ -279,7 +279,7 @@
 							    </div>
 							    
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 							    <div class="text-center mt-4 mb-3">
@@ -305,7 +305,7 @@
 							    </div>
 							    
 							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										 Amenities
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
 								</button>
 								
 							    <div class="text-center mt-4 mb-3">
