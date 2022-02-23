@@ -42,7 +42,7 @@
 				</div>	
 		</section >
 			
-		<section class="p-4 bg-primary mb-4 shadow-lg">
+		<section class="p-4 bg-primary shadow-lg">
 			<div class="container">
 				<h2 class="text-center fw-light text-light my-4">Meet Our Team</h2>
 				<div class="row row-cols-5 g-2">
