@@ -50,7 +50,7 @@
 			<%
 			String r = request.getParameter("order_id");
 			Integer reservation_id = 0;
-			if (r != null) {
+			if (r != null && r!="") {
 				reservation_id = Integer.parseInt(r);
 			}
 			if (reservation_id != 0) {
@@ -117,6 +117,11 @@
 			conn.close();
 			}
 
+			}else{
+				%>
+				<div class="alert alert-danger mt-5 alertMessage text-center"
+				role="alert">Please enter a reservation id</div>
+				<%
 			}
 			%>
 		</div>
