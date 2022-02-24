@@ -101,6 +101,7 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="card h-100 bg-white shadow-lg rounded">
+							 
 							  <img src="/Proviso/images/proviso-wynn.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Wynn: <span class="text-muted">Las Vegas, NV</span> </h5>

@@ -140,8 +140,9 @@
 				      </button>
 				    </h2>
 				    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body text-dark">It is super simple! Every hotel stay earns you loyalty points for your future stays at Proviso. It doesn't
-				      matter what hotel or where, if you book it through us, you get the points!</div>
+				      <div class="accordion-body text-dark">It is super simple! Earn 150 loyalty points/night when you book a stay through Proviso. These points are automatically
+				      added to your account once you book but can only be redeemed after you complete a your stay. After you have earned 750 points, you qualify 
+				      for a free night stay anywhere! </div>
 				    </div>
 				  </div>
 				  <div class="accordion-item">
