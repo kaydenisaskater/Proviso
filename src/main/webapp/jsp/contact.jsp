@@ -96,8 +96,7 @@
 
 <!-- INCLUDES FOOTER WITH JSP -->
 
-<jsp:include page="/jsp/Templates/Footer.jsp" flush="true" />
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<jsp:include page="Templates/Footer.jsp" flush="true"/>
+<jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
 </body>
 </html>

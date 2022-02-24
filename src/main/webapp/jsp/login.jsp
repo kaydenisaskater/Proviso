@@ -10,7 +10,8 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
-    <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient" style="padding-top: 6%;">
+<div class=" container p-5 ">
+    <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient" style=background-color:transparent>
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
     	<h1 class="text-dark text-center mb-2">Login</h1>
     	<form action="/Proviso/ProvisoServlet" method="post">
@@ -33,9 +34,8 @@
         </form>
     </div>
     </section>
+</div>
     <jsp:include page="Templates/Footer.jsp" flush="true"/>
     <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
