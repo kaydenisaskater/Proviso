@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ page import="beans.Reservation" %>
+<%@ page import="beans.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
+
+<jsp:useBean id="reservationDao" scope="application" class="model.JdbcReservationDao" />
+<jsp:useBean id="userDao" scope="application" class="model.JdbcUserDao" />
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +22,25 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
+<%
+User lookupUser = (User)request.getAttribute("lookupUser");
+%>
 <div>
     <h1 class="text-center">Loyalty Points Lookup</h1>
     <div class="mx-auto" style="width: 80%;">
-        <div class="text-center"><label class="form-label" for="user_id">Customer ID<input type="search" style="width: 20%;margin: 2%;" name="user_id" /></label></div>
+        <div class="text-center">
+        <form>
+        	<input type="hidden" name="action" value="lookup"/>
+        	<label class="form-label" for="userId">Customer ID<input type="search" id="userId style="width: 20%;margin: 2%;" name="userId" /></label>
+        	<button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        </div>
+        <%
+        if (lookupUser != null){
+        	
+            List<Reservation> reservations = reservationDao.list(lookupUser.getUserID());
+            Iterator<Reservation> r = reservations.iterator();
+        %>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -28,15 +52,32 @@
                     </tr>
                 </thead>
                 <tbody>
+                <%  
+	                int totalLoyalty = 0;
+	                
+	                while (r.hasNext()) {
+	                	Reservation reservation = r.next();
+	                	
+	                	totalLoyalty += reservation.getLoyaltyPoints();
+                	%>
                     <tr>
-                        <td>order_id</td>
-                        <td>check_in_date</td>
-                        <td>check_out_date</td>
-                        <td>loyalty_points_earned</td>
+                        <td><%=reservation.getReservationID() %></td>
+                        <td><%=reservation.getCheckIn() %></td>
+                        <td><%=reservation.getCheckOut() %></td>
+                        <td><%=reservation.getLoyaltyPoints() %></td>
+	                <%
+	                }
+	                %>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div class="mx-auto">
+    		<p class="text-center">Total Loyalty Points: <%=totalLoyalty %></p>
+    	</div>
+        <%
+		 }
+        %>
     </div>
 </div>
 
