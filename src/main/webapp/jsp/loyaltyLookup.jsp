@@ -25,8 +25,8 @@
 <%
 User lookupUser = (User)request.getAttribute("lookupUser");
 %>
-<div>
-    <h1 class="text-center">Loyalty Points Lookup</h1>
+<div class="vh-100">
+    <h1 class="text-center mt-5">Loyalty Points Lookup</h1>
     <div class="mx-auto" style="width: 80%;">
         <div class="text-center">
         <form>
@@ -83,5 +83,7 @@ User lookupUser = (User)request.getAttribute("lookupUser");
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
 <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
