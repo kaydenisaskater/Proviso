@@ -59,7 +59,5 @@
         	<%
         }
         %>
-<jsp:include page="Templates/Footer.jsp" flush="true"/>
-<jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
 </body>
 </html>
