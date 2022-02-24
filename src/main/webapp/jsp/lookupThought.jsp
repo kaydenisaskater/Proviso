@@ -112,6 +112,7 @@
 			System.out.println("Did not find id");
 
 			} finally {
+			rs.close();
 			stmt.close();
 			conn.close();
 			}
