@@ -29,7 +29,7 @@ User user = (User)session.getAttribute("user");
 						    Lookup
 						  </button>
 						  <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="dropdownMenuButton1">
-						    <li><a class="dropdown-item text-white" href="#">Reservations</a></li>
+						    <li><a class="dropdown-item text-white" href="/Proviso/ProvisoServlet?action=reservationLookup">Reservations</a></li>
 						    <li><a class="dropdown-item text-white" href="/Proviso/ProvisoServlet?action=loyaltyLookup">Loyalty Points</a></li>
 						    
 						  </ul>
