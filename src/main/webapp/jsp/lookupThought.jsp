@@ -30,7 +30,7 @@
 	<div class=" container p-5 vh-100">
 	<div class="col-4 mx-auto">
 	
-	<form action="lookupThought.jsp" method="get">
+	<form action="/Proviso/jsp/lookupThought.jsp" method="get">
 		
 		<div class="label">
 			<label for="order_id" class="form-label fs-5">Order ID</label>
