@@ -21,8 +21,8 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
-<div>
-    <h1 class="text-center">Loyalty Points</h1>
+<div class="vh-100">
+    <h1 class="text-center mt-5">Loyalty Points</h1>
     <div class="mx-auto" style="width: 80%;">
         <div class="table-responsive">
             <table class="table">
