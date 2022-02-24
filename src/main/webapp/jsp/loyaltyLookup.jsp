@@ -81,9 +81,9 @@ User lookupUser = (User)request.getAttribute("lookupUser");
     </div>
 </div>
 
+
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
 <jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
-
 
 </body>
 </html>
