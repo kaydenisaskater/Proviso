@@ -38,7 +38,7 @@
 						Lookup</label>
 				</div>
 				<input type="number" class="form-control" id="order_id"
-					name="order_id" min="1" placeholder="Order ID" />
+					name="order_id" min="1" max ="1000" placeholder="Order ID" />
 
 				<div class="row p-0 m-0 my-3">
 					<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
