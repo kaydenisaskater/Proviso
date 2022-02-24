@@ -143,6 +143,10 @@ public class ProvisoServlet extends HttpServlet {
 				case "loyaltySummary":
 					url = base + "personalLoyalty.jsp";
 					break;
+				case "lookup":
+					lookupLoyalty(request, response);
+					url = base + "loyaltyLookup.jsp";
+					break;
 				
 			}
 		}
@@ -401,5 +405,12 @@ public class ProvisoServlet extends HttpServlet {
 		session.removeAttribute("pendingReservation");
 		session.setAttribute("successfulReservation", "Reservation has successfully been placed.");
 		
+	}
+	
+	private void lookupLoyalty(HttpServletRequest request, HttpServletResponse response) {
+		JdbcUserDao userDao = new JdbcUserDao();
+		User lookupUser = userDao.find(Long.parseLong(request.getParameter("userId")));
+		
+		request.setAttribute("lookupUser", lookupUser);
 	}
 }
