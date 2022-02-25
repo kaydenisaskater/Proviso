@@ -180,7 +180,7 @@
 								LocalDate date = LocalDate.now();
 								%>
 								<input type="date" class="form-control" id="chek-in"
-									name="check-in" min=<%=date%> onchange="dateChange();" />
+									name="check-in"placeholder="yyyy-mm-dd" min=<%=date%> onchange="dateChange();" />
 							</div>
 						</div>
 
@@ -194,7 +194,7 @@
 
 							<div class="date ms-3">
 								<input type="date" class="form-control" id="chek-out"
-									name="check-out" />
+									name="check-out" placeholder="yyyy-mm-dd"/>
 							</div>
 						</div>
 						<div class="alert alert-danger mt-5 alertMessage"
