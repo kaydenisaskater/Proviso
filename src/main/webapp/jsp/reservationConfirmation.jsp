@@ -54,7 +54,7 @@ try {
 		
 		<div class="row mx-3 my-5">
 			<a href="/Proviso/ProvisoServlet?action=placeReservation" class="btn btn-primary">Confirm</a>
-			<a href="/Proviso/ProvisoServlet?action=editReservation" class="btn btn-danger">Cancel</a>
+			<a href="/Proviso/ProvisoServlet?action=editReservation" class="btn btn-danger mt-3">Cancel</a>
 		</div>
 		</div>
 		
