@@ -50,7 +50,7 @@
 	}
 	%>
 	
-		<section class="text-left d-flex align-items-start text-light bg-white vh-75" >
+		<section class="text-left d-flex align-items-start text-light bg-white  shadow-lg vh-75" >
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 					<div class="shadow-lg p-3 mb-5 bg-body ms-5 mt-5 rounded vw-75">
@@ -70,7 +70,7 @@
 			</div>
 		</section>
 		
-		<section class="text-left d-flex align-items-center text-light bg-light vh-75" >
+		<section class="text-left d-flex align-items-center text-light bg-light shadow-lg vh-75" >
 			<div class="container my-5 mx-0">
 				<div class="ms-5 ps-5 d-flex align-items-center">
 				<img alt="" src="/Proviso/images/proviso-points.svg" class="img-fluid ms-3 w-50 ps-1 pt-5"/>
@@ -93,7 +93,7 @@
 		</section>
 		
 		
-		<section class="pt-1 text-left align-items-center bg-white">
+		<section class="pt-1 text-left align-items-center bg-white mb-4">
 			<div class="container mt-2 mb-5">
 				<i class="texr-center bi bi-arrow-bar-down" style="font-size: 5rem; color: cornflowerblue;"></i>
 				<h1 class="mb-5 text-left">Popular Places To Stay</h1>
@@ -101,18 +101,83 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="card h-100 bg-white shadow-lg rounded">
+							 
 							  <img src="/Proviso/images/proviso-wynn.jpeg" class="card-img-top img-fluid" alt="...">
 							  <div class="card-body">
 							    <h5 class="card-title">The Wynn: <span class="text-muted">Las Vegas, NV</span> </h5>
 							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							    <h5 class="text-dark d-flex justify-content-start">From $99/Night</h5>
 							    <div class="d-flex justify-content-end">
+							    	
 							    	<i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog modal-dialog-centered">
+								    <div class="modal-content">
+								      <div class="modal-header bg-primary">
+								        <h5 class="modal-title text-white" id="exampleModalLabel">What does this hotel offer?</h5>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								      <div class="d-flex justitify-content-center align-items-center">
+										<div class="container">
+											<div class="row row-cols-2 g-3">
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-egg-fried">  Breakfast</i>
+															</div>
+													</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-wifi">  Wi-Fi</i>
+															</div>
+													</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-credit-card">  Valet Parking</i>
+															</div>
+													</div>
+												</div>
+												
+												<div class="col">
+													<div class="card shadow-lg rounded bg-white">
+															<div class="card-body text-center">
+																<i class="bi bi-life-preserver">  Pool</i>
+															</div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+								      	
+								      </div>
+								        
+								        
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								        
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>							    
@@ -134,6 +199,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -155,6 +225,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -177,6 +252,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -198,6 +278,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-half text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -219,6 +304,11 @@
 								    <i class="bi bi-star-fill text-warning"></i>
 							    	<i class="bi bi-star-fill text-warning"></i>
 							    </div>
+							    
+							    <button type="button" class="btn btn-light btn-sm text-left text-dark d-flex justify-content-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										 Amenities <i class="bi bi-arrow-up-right-circle ms-2"></i>
+								</button>
+								
 							    <div class="text-center mt-4 mb-3">
 							    	<a href="/Proviso/ProvisoServlet?action=viewLogin" class="btn btn-primary">Book Now</a>
 							    </div>
@@ -231,62 +321,63 @@
 		
 		
 		
-		<section class="text-dark bg-light">
+		<section class="text-dark bg-light shadow-lg">
 			
 			<div class="container bg-light d-flex justify-content-center align-items-center">
-			
+				
 				<div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded vh-50 w-50 my-5" data-bs-ride="carousel">
-			  <div class="carousel-indicators">
-				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			  </div>
-				  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      	<img src="/Proviso/images/proviso-coffee-shop.jpeg" class="d-block w-100 vh-50" alt="...">
-					      	
-					      	<div class="carousel-caption d-none d-md-block">
-						        <h5>Coffee Shops</h5>
-						        <p>Check out local coffee shops.</p>
-						     </div>
-					      	
-					    </div>
-					    <div class="carousel-item">
-					     	 <img src="/Proviso/images/proviso-cherry-blossoms.jpeg" class="d-block w-100 vh-50" alt="...">
-					     	 
-					     	 <div class="carousel-caption d-none d-md-block">
-						        <h5>Landmarks</h5>
-						        <p>See some of the worlds most famous landmarks.</p>
-						     </div>
-					     	 
-					    </div>
-					    <div class="carousel-item">
-					      	<img src="/Proviso/images/proviso-theme-park.jpeg" class="d-block w-100 vh-50" alt="...">
-					      	
-					      	<div class="carousel-caption d-none d-md-block">
-						        <h5>Theme Parks</h5>
-						        <p>Add a little extra adventure to your trip.</p>
-						     </div>
-					      	
-					   </div>
-				 </div>
-					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						    <span class="visually-hidden">Previous</span>
-					  </button>
-					  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						    <span class="visually-hidden">Next</span>
-					  </button>
-			</div>
+				  	<div class="carousel-indicators">
+					    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				  	</div>
+				  	
+					<div class="carousel-inner">
+						 <div class="carousel-item active">
+						      <img src="/Proviso/images/proviso-coffee-shop.jpeg" class="d-block w-100 vh-50" alt="...">
+						      	
+						      	<div class="carousel-caption d-none d-md-block">
+							        <h5>Coffee Shops</h5>
+							        <p>Check out local coffee shops.</p>
+							    </div>
+						      	
+						  </div>
+						  
+						  <div class="carousel-item">
+						     	<img src="/Proviso/images/proviso-cherry-blossoms.jpeg" class="d-block w-100 vh-50" alt="...">
+						     	 
+						     	 <div class="carousel-caption d-none d-md-block">
+							        <h5>Landmarks</h5>
+							        <p>See some of the worlds most famous landmarks.</p>
+							     </div>
+						     	 
+						    </div>
+						    
+						    <div class="carousel-item">
+						      	<img src="/Proviso/images/proviso-theme-park.jpeg" class="d-block w-100 vh-50" alt="...">
+						      	
+						      	<div class="carousel-caption d-none d-md-block">
+							        <h5>Theme Parks</h5>
+							        <p>Add a little extra adventure to your trip.</p>
+							     </div>
+						      	
+						   	</div>
+					 </div>
+					 
+						  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Previous</span>
+						  </button>
+						  
+						  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="visually-hidden">Next</span>
+						  </button>
+						  
+				</div>
 			
 			</div>
-		</section>
-		
-		
-		
-		
-		
+		</section>	
 		
 	</main>
 	<jsp:include page="Templates/Footer.jsp" flush="true"/>

@@ -38,11 +38,14 @@ User user = (User)session.getAttribute("user");
     	<label for="email" class="form-label justify-content-md-start">Email</label>
     	<input id="email" name="email" class="form-control justify-content-md-start" type="text" value="<%=user.getEmail() %>"/>
     	<label class="form-label justify-content-md-start">Points: <%=user.getAccruedLoyaltyPoints() %></label>
+    	<a class="d-block" href="/Proviso/ProvisoServlet?action=loyaltySummary">Loyalty Points</a>
     	<a class="d-block" href="#">Change password</a>
         <div class="text-center"><button id="btnSubmit" type="submit" class="btn btn-primary">Save</button></div>
         
         <!-- <a href="/Proviso/ProvisoServlet?action=updateUser" class="btn btn-primary">Save</a> -->
     </form>
+    <br>
+    <jsp:include page="reservationSummary.jsp" flush="true"/>
 </div>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>

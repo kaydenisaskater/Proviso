@@ -59,7 +59,7 @@ public class ProvisoServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		//ERROR Messages for Registration
+		//ERROR Messages attributes
 		session.setAttribute("errorMessageEmail", null);
 		session.setAttribute("errorMessagePassword", null);
 		session.setAttribute("errorMessageLogin", null);
@@ -82,11 +82,13 @@ public class ProvisoServlet extends HttpServlet {
 						url = base + "registration.jsp";
 					}
 					break;
+					
 				//update user request
 				case "updateUser":
 					updateUser(request, response, session);
 					url = base + "profile.jsp";
 					break;
+					
 				//login/logout request
 				case "loginUser":
 					if(loginUser(request, response, session)) {
@@ -113,6 +115,7 @@ public class ProvisoServlet extends HttpServlet {
 				case "contactUs":
 					url = base + "contact.jsp";
 					break;
+				
 					
 				//reservation requests
 				case "reservation":
@@ -131,6 +134,22 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				case "reservationSummary":
 					url = base + "reservationSummary.jsp";
+					break;
+				//reservation lookup
+				case "reservationLookup":
+					url = base + "lookupThought.jsp";
+					break;
+					
+				//loyalty points page requests
+				case "loyaltyLookup":
+					url = base + "loyaltyLookup.jsp";
+					break;
+				case "loyaltySummary":
+					url = base + "personalLoyalty.jsp";
+					break;
+				case "lookup":
+					lookupLoyalty(request, response);
+					url = base + "loyaltyLookup.jsp";
 					break;
 				
 			}
@@ -390,5 +409,12 @@ public class ProvisoServlet extends HttpServlet {
 		session.removeAttribute("pendingReservation");
 		session.setAttribute("successfulReservation", "Reservation has successfully been placed.");
 		
+	}
+	
+	private void lookupLoyalty(HttpServletRequest request, HttpServletResponse response) {
+		JdbcUserDao userDao = new JdbcUserDao();
+		User lookupUser = userDao.find(Long.parseLong(request.getParameter("userId")));
+		
+		request.setAttribute("lookupUser", lookupUser);
 	}
 }

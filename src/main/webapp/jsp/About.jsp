@@ -21,14 +21,14 @@
 <!-- INCLUDES NAVBAR WITH JSP -->
 <jsp:include page="Templates/Nav.jsp" flush="true" />
 
-		<section class="p-5 text-left text-primary bg-white vh-75" >
+		<section class="p-5 text-left text-primary bg-white shadow-lg vh-75" >
 			
 				<div class="d-sm-flex ms-5 text-left align-items-center ml-3">
 					<div class="text-left">
 						<h1 class="fw-light pt-5">Proviso</h1>
 						<p class="text-muted">Who We Are</p>
 						<p class="text-dark">
-			        		Proviso is a modern one stop shop for booking travel all throughout the world. 
+			        		Proviso is a modern one stop shop for booking hotels all throughout the world. 
 			        		Utilized by many, Proviso was founded on the idea that travel should be rewarding. 
 			        		Not just personally, but with great incentives to come back and use the platform 
 			        		again. With one of the best member loyalty points programs in the world, Proviso 
@@ -42,7 +42,7 @@
 				</div>	
 		</section >
 			
-		<section class="p-4 bg-primary mb-4">
+		<section class="p-4 bg-primary shadow-lg">
 			<div class="container">
 				<h2 class="text-center fw-light text-light my-4">Meet Our Team</h2>
 				<div class="row row-cols-5 g-2">
@@ -119,7 +119,7 @@
 			</div>
 		</section>
 		
-		<section class="p-5 text-left text-primary bg-white vh-75" >
+		<section class="p-5 text-left text-primary bg-white shadow-lg vh-75" >
 			<h2 class="text-center fw-light text-dark mb-5">Frequently Asked Questions</h2>
 			<div class="accordion accordion-flush shadow-lg rounded" id="accordionFlushExample">
 				  <div class="accordion-item">
@@ -140,8 +140,9 @@
 				      </button>
 				    </h2>
 				    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body text-dark">It is super simple! Every hotel stay earns you loyalty points for your future stays at Proviso. It doesn't
-				      matter what hotel or where, if you book it through us, you get the points!</div>
+				      <div class="accordion-body text-dark">It is super simple! Earn 150 loyalty points/night when you book a stay through Proviso. These points are automatically
+				      added to your account once you book but can only be redeemed after you complete a your stay. After you have earned 750 points, you qualify 
+				      for a free night stay anywhere! </div>
 				    </div>
 				  </div>
 				  <div class="accordion-item">
@@ -171,6 +172,5 @@
 
 	<jsp:include page="Templates/Footer.jsp" flush="true"/>
 	<jsp:include page="Templates/ScriptFooter.jsp" flush="true"/>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
