@@ -122,11 +122,6 @@
 				<div class="alert alert-danger mt-5 alertMessage text-center"
 				role="alert">Please enter a reservation id</div>
 				<%
-			}else{
-				%>
-				<div class="alert alert-danger mt-5 alertMessage text-center"
-				role="alert">ERROR: Something Went wrong</div>
-				<%
 			}
 			%>
 		</div>
