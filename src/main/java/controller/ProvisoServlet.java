@@ -148,8 +148,12 @@ public class ProvisoServlet extends HttpServlet {
 					url = base + "personalLoyalty.jsp";
 					break;
 				case "lookup":
-					lookupLoyalty(request, response);
-					url = base + "loyaltyLookup.jsp";
+					if( lookupLoyalty(request, response)) {
+						url = base + "loyaltyLookup.jsp";
+					}
+					else {
+						url = base + "loyaltyLookup.jsp";
+					}
 					break;
 				
 			}
@@ -316,7 +320,6 @@ public class ProvisoServlet extends HttpServlet {
 		String[] flatPayRates = request.getParameterValues("flat[]");
 		
 		String roomID = request.getParameter("roomSize");
-		//String[] amenities = request.getParameterValues("amenities[]");
 		String guestCount = request.getParameter("guest");
 		String checkIn = request.getParameter("check-in");
 		String checkOut = request.getParameter("check-out");
@@ -411,10 +414,21 @@ public class ProvisoServlet extends HttpServlet {
 		
 	}
 	
-	private void lookupLoyalty(HttpServletRequest request, HttpServletResponse response) {
+	private boolean lookupLoyalty(HttpServletRequest request, HttpServletResponse response) {
 		JdbcUserDao userDao = new JdbcUserDao();
-		User lookupUser = userDao.find(Long.parseLong(request.getParameter("userId")));
 		
-		request.setAttribute("lookupUser", lookupUser);
+		if (request.getParameter("userId") == "") {
+			request.setAttribute("lookupUserError", "Enter in a User ID.");
+			return false;
+		}else {
+			User lookupUser = userDao.find(Long.parseLong(request.getParameter("userId")));
+			
+			if (lookupUser == null) {
+				request.setAttribute("lookupUserMsg", "No user has been found with the id: " + request.getParameter("userId"));
+			}
+			
+			request.setAttribute("lookupUser", lookupUser);
+			return true;
+		}
 	}
 }
