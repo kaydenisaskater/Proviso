@@ -24,14 +24,28 @@
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
 <%
 User lookupUser = (User)request.getAttribute("lookupUser");
+String lookupError = (String)request.getAttribute("lookupUserError");
+String lookupUserMsg = (String)request.getAttribute("lookupUserMsg");
 %>
 <div class="vh-100">
     <h1 class="text-center mt-5">Loyalty Points Lookup</h1>
     <div class="mx-auto" style="width: 80%;">
         <div class="text-center">
+        <%
+        if (lookupError != null){
+        	%>
+        	<div class="col-12 alert-danger mt-3 text-center" role="alert"><%=lookupError %></div>
+        	<%
+        }
+        else if (lookupUserMsg != null){
+        	%>
+        	<div class="col-12 alert-danger mt-3 text-center" role="alert"><%=lookupUserMsg %></div>
+        	<%
+        }
+        %>
         <form>
         	<input type="hidden" name="action" value="lookup"/>
-        	<label class="form-label" for="userId">Customer ID<input type="search" id="userId style="width: 20%;margin: 2%;" name="userId" /></label>
+        	<label class="form-label" for="userId">Customer ID<input type="number" id="userId style="width: 20%;margin: 2%;" name="userId" /></label>
         	<button type="submit" class="btn btn-primary">Search</button>
         </form>
         </div>
@@ -41,6 +55,9 @@ User lookupUser = (User)request.getAttribute("lookupUser");
             List<Reservation> reservations = reservationDao.list(lookupUser.getUserID());
             Iterator<Reservation> r = reservations.iterator();
         %>
+        <div class="text-center">
+        	<h5>User ID: <%= lookupUser.getUserID()%> | Name: <%=lookupUser.getFirstName() + " " + lookupUser.getLastName() %></h5>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
