@@ -39,7 +39,7 @@ if(successfulReservation != null){
             <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email" /></div>
             <div class="mb-3"><input id="password" class="form-control" type="password" name="password" placeholder="Password" /></div>
             <div class="mb-3"><button type="submit" class="btn btn-primary d-block w-100" >Log In</button></div>
-            <div><a class="forgot" href="#">Forgot your email or password?</a></div>
+            
             <div><a href="/Proviso/jsp/registration.jsp" class="forgot">New User? Register Here</a></div>
         </form>
     </div>
