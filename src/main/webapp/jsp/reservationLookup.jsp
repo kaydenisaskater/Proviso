@@ -103,7 +103,7 @@
 			%>
 			<div class="alert alert-danger mt-5 alertMessage text-center"
 				role="alert">
-				Did Not Find Reservation on id=<%=reservation_id%></div>
+				Did Not Find Reservation on id: <%=reservation_id%></div>
 			<%
 			}
 
