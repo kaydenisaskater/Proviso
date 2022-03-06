@@ -66,7 +66,6 @@ public class ProvisoServlet extends HttpServlet {
 		
 		//Login Message attributes
 		session.setAttribute("errorMessageLogin", null);
-		session.setAttribute("successfulAccountCreation", null);
 		session.setAttribute("successfulLogin", null);
 		session.setAttribute("successfulLogout", null);
 		session.setAttribute("errorUpdatingUser", null);
@@ -143,7 +142,7 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				//reservation lookup
 				case "reservationLookup":
-					url = base + "lookupThought.jsp";
+					url = base + "reservationLookup.jsp";
 					break;
 					
 				//loyalty points page requests
@@ -221,6 +220,7 @@ public class ProvisoServlet extends HttpServlet {
 		if(index > 0 && email.indexOf('.', index) > 0 && email.indexOf(' ') <= 0) {
 			return true;
 		}
+		
 		return false;
 	}
 	//Validate Password

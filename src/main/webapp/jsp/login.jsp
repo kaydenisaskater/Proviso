@@ -31,9 +31,9 @@ if(successfulReservation != null){
             <% 
             String errorMessageLogin = (String) request.getSession().getAttribute("errorMessageLogin");
             if (errorMessageLogin != null) {
-            %>
-            <div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessageLogin %></div>
-            <%
+	            %>
+	            <div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessageLogin %></div>
+	            <%
             }
             %>
             <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email" /></div>
