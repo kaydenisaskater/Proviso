@@ -168,6 +168,10 @@
 				    </div>
 				  </div>
 				</div>
+				<div class="text-center mt-4">
+					<a href="/Proviso/ProvisoServlet?action=contactUs" class="bi bi-question-octagon text-primary text-center text-decoration-none">  Have a question we did not answer?</a>
+				
+				</div>
 		</section>
 
 	<jsp:include page="Templates/Footer.jsp" flush="true"/>
