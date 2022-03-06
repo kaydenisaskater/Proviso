@@ -35,7 +35,7 @@ String lookupUserMsg = (String)request.getAttribute("lookupUserMsg");
        
         <form>
         	<input type="hidden" name="action" value="lookup"/>
-        	<label class="form-label text-muted" for="userId">Enter Your Customer ID<input class="mt-2" type="number" id="userId style="width: 20%;margin: 2%;" name="userId" placeholder="  Customer ID"/></label>
+        	<label class="form-label text-muted" for="userId">Enter Your Customer ID<input class="mt-2" type="number" min="1" id="userId style="width: 20%;margin: 2%;" name="userId" placeholder="  Customer ID"/></label>
         	<div class="text-center mt-3">
         		<button type="submit" class="btn btn-primary mt-1 mb-2" style="width: 40%;">Search</button>
         	</div>
