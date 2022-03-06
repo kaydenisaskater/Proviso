@@ -31,7 +31,7 @@
 	<div class=" container p-5 vh-100">
 		<div class="col-lg-4 col-sm-6 mx-auto">
 
-			<form action="/Proviso/jsp/lookupThought.jsp" method="get">
+			<form action="/Proviso/jsp/reservationLookup.jsp" method="get">
 				<h1 class="text-center mt-1 mb-2">Reservation Lookup</h1>
 				<div class="label text-center">
 					<label for="order_id" class="form-label text-center text-muted">Enter Your Order ID</label>
