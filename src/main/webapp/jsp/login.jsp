@@ -10,6 +10,16 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
+
+<%
+String successfulReservation = (String)request.getSession().getAttribute("successfulRegistration");
+if(successfulReservation != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulReservation %></div>
+	<%
+}
+%>
+
 <div class=" container p-5 ">
     <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient" style=background-color:transparent>
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
