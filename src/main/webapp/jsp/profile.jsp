@@ -42,8 +42,6 @@ User user = (User)session.getAttribute("user");
         
         <!-- <a href="/Proviso/ProvisoServlet?action=updateUser" class="btn btn-primary">Save</a> -->
     </form>
-    <br>
-    <jsp:include page="reservationSummary.jsp" flush="true"/>
 </div>
 
 <jsp:include page="Templates/Footer.jsp" flush="true"/>
