@@ -29,24 +29,17 @@ String lookupUserMsg = (String)request.getAttribute("lookupUserMsg");
 %>
 <div class="vh-100">
     <h1 class="text-center mt-5">Loyalty Points Lookup</h1>
+    
     <div class="mx-auto" style="width: 80%;">
         <div class="text-center">
-        <%
-        if (lookupError != null){
-        	%>
-        	<div class="col-12 alert-danger mt-3 text-center" role="alert"><%=lookupError %></div>
-        	<%
-        }
-        else if (lookupUserMsg != null){
-        	%>
-        	<div class="col-12 alert-danger mt-3 text-center" role="alert"><%=lookupUserMsg %></div>
-        	<%
-        }
-        %>
+       
         <form>
         	<input type="hidden" name="action" value="lookup"/>
-        	<label class="form-label" for="userId">Customer ID<input type="number" id="userId style="width: 20%;margin: 2%;" name="userId" /></label>
-        	<button type="submit" class="btn btn-primary">Search</button>
+        	<label class="form-label text-muted" for="userId">Enter Your Customer ID<input class="mt-2" type="number" min="1" id="userId style="width: 20%;margin: 2%;" name="userId" placeholder="  Customer ID"/></label>
+        	<div class="text-center mt-3">
+        		<button type="submit" class="btn btn-primary mt-1 mb-2" style="width: 40%;">Search</button>
+        	</div>
+        	
         </form>
         </div>
         <%
@@ -94,6 +87,25 @@ String lookupUserMsg = (String)request.getAttribute("lookupUserMsg");
     	</div>
         <%
 		 }
+        %>
+        
+         <%
+        if (lookupError != null){
+        	%>
+        	<div class="d-flex justify-content-center ">
+        		<div class=" alert alert-danger mt-3 text-center p-3 rounded w-50"  role="alert"><%=lookupError %></div>
+        	</div>
+        	
+        	<%
+        }
+        else if (lookupUserMsg != null){
+        	%>
+        	<div class="d-flex justify-content-center">
+        		<div class="alert alert-danger mt-3 text-center p-3 rounded w-50"  role="alert"><%=lookupUserMsg %></div>
+        	</div>
+        	
+        	<%
+        }
         %>
     </div>
 </div>

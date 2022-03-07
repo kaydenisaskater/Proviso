@@ -59,16 +59,21 @@ public class ProvisoServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		//ERROR Messages attributes
+		//Registration Message attributes
 		session.setAttribute("errorMessageEmail", null);
 		session.setAttribute("errorMessagePassword", null);
+		session.setAttribute("successfulRegistration", null);
+		
+		//Login Message attributes
 		session.setAttribute("errorMessageLogin", null);
-		session.setAttribute("successfulAccountCreation", null);
 		session.setAttribute("successfulLogin", null);
 		session.setAttribute("successfulLogout", null);
 		session.setAttribute("errorUpdatingUser", null);
 		session.setAttribute("successfulUserUpdate", null);
+		
+		//Reservation Message attributes
 		session.setAttribute("successfulReservation", null);
+		
 		
 		if (action != null) 
 		{
@@ -137,7 +142,7 @@ public class ProvisoServlet extends HttpServlet {
 					break;
 				//reservation lookup
 				case "reservationLookup":
-					url = base + "lookupThought.jsp";
+					url = base + "reservationLookup.jsp";
 					break;
 					
 				//loyalty points page requests
@@ -194,6 +199,7 @@ public class ProvisoServlet extends HttpServlet {
 		}
 		
 		if(isValidEmail(email) && isValidPassword(password)) {
+			session.setAttribute("successfulRegistration", "Registration Successful: Please Log in");
 			JdbcUserDao userDao= new JdbcUserDao();
 			userDao.add(newUser);
 			return true;
@@ -214,6 +220,7 @@ public class ProvisoServlet extends HttpServlet {
 		if(index > 0 && email.indexOf('.', index) > 0 && email.indexOf(' ') <= 0) {
 			return true;
 		}
+		
 		return false;
 	}
 	//Validate Password

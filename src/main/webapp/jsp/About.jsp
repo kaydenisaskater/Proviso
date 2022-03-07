@@ -52,7 +52,7 @@
 								<img alt="" src="/Proviso/images/travis.png" class="rounded-circle mb-3">
 								<h3 class="card-title mb-3">Travis</h3>
 								<h5 class="text-center text-muted">Developer</h5>
-								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<p class="card-text"></p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
 								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
 								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
@@ -66,7 +66,7 @@
 								<img alt="" src="/Proviso/images/kaymon.png" class="rounded-circle mb-3">
 								<h3 class="card-title mb-3">Kaymon</h3>
 								<h5 class="text-center text-muted">Developer</h5>
-								<p class="card-text"> This is just a bunch of nonsense and filler text now.</p>
+								<p class="card-text"></p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
 								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
 								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
@@ -80,7 +80,7 @@
 								<img alt="" src="/Proviso/images/james.png" class="rounded-circle mb-3">
 								<h3 class="card-title mb-3">James</h3>
 								<h5 class="text-center text-muted">Developer</h5>
-								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<p class="card-text"></p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
 								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
 								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
@@ -94,7 +94,7 @@
 								<img alt="" src="/Proviso/images/kayden.png" class="rounded-circle mb-3">
 								<h3 class="card-title mb-3">Kayden</h3>
 								<h5 class="text-center text-muted">Developer</h5>
-								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<p class="card-text"></p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
 								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
 								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
@@ -108,7 +108,7 @@
 								<img alt="" src="/Proviso/images/daniel.png" class="rounded-circle mb-3">
 								<h3 class="card-title mb-3">Daniel</h3>
 								<h5 class="text-center text-muted">Developer</h5>
-								<p class="card-text"> This is just a bunch of nonsense and filler text for now.</p>
+								<p class="card-text"></p>
 								<a href="#" class="bi bi-meta text-dark mx-1"></a>
 								<a href="#" class="bi bi-instagram text-warning mx-1"></a>
 								<a href="#" class="bi bi-twitter text-primary mx-1"></a>
@@ -167,6 +167,10 @@
 				      Whether you want to travel abroad or stay close for a stay-cation, we have something to offer.</div>
 				    </div>
 				  </div>
+				</div>
+				<div class="text-center mt-4">
+					<a href="/Proviso/ProvisoServlet?action=contactUs" class="bi bi-question-octagon text-primary text-center text-decoration-none">  Have a question we did not answer?</a>
+				
 				</div>
 		</section>
 

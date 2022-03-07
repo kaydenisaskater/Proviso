@@ -10,6 +10,16 @@
 </head>
 <body>
 <jsp:include page="Templates/Nav.jsp" flush="true"/>
+
+<%
+String successfulReservation = (String)request.getSession().getAttribute("successfulRegistration");
+if(successfulReservation != null){
+	%>
+	<div class="col-12 alert-success mt-3 text-center" role="alert"><%=successfulReservation %></div>
+	<%
+}
+%>
+
 <div class=" container p-5 ">
     <section class="login-clean d-flex align-items-center justify-content-center vh-100 bg-primarybg-gradient" style=background-color:transparent>
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
@@ -21,15 +31,15 @@
             <% 
             String errorMessageLogin = (String) request.getSession().getAttribute("errorMessageLogin");
             if (errorMessageLogin != null) {
-            %>
-            <div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessageLogin %></div>
-            <%
+	            %>
+	            <div class="col-12 alert alert-danger mt-3" role="alert"><%=errorMessageLogin %></div>
+	            <%
             }
             %>
             <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email" /></div>
             <div class="mb-3"><input id="password" class="form-control" type="password" name="password" placeholder="Password" /></div>
             <div class="mb-3"><button type="submit" class="btn btn-primary d-block w-100" >Log In</button></div>
-            <div><a class="forgot" href="#">Forgot your email or password?</a></div>
+            
             <div><a href="/Proviso/jsp/registration.jsp" class="forgot">New User? Register Here</a></div>
         </form>
     </div>

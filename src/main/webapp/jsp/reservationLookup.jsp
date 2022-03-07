@@ -31,17 +31,16 @@
 	<div class=" container p-5 vh-100">
 		<div class="col-lg-4 col-sm-6 mx-auto">
 
-			<form action="/Proviso/jsp/lookupThought.jsp" method="get">
-
-				<div class="label">
-					<label for="order_id" class="form-label fs-5">Reservation
-						Lookup</label>
+			<form action="/Proviso/jsp/reservationLookup.jsp" method="get">
+				<h1 class="text-center mt-1 mb-2">Reservation Lookup</h1>
+				<div class="label text-center">
+					<label for="order_id" class="form-label text-center text-muted">Enter Your Order ID</label>
 				</div>
 				<input type="number" class="form-control" id="order_id"
 					name="order_id" min="1" max ="1000" placeholder="Order ID" />
 
 				<div class="row p-0 m-0 my-3">
-					<button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+					<button id="btnSubmit" type="submit" class="btn btn-primary">Search</button>
 				</div>
 			</form>
 
@@ -104,7 +103,7 @@
 			%>
 			<div class="alert alert-danger mt-5 alertMessage text-center"
 				role="alert">
-				Did Not Find Reservation on id=<%=reservation_id%></div>
+				Did Not Find Reservation on id: <%=reservation_id%></div>
 			<%
 			}
 
